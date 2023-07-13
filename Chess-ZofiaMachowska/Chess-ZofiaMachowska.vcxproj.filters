@@ -13,77 +13,83 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\AppStates">
+      <UniqueIdentifier>{0f8655ae-955b-4238-9ff4-deec4c0ad7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ChessPieces">
+      <UniqueIdentifier>{0c7f1c81-31f4-44d6-9014-01350fefb624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AppStates">
+      <UniqueIdentifier>{dbd89fc6-8a29-46cd-8ef8-6a16da708879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ChessPieces">
+      <UniqueIdentifier>{212664de-8339-4a45-9dcb-2ae53dd60c63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainControllers">
+      <UniqueIdentifier>{b5c5b2a4-e00f-40ae-ae87-ddaee0281079}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PawnController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ChessPieceController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BoardController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ChessUIController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AIController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RookController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="KingController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="QueenController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="KnightController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BishopController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AppState.cpp">
+      <Filter>Source Files\AppStates</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Source Files\AppStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\AppStates</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsState.cpp">
+      <Filter>Source Files\AppStates</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessPieceController.cpp">
+      <Filter>Source Files\ChessPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="KingController.cpp">
+      <Filter>Source Files\ChessPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightController.cpp">
+      <Filter>Source Files\ChessPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="RookController.cpp">
+      <Filter>Source Files\ChessPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="QueenController.cpp">
+      <Filter>Source Files\ChessPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="BishopController.cpp">
+      <Filter>Source Files\ChessPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="PawnController.cpp">
+      <Filter>Source Files\ChessPieces</Filter>
+    </ClCompile>
     <ClCompile Include="MenuController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MainControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessUIController.cpp">
+      <Filter>Source Files\MainControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardController.cpp">
+      <Filter>Source Files\MainControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameController.cpp">
+      <Filter>Source Files\MainControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="AIController.cpp">
+      <Filter>Source Files\MainControllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ChessPieceController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KingController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PawnController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BoardController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KnightController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BishopController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RookController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QueenController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameController.h">
@@ -103,6 +109,39 @@
     </ClInclude>
     <ClInclude Include="MenuController.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightController.h">
+      <Filter>Header Files\ChessPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="KingController.h">
+      <Filter>Header Files\ChessPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="ChessPieceController.h">
+      <Filter>Header Files\ChessPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="BishopController.h">
+      <Filter>Header Files\ChessPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="PawnController.h">
+      <Filter>Header Files\ChessPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>Header Files\AppStates</Filter>
+    </ClInclude>
+    <ClInclude Include="QueenController.h">
+      <Filter>Header Files\ChessPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="RookController.h">
+      <Filter>Header Files\ChessPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\AppStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AppState.h">
+      <Filter>Header Files\AppStates</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsState.h">
+      <Filter>Header Files\AppStates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

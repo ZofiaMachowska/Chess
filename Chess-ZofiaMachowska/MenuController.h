@@ -9,16 +9,17 @@ class MenuController
 public:
 
    void redrawWindow(sf::RenderWindow& window);
-   void handleButtonPress(sf::RenderWindow& window);
    void setTextures();
+   void handleButtonPress(sf::RenderWindow& window);
    void handleLoadButtonPressed();
    void handleNewGameButtonPressed();
    void handleExitButtonPressed();
    void setNewGameCallback(std::function<void()> callback);
+   void setLoadGameCallback(std::function<void()> callback);
 
 private:
 	sf::Text titleText, newGameText, loadGameText, exitText;
 	sf::RectangleShape newGameButton, loadGameButton, exitButton;
 	sf::Font font;
-	std::function<void()> newGameCallback;
+	std::function<void()> newGameCallback, loadGameCallback;
 };

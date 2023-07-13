@@ -62,22 +62,24 @@ void MenuController::setTextures() {
         exitButton.getPosition().y + exitButton.getSize().y / 2 - exitText.getLocalBounds().height / 2);
 }
 
-void MenuController::handleLoadButtonPressed() {
-    std::cout << "LoadButtonPressed" << std::endl;
-
-}
-
 void  MenuController::setNewGameCallback(std::function<void()> callback) {
     newGameCallback = std::move(callback);
 }
 
+void  MenuController::setLoadGameCallback(std::function<void()> callback) {
+    loadGameCallback = std::move(callback);
+}
+
+void MenuController::handleLoadButtonPressed() {
+    std::cout << "LoadButtonPressed" << std::endl;
+    loadGameCallback();
+}
+
 void MenuController::handleNewGameButtonPressed() {
     std::cout << "NewGameButtonPressed" <<  std::endl;
-    if (newGameCallback) {
-        newGameCallback();
-    }
-
+    newGameCallback();
 }
+
 void MenuController::handleExitButtonPressed() {
     std::cout << "ExitButtonPressed" << std::endl;
     exit(0);
