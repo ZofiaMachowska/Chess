@@ -3,14 +3,15 @@
 
 GameController::GameController()
 {
-	player1 = new Player("White");
-	player2 = new Player("Black");
+	player1 = new Player("White", true);
+	player2 = new Player("Black", false);
 }
 
 bool GameController::getWhitePlayer() {
-	return whitePlayer;
+	return player1->checkIsActive();
 }
 
 void GameController::switchPlayer() {
-	whitePlayer = !whitePlayer;
+	player1->setActiveState(!player1->checkIsActive());
+	player2->setActiveState(!player2->checkIsActive());
 }

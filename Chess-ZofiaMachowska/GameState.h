@@ -9,11 +9,13 @@
 class GameState : public AppState {
 private: 
     BoardController board;
+    GameController gameController;
     ChessUIController uiController;
     sf::Event event;
  
 public:
     GameState();
+    void changePlayer();
     void handleEvent(sf::Event event, sf::RenderWindow& window) override;
     void render(sf::RenderWindow& window) override;
     void setTextures() override;

@@ -4,12 +4,11 @@
 
 class GameController {
 public:
-	Player* player1;
-	Player* player2;
 	GameController();
 	void switchPlayer();
 	bool getWhitePlayer();
 
 private:
-	bool whitePlayer = true;
+	Player* player1;
+	Player* player2;
 };

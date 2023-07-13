@@ -1,6 +1,10 @@
 #include "GameState.h"
 
-GameState::GameState() : board(), uiController(), event() {
+GameState::GameState() : board(), gameController(), uiController(), event() {
+}
+
+void GameState::changePlayer() {
+    
 }
 
 void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {

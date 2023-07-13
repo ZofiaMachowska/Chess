@@ -6,13 +6,15 @@ class Player
 {
 private:
     std::string color;
-    Timer* timer;
+    bool isActive;
 
 public:
-    Player(const std::string& kolor);
+    Player(const std::string& kolor, const bool isActive);
+    Timer* timer;
 
     std::string getColor() const;
-
+    bool checkIsActive();
     int getTime() const;
+    void setActiveState(bool isActive);
 
 };
