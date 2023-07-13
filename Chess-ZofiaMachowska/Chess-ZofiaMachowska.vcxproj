@@ -150,8 +150,10 @@
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="OptionsState.cpp" />
     <ClCompile Include="PawnController.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="QueenController.cpp" />
     <ClCompile Include="RookController.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIController.h" />
@@ -169,6 +171,7 @@
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="OptionsState.h" />
     <ClInclude Include="PawnController.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="QueenController.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RookController.h" />

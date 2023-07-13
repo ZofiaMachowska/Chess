@@ -1,13 +1,18 @@
 #pragma once
 #define PLAYER_H
+#include "Timer.h"
 
-class Player {
-public:
-    Player(bool isWhite);
-
-    bool getColor() const;
-
+class Player
+{
 private:
-    bool isWhite;
-    int currentPlayer;
+    std::string color;
+    Timer* timer;
+
+public:
+    Player(const std::string& kolor);
+
+    std::string getColor() const;
+
+    int getTime() const;
+
 };
