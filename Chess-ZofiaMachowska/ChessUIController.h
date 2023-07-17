@@ -1,12 +1,12 @@
 #pragma once
 #define CHESSUICONTROLLER_H
-
+#include "Player.h"
 #include <SFML/Graphics.hpp>
 
 class ChessUIController {
 public:
 
-    void redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, bool isWhitePlayer);
+    void redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer);
 
     void setTexturesOfFigures();
 
@@ -27,7 +27,7 @@ private:
     void drawPiece(sf::RenderWindow& window, sf::Sprite piece, int j, int i);
     sf::Sprite getMovedFigureSprite(int movedFigure);
     void redrawChessMove(sf::RenderWindow& window, sf::Vector2i mousePos, int movedFigure);
-    void setTurnInfoText(sf::RenderWindow& window, bool whitePlayer);
+    void setTurnInfoText(sf::RenderWindow& window, Player* currentPlayer);
 
     sf::Texture pawnWTexture, rookWTexture, knightWTexture, bishopWTexture, queenWTexture, kingWTexture;
     sf::Texture pawnBTexture, rookBTexture, knightBTexture, bishopBTexture, queenBTexture, kingBTexture;
@@ -38,5 +38,5 @@ private:
     sf::Sprite boardSprite;
 
     sf::Font font;
-    sf::Text title;
+    sf::Text title, timerInformation;
 };

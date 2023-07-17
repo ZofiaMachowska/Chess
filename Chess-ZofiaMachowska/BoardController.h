@@ -24,9 +24,11 @@ public:
 
 	void resetBoard();
 
+	void startNewGame();
+
 	int getMovedFigure();
 
-	bool isWhitePlayerTurn();
+	Player* getCurrentPlayer();
 
 	int(&getBoard())[8][8];
 

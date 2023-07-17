@@ -31,8 +31,8 @@ int BoardController::getMovedFigure() {
     return movedFigure;
 }
 
-bool BoardController::isWhitePlayerTurn() {
-    return gameController.getWhitePlayer();
+Player* BoardController::getCurrentPlayer() {
+    return gameController.getCurrentPlayer();
 }
 
 void BoardController::moveThisPiece(int pieceNumber, sf::Vector2i position) {
@@ -92,10 +92,11 @@ void BoardController::moveWhitePiece(sf::Vector2i position) {
 
 void BoardController::onBoardClicked(sf::Vector2i pos) {
     std::cout << "dotknieto: " << chessBoard[pos.y][pos.x] << std::endl;
-    std::cout << "Kolej gracza: " << gameController.getWhitePlayer() << std::endl;
+    Player* currentPlayer = gameController.getCurrentPlayer();
+    std::cout << "Kolej gracza: " << currentPlayer->getColor() << std::endl;
     if (chessBoard[pos.y][pos.x] == 0) return;
     sf::Vector2i boardPosition(pos.x, pos.y);
-    bool whitePlayerTurn = gameController.getWhitePlayer();
+    bool whitePlayerTurn = gameController.isFirstPlayerTurn();
 
     if (whitePlayerTurn) moveWhitePiece(boardPosition);
     else moveBlackPiece(boardPosition);
@@ -113,7 +114,7 @@ void BoardController::onBoardReleased(sf::Vector2i pos) {
     if (movedFigure == 0) return;
     bool movePossible = false;
     bool kingSafe = false;
-    bool whitePlayer = gameController.getWhitePlayer();
+    bool whitePlayer = gameController.isFirstPlayerTurn();
 
     switch (abs(movedFigure)) {
     case 1:
@@ -234,5 +235,10 @@ void BoardController::resetBoard() {
            chessBoard[i][j] = initialChessBoard[i][j];
        }
    }
+}
+
+void BoardController::startNewGame() {
+    resetBoard();
+    gameController.startTimer();
 }
 

@@ -31,9 +31,10 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 
 void GameState::setTextures() {
     uiController.setTexturesOfFigures();
+    board.startNewGame();
 }
 
 void GameState::render(sf::RenderWindow& window) {
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-    uiController.redrawBoard(window, mousePos, board.getBoard(), board.getMovedFigure(), board.isWhitePlayerTurn());
+    uiController.redrawBoard(window, mousePos, board.getBoard(), board.getMovedFigure(), board.getCurrentPlayer());
 }

@@ -54,6 +54,11 @@ void ChessUIController::setTexturesOfFigures() {
     title.setCharacterSize(40);
     title.setFillColor(sf::Color::White);
     title.setPosition(840, 10);
+
+    timerInformation.setFont(font);
+    timerInformation.setCharacterSize(40);
+    timerInformation.setFillColor(sf::Color::White);
+    timerInformation.setPosition(840, 100);
 }
 
 void ChessUIController::printBoardDebug(int board[][8]) {
@@ -103,14 +108,15 @@ void ChessUIController::redrawChessMove(sf::RenderWindow& window, sf::Vector2i m
     window.draw(movedSprite);
 }
 
-void ChessUIController::setTurnInfoText(sf::RenderWindow& window, bool whitePlayer) {
-    if (whitePlayer) title.setString("White Player Turn");
-    else title.setString("Black Player Turn");
+void ChessUIController::setTurnInfoText(sf::RenderWindow& window, Player* currentPlayer) {
+    title.setString(currentPlayer->getColor() + " Player Turn");
+    timerInformation.setString("Remaining Time: ");
+    window.draw(timerInformation);
     window.draw(title);
 }
 
 //dziêki & mamy dostêp nie do kopii, a do prawdziwego obiektu
-void ChessUIController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, bool isWhitePlayer) {
+void ChessUIController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer) {
     window.draw(boardSprite);
     for (int i = 0; i <= BOARD_LENGTH; i++) {
         for (int j = 0; j <= BOARD_LENGTH; j++) {
@@ -161,5 +167,5 @@ void ChessUIController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mouse
 
     //rysowanie wlasnie poruszanej przez gracza figury
     redrawChessMove(window, mousePos, movedFigure);
-    setTurnInfoText(window, isWhitePlayer);
+    setTurnInfoText(window, currentPlayer);
 }

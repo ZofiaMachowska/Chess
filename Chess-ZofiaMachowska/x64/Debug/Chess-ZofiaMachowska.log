@@ -1,8 +1,9 @@
-﻿  Application.cpp
-  BoardController.cpp
+﻿  ChessUIController.cpp
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\ChessUIController.cpp(17,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\ChessUIController.cpp(17,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\ChessUIController.cpp(107,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\ChessUIController.cpp(107,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameController.cpp
-  GameState.cpp
-  Main.cpp
-  MenuState.cpp
   Generating Code...
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\ChessUIController.cpp(102): warning C4715: 'ChessUIController::getMovedFigureSprite': not all control paths return a value
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe

@@ -5,8 +5,10 @@
 class GameController {
 public:
 	GameController();
+	bool isFirstPlayerTurn();
 	void switchPlayer();
-	bool getWhitePlayer();
+	Player* getCurrentPlayer();
+	void startTimer();
 
 private:
 	Player* player1;
