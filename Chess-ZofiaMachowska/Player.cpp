@@ -22,7 +22,3 @@ void Player::setActiveState(bool isActive) {
         timer->stop();
     }
 }
-
-int Player::getTime() const {
-    return timer->isRunning() ? std::chrono::duration_cast<std::chrono::seconds>(timer->remaining_time).count() : 0;
-}

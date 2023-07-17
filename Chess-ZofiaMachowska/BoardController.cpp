@@ -219,7 +219,7 @@ void BoardController::checkPlayerMoveValidity(sf::Vector2i pos, bool kingSafe, b
 }
 
 void BoardController::resetBoard() {
-   std::cout << "Tablica zosta³a przywrocona do stanu poczatkowego" << std::endl;
+   std::cout << "Tablica ustawiona na stan poczatkowy" << std::endl;
    int initialChessBoard[8][8] = {
    2, 3, 4, 5, 6, 4, 3, 2,
    1, 1, 1, 1, 1, 1, 1, 1,

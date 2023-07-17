@@ -7,6 +7,10 @@ private:
     std::chrono::time_point<std::chrono::system_clock> start_time;
     std::chrono::duration<int> initial_duration;
     bool is_running;
+    std::atomic<bool> is_terminated;
+    std::thread timer_thread;
+    std::chrono::duration<int> elapsed_time;
+    std::chrono::duration<int> timeAtStop;
 
 public:
     std::chrono::duration<int> remaining_time;
@@ -16,6 +20,5 @@ public:
     void stop();
     void resume();
     void reset();
-    void displayTime();
-    bool isRunning();
+    std::pair<int, int> getTime();
 };

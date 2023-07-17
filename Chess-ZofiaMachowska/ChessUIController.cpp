@@ -1,5 +1,7 @@
 #include "ChessUIController.h"
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 int ChessUIController::getWindowWidth() const {
     return WINDOW_WIDTH;
@@ -56,7 +58,7 @@ void ChessUIController::setTexturesOfFigures() {
     title.setPosition(840, 10);
 
     timerInformation.setFont(font);
-    timerInformation.setCharacterSize(40);
+    timerInformation.setCharacterSize(30);
     timerInformation.setFillColor(sf::Color::White);
     timerInformation.setPosition(840, 100);
 }
@@ -109,8 +111,12 @@ void ChessUIController::redrawChessMove(sf::RenderWindow& window, sf::Vector2i m
 }
 
 void ChessUIController::setTurnInfoText(sf::RenderWindow& window, Player* currentPlayer) {
+    std::string minutes, seconds;
+    std::pair<int, int> time = currentPlayer->timer->getTime();
+    minutes = std::to_string(time.first);
+    seconds = time.second == 0 ? "00" : std::to_string(time.second);
+    timerInformation.setString("Remaining Time: " + minutes + ':' + seconds);
     title.setString(currentPlayer->getColor() + " Player Turn");
-    timerInformation.setString("Remaining Time: ");
     window.draw(timerInformation);
     window.draw(title);
 }

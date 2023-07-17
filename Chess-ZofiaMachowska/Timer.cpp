@@ -6,6 +6,17 @@ void Timer::start() {
     if (!is_running) {
         start_time = std::chrono::system_clock::now();
         is_running = true;
+        is_terminated = false;
+        timer_thread = std::thread([this]() {
+            while (!is_terminated) {
+                if (is_running) {
+                    elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - start_time);
+                    remaining_time = initial_duration - elapsed_time;
+                }
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+            }
+            });
+
         std::cout << "Timer started." << std::endl;
     }
     else {
@@ -15,9 +26,9 @@ void Timer::start() {
 
 void Timer::stop() {
     if (is_running) {
-        std::chrono::time_point<std::chrono::system_clock> end_time = std::chrono::system_clock::now();
-        remaining_time -= std::chrono::duration_cast<std::chrono::seconds>(end_time - start_time);
         is_running = false;
+        is_terminated = true;
+        timer_thread.join();
         std::cout << "Timer stopped." << std::endl;
     }
     else {
@@ -27,8 +38,19 @@ void Timer::stop() {
 
 void Timer::resume() {
     if (!is_running) {
+        timeAtStop = remaining_time;
         start_time = std::chrono::system_clock::now();
         is_running = true;
+        is_terminated = false;
+        timer_thread = std::thread([this]() {
+            while (!is_terminated) {
+                if (is_running) {
+                    elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - start_time);
+                    remaining_time = timeAtStop - elapsed_time;
+                }
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+            }
+            });
         std::cout << "Timer resumed." << std::endl;
     }
     else {
@@ -46,12 +68,8 @@ void Timer::reset() {
     }
 }
 
-void Timer::displayTime() {
+std::pair<int, int> Timer::getTime() {
     int minutes = std::chrono::duration_cast<std::chrono::minutes>(remaining_time).count();
     int seconds = std::chrono::duration_cast<std::chrono::seconds>(remaining_time).count() % 60;
-    std::cout << "Remaining time: " << minutes << " min " << seconds << " sec" << std::endl;
-}
-
-bool Timer::isRunning() {
-    return is_running;
+    return std::make_pair(minutes, seconds);
 }

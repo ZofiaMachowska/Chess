@@ -14,7 +14,6 @@ public:
 
     std::string getColor() const;
     bool checkIsActive();
-    int getTime() const;
     void setActiveState(bool isActive);
 
 };
