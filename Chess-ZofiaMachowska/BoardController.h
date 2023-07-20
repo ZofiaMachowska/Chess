@@ -44,7 +44,7 @@ private:
 	static RookController rook;
 	static QueenController queen;
 	static KingController king;
-	static GameController gameController;
+	static GameController gameController; //logiczniej moze na odwrot zeby bylo 
 
 	sf::Vector2i oldPosition;
 

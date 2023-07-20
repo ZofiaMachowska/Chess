@@ -10,19 +10,18 @@ void MenuState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     }
     if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
     {
-        menuController.handleButtonPress(window);
+       uiMenuController.handleButtonPress(window);
     }
 }
 
 void MenuState::render(sf::RenderWindow& window) {
-    menuController.redrawWindow(window);
+    uiMenuController.redrawWindow(window);
 }
 
-void MenuState::setTextures() {
-    menuController.setTextures();
+void MenuState::initialize() {
+    uiMenuController.initializeVisuals();
 
-    //obsluga eventow na klikniecie buttona
-    menuController.setNewGameCallback([this]() {
+    uiMenuController.setNewGameCallback([this]() {
         std::cout << "udany callback dla setNewGame" << std::endl;
         Application::changeAppState(std::make_unique<GameState>());
         });

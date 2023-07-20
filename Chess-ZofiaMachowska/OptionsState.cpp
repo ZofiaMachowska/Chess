@@ -6,5 +6,5 @@ void OptionsState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 void OptionsState::render(sf::RenderWindow& window) {
 }
 
-void OptionsState::setTextures() {
+void OptionsState::initialize() {
 }

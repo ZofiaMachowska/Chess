@@ -150,48 +150,47 @@ bool BoardController::checkKingSafe(bool whitePlayer) {
  
     for (int i = 0; i <= BOARD_LENGTH; i++) {
         for (int j = 0; j <= BOARD_LENGTH; j++) {
-            if (chessBoard[i][j] <= 0) {
-                switch (abs(chessBoard[i][j])) {
-                case 1:
-                    if (pawn.checkKingCapture(sf::Vector2i(j,i), kingPosition, chessBoard, whitePlayer)) {
-                        std::cout << "Pionek zablokowal" << std::endl;
-                        return false;
-                    };
-                    break;
-                case 2:
-                    if (rook.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                        std::cout << "wieza zablokowala" << std::endl;
-                        return false;
-                    };
-                    break;
-                case 3:
-                    if (knight.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                        std::cout << "konik zablokowal" << std::endl;
-                        return false;
-                    };
-                    break;
-                case 4:
-                    if (bishop.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                        std::cout << "laufer zablokowal" << std::endl;
-                        return false;
-                    };
-                    break;
-                case 5:
-                    if (queen.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                        std::cout << "krolowa zablokowal" << std::endl;
-                        return false;
-                    };
-                    break;
-                case 6:
-                    if (king.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                        std::cout << "krol zablokowal" << std::endl;
-                        return false;
-                    };
-                    break;
-                default:
-                    break;
-                }
+            switch (abs(chessBoard[i][j])) {
+            case 1:
+                if (pawn.checkKingCapture(sf::Vector2i(j,i), kingPosition, chessBoard, whitePlayer)) {
+                    std::cout << "Pionek zablokowal" << std::endl;
+                    return false;
+                };
+                break;
+            case 2:
+                if (rook.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
+                    std::cout << "wieza zablokowala" << std::endl;
+                    return false;
+                };
+                break;
+            case 3:
+                if (knight.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
+                    std::cout << "konik zablokowal" << std::endl;
+                    return false;
+                };
+                break;
+            case 4:
+                if (bishop.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
+                    std::cout << "laufer zablokowal" << std::endl;
+                    return false;
+                };
+                break;
+            case 5:
+                if (queen.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
+                    std::cout << "krolowa zablokowal" << std::endl;
+                    return false;
+                };
+                break;
+            case 6:
+                if (king.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
+                    std::cout << "krol zablokowal" << std::endl;
+                    return false;
+                };
+                break;
+            default:
+                break;
             }
+            
         }
     }
     return true;

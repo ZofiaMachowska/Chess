@@ -7,7 +7,7 @@ Application::Application() {
 
 void Application::changeAppState(std::unique_ptr<AppState> newState) {
     Application::currentState = std::move(newState);
-    Application::currentState->setTextures();
+    Application::currentState->initialize();
     std::cout << "zmiana stanu okna" << std::endl;
 }
 
@@ -16,7 +16,7 @@ void Application::run() {
     window.setVerticalSyncEnabled(true);
 
     Application::currentState = std::make_unique<MenuState>();
-    Application::currentState->setTextures();
+    Application::currentState->initialize();
 
     while (window.isOpen()) {
         sf::Event event;

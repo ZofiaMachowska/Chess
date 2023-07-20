@@ -3,10 +3,10 @@
 
 #include <SFML/Graphics.hpp>
 #include "BoardController.h"
-#include "ChessUIController.h"
+#include "UIBoardController.h"
 #include "AIController.h"
 #include "GameController.h"
-#include "MenuController.h"
+#include "UIMenuController.h"
 #include "AppState.h"
 #include "MenuState.h"
 #include "GameState.h"

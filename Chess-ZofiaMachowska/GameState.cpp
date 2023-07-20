@@ -3,9 +3,6 @@
 GameState::GameState() : board(), gameController(), uiController(), event() {
 }
 
-void GameState::changePlayer() {
-    
-}
 
 void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
@@ -29,7 +26,7 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     }
 }
 
-void GameState::setTextures() {
+void GameState::initialize() {
     uiController.setTexturesOfFigures();
     board.startNewGame();
 }

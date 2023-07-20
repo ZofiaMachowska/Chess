@@ -25,15 +25,21 @@
     <Filter Include="Header Files\ChessPieces">
       <UniqueIdentifier>{212664de-8339-4a45-9dcb-2ae53dd60c63}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\MainControllers">
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{ede3ce05-b703-482b-a775-3f29ed74cd89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{f46ab128-4cd1-48fb-b86f-b2bc570a5460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Function">
       <UniqueIdentifier>{b5c5b2a4-e00f-40ae-ae87-ddaee0281079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Function">
+      <UniqueIdentifier>{7ac791cf-ffb4-40e4-b8ba-a72041479b28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AppState.cpp">
@@ -69,48 +75,36 @@
     <ClCompile Include="PawnController.cpp">
       <Filter>Source Files\ChessPieces</Filter>
     </ClCompile>
-    <ClCompile Include="MenuController.cpp">
-      <Filter>Source Files\MainControllers</Filter>
-    </ClCompile>
-    <ClCompile Include="ChessUIController.cpp">
-      <Filter>Source Files\MainControllers</Filter>
-    </ClCompile>
     <ClCompile Include="BoardController.cpp">
-      <Filter>Source Files\MainControllers</Filter>
+      <Filter>Source Files\Function</Filter>
     </ClCompile>
     <ClCompile Include="GameController.cpp">
-      <Filter>Source Files\MainControllers</Filter>
+      <Filter>Source Files\Function</Filter>
     </ClCompile>
     <ClCompile Include="AIController.cpp">
-      <Filter>Source Files\MainControllers</Filter>
+      <Filter>Source Files\Function</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Source Files\MainControllers</Filter>
+      <Filter>Source Files\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMenuController.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBoardController.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingState.cpp">
+      <Filter>Source Files\AppStates</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files\Function</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BoardController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ChessUIController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AIController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KnightController.h">
@@ -146,11 +140,32 @@
     <ClInclude Include="OptionsState.h">
       <Filter>Header Files\AppStates</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMenuController.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBoardController.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadingState.h">
+      <Filter>Header Files\AppStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AIController.h">
+      <Filter>Header Files\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardController.h">
+      <Filter>Header Files\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="GameController.h">
+      <Filter>Header Files\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Function</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
