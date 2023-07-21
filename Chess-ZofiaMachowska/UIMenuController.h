@@ -7,19 +7,17 @@
 class UIMenuController
 {
 public:
-
    void redrawWindow(sf::RenderWindow& window);
    void initializeVisuals();
    void handleButtonPress(sf::RenderWindow& window);
-   void handleLoadButtonPressed();
-   void handleNewGameButtonPressed();
-   void handleExitButtonPressed();
+
    void setNewGameCallback(std::function<void()> callback);
    void setLoadGameCallback(std::function<void()> callback);
+   void setOptionsCallback(std::function<void()> callback);
 
 private:
-	sf::Text titleText, newGameText, loadGameText, exitText;
-	sf::RectangleShape newGameButton, loadGameButton, exitButton;
+	sf::Text titleText, newGameText, loadGameText, optionsText, exitText;
+	sf::RectangleShape newGameButton, loadGameButton, optionsButton, exitButton;
 	sf::Font font;
-	std::function<void()> newGameCallback, loadGameCallback;
+	std::function<void()> newGameCallback, loadGameCallback, optionsCallback;
 };

@@ -139,6 +139,7 @@
     <ClCompile Include="AppState.cpp" />
     <ClCompile Include="BishopController.cpp" />
     <ClCompile Include="BoardController.cpp" />
+    <ClCompile Include="Checkbox.cpp" />
     <ClCompile Include="ChessPieceController.cpp" />
     <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="UIBoardController.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="QueenController.cpp" />
     <ClCompile Include="RookController.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="UIOptionsController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIController.h" />
@@ -162,6 +164,7 @@
     <ClInclude Include="AppState.h" />
     <ClInclude Include="BishopController.h" />
     <ClInclude Include="BoardController.h" />
+    <ClInclude Include="Checkbox.h" />
     <ClInclude Include="ChessPieceController.h" />
     <ClInclude Include="LoadingState.h" />
     <ClInclude Include="UIBoardController.h" />
@@ -178,6 +181,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="RookController.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="UIOptionsController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

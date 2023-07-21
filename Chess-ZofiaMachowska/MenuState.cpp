@@ -25,4 +25,14 @@ void MenuState::initialize() {
         std::cout << "udany callback dla setNewGame" << std::endl;
         Application::changeAppState(std::make_unique<GameState>());
         });
+
+  /*  uiMenuController.setLoadGameCallback([this]() {
+        std::cout << "udany callback dla options" << std::endl;
+        Application::changeAppState(std::make_unique<LoadingState>());
+        });*/
+
+    uiMenuController.setOptionsCallback([this]() {
+        std::cout << "udany callback dla options" << std::endl;
+        Application::changeAppState(std::make_unique<OptionsState>());
+        });
 }

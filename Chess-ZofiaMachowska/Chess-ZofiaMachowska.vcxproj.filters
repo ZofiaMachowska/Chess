@@ -102,6 +102,12 @@
     <ClCompile Include="Application.cpp">
       <Filter>Source Files\Function</Filter>
     </ClCompile>
+    <ClCompile Include="UIOptionsController.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Checkbox.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -166,6 +172,12 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="UIOptionsController.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Checkbox.h">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
