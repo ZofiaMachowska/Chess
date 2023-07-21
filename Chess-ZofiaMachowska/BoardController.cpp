@@ -137,49 +137,56 @@ void BoardController::onBoardReleased(sf::Vector2i pos) {
     }
 
     //sprawdzenie czy ten ruch nie sprawi ze krol gracza bedzie zagrozony
-    kingSafe = checkKingSafe(whitePlayerTurn);
+    kingSafe = checkKingSafe(pos, whitePlayerTurn);
     checkPlayerMoveValidity(pos, kingSafe, movePossible);
 }
 
-bool BoardController::checkKingSafe(bool whitePlayerTurn) {
+bool BoardController::checkKingSafe(sf::Vector2i pos, bool whitePlayerTurn) {
+    int temporaryBoard[8][8];
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            temporaryBoard[i][j] = chessBoard[i][j];
+        }
+    }
+    temporaryBoard[pos.y][pos.x] = movedFigure;
 
-    sf::Vector2i currentPlayerKingPosition = king.findKingPosition(chessBoard, whitePlayerTurn);
+    sf::Vector2i currentPlayerKingPosition = king.findKingPosition(temporaryBoard, whitePlayerTurn);
 
     for (int i = 0; i <= BOARD_LENGTH; i++) {
         for (int j = 0; j <= BOARD_LENGTH; j++) {
-            switch (abs(chessBoard[i][j])) {
+            switch (abs(temporaryBoard[i][j])) {
             case 1:
-                if (pawn.checkKingCapture(sf::Vector2i(j,i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                if (pawn.checkKingCapture(sf::Vector2i(j,i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
                     std::cout << "Pionek przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 2:
-                if (rook.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                if (rook.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
                     std::cout << "wieza przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 3:
-                if (knight.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                if (knight.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
                     std::cout << "konik przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 4:
-                if (bishop.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                if (bishop.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
                     std::cout << "laufer przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 5:
-                if (queen.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                if (queen.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
                     std::cout << "krolowa przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 6:
-                if (king.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                if (king.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
                     std::cout << "krol przeciwnika blokuje" << std::endl;
                     return false;
                 };

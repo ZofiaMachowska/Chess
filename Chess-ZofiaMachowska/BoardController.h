@@ -51,7 +51,7 @@ private:
 	void moveThisPiece(int pieceNumber, sf::Vector2i position);
 	void moveBlackPiece(sf::Vector2i position);
 	void moveWhitePiece(sf::Vector2i position);
-	bool checkKingSafe(bool whitePlayer);
+	bool checkKingSafe(sf::Vector2i pos, bool whitePlayer);
 	void checkPlayerMoveValidity(sf::Vector2i pos, bool kingSafe, bool movePossible);
 	void updateBoardState(sf::Vector2i pos);
 	void handleNoValidMoves();

@@ -21,22 +21,22 @@ bool KnightController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int b
 	if (oldPos.y - 2 >= 0 && oldPos.x - 1 >= 0 && newPos.y == oldPos.y - 2 && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] >= 0) {
 		return true;
 	}
-	if (oldPos.y - 2 >= 0 && oldPos.x + 1 <= BOARD_LENGTH && newPos.y == oldPos.y - 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] >= 0) {
+	if (oldPos.y - 2 >= 0 && oldPos.x + 1 < 8 && newPos.y == oldPos.y - 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] >= 0) {
 		return true;
 	}
-	if (oldPos.y - 1 >= 0 && oldPos.x + 2 <= BOARD_LENGTH && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] >= 0) {
+	if (oldPos.y - 1 >= 0 && oldPos.x + 2 < 8 && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] >= 0) {
 		return true;
 	}
-	if (oldPos.y + 1 <= BOARD_LENGTH && oldPos.x + 2 <= BOARD_LENGTH && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] >= 0) {
+	if (oldPos.y + 1 < 8 && oldPos.x + 2 < 8 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] >= 0) {
 		return true;
 	}
-	if (oldPos.y + 2 <= BOARD_LENGTH && oldPos.x + 1 <= BOARD_LENGTH && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] >= 0) {
+	if (oldPos.y + 2 < 8 && oldPos.x + 1 < 8 && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] >= 0) {
 		return true;
 	}
-	if (oldPos.y + 2 <= BOARD_LENGTH && oldPos.x - 1 >= 0 && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] >= 0) {
+	if (oldPos.y + 2 < 8 && oldPos.x - 1 >= 0 && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] >= 0) {
 		return true;
 	}
-	if (oldPos.y + 1 <= BOARD_LENGTH && oldPos.x - 2 >= 0 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x - 2 && board[newPos.y][newPos.x] >= 0) {
+	if (oldPos.y + 1 < 8 && oldPos.x - 2 >= 0 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x - 2 && board[newPos.y][newPos.x] >= 0) {
 		return true;
 	}
 	if (oldPos.y - 1 >= 0 && oldPos.x - 2 >= 0 && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x - 2 && board[newPos.y][newPos.x] >= 0) {
@@ -49,22 +49,22 @@ bool KnightController::blackMove(sf::Vector2i oldPos, sf::Vector2i newPos, int b
 	if (oldPos.y - 2 >= 0 && oldPos.x - 1 >= 0 && newPos.y == oldPos.y - 2 && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] <= 0) {
 		return true;
 	}
-	if (oldPos.y - 2 >= 0 && oldPos.x + 1 <= BOARD_LENGTH && newPos.y == oldPos.y - 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] <= 0) {
+	if (oldPos.y - 2 >= 0 && oldPos.x + 1 < 8 && newPos.y == oldPos.y - 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] <= 0) {
 		return true;
 	}
-	if (oldPos.y - 1 >= 0 && oldPos.x + 2 <= BOARD_LENGTH && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] <= 0) {
+	if (oldPos.y - 1 >= 0 && oldPos.x + 2 < 8 && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] <= 0) {
 		return true;
 	}
-	if (oldPos.y + 1 <= BOARD_LENGTH && oldPos.x + 2 <= BOARD_LENGTH && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] <= 0) {
+	if (oldPos.y + 1 < 8 && oldPos.x + 2 < 8 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x + 2 && board[newPos.y][newPos.x] <= 0) {
 		return true;
 	}
-	if (oldPos.y + 2 <= BOARD_LENGTH && oldPos.x + 1 <= BOARD_LENGTH && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] <= 0) {
+	if (oldPos.y + 2 < 8 && oldPos.x + 1 < 8 && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] <= 0) {
 		return true;
 	}
-	if (oldPos.y + 2 <= BOARD_LENGTH && oldPos.x - 1 >= 0 && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] <= 0) {
+	if (oldPos.y + 2 < 8 && oldPos.x - 1 >= 0 && newPos.y == oldPos.y + 2 && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] <= 0) {
 		return true;
 	}
-	if (oldPos.y + 1 <= BOARD_LENGTH && oldPos.x - 2 >= 0 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x - 2 && board[newPos.y][newPos.x] <= 0) {
+	if (oldPos.y + 1 < 8 && oldPos.x - 2 >= 0 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x - 2 && board[newPos.y][newPos.x] <= 0) {
 		return true;
 	}
 	if (oldPos.y - 1 >= 0 && oldPos.x - 2 >= 0 && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x - 2 && board[newPos.y][newPos.x] <= 0) {
