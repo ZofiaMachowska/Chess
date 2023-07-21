@@ -91,21 +91,18 @@ void BoardController::moveWhitePiece(sf::Vector2i position) {
 }
 
 void BoardController::onBoardClicked(sf::Vector2i pos) {
-    std::cout << "dotknieto: " << chessBoard[pos.y][pos.x] << std::endl;
-    Player* currentPlayer = gameController.getCurrentPlayer();
-    std::cout << "Kolej gracza: " << currentPlayer->getColor() << std::endl;
     if (chessBoard[pos.y][pos.x] == 0) return;
+
     sf::Vector2i boardPosition(pos.x, pos.y);
     bool whitePlayerTurn = gameController.isFirstPlayerTurn();
 
     if (whitePlayerTurn) moveWhitePiece(boardPosition);
     else moveBlackPiece(boardPosition);
 
-    //jezeli wchodzi w ten warunek to znaczy ze sie udalo podniesc figure
+    //wejscie w ten warunek oznacza, ze udalo sie podniesc figure
     if (chessBoard[pos.y][pos.x] == 0) {
         oldPosition.x = pos.x;
         oldPosition.y = pos.y;
-        std::cout << "udalo sie podniesc figure " << movedFigure << std::endl;
     }
 }
 
@@ -114,76 +111,76 @@ void BoardController::onBoardReleased(sf::Vector2i pos) {
     if (movedFigure == 0) return;
     bool movePossible = false;
     bool kingSafe = false;
-    bool whitePlayer = gameController.isFirstPlayerTurn();
+    bool whitePlayerTurn = gameController.isFirstPlayerTurn();
 
     switch (abs(movedFigure)) {
     case 1:
-        movePossible = pawn.isMovePossible(oldPosition, pos, chessBoard, whitePlayer);
+        movePossible = pawn.isMovePossible(oldPosition, pos, chessBoard, whitePlayerTurn);
         break;
     case 2:
-        movePossible = rook.isMovePossible(oldPosition, pos, chessBoard, whitePlayer);
+        movePossible = rook.isMovePossible(oldPosition, pos, chessBoard, whitePlayerTurn);
         break;
     case 3:
-        movePossible = knight.isMovePossible(oldPosition, pos, chessBoard, whitePlayer);
+        movePossible = knight.isMovePossible(oldPosition, pos, chessBoard, whitePlayerTurn);
         break;
     case 4:
-        movePossible = bishop.isMovePossible(oldPosition, pos, chessBoard, whitePlayer);
+        movePossible = bishop.isMovePossible(oldPosition, pos, chessBoard, whitePlayerTurn);
         break;
     case 5:
-        movePossible = queen.isMovePossible(oldPosition, pos, chessBoard, whitePlayer);
+        movePossible = queen.isMovePossible(oldPosition, pos, chessBoard, whitePlayerTurn);
         break;
     case 6:
-        movePossible = king.isMovePossible(oldPosition, pos, chessBoard, whitePlayer);
+        movePossible = king.isMovePossible(oldPosition, pos, chessBoard, whitePlayerTurn);
         break;
     default:
         break;
     }
 
-    //sprawdz czy ten ruch nie zagrozi krolowi gracza
-    kingSafe = checkKingSafe(whitePlayer);
+    //sprawdzenie czy ten ruch nie sprawi ze krol gracza bedzie zagrozony
+    kingSafe = checkKingSafe(whitePlayerTurn);
     checkPlayerMoveValidity(pos, kingSafe, movePossible);
 }
 
-bool BoardController::checkKingSafe(bool whitePlayer) {
+bool BoardController::checkKingSafe(bool whitePlayerTurn) {
 
-    sf::Vector2i kingPosition = king.findKingPosition(chessBoard, whitePlayer);
- 
+    sf::Vector2i currentPlayerKingPosition = king.findKingPosition(chessBoard, whitePlayerTurn);
+
     for (int i = 0; i <= BOARD_LENGTH; i++) {
         for (int j = 0; j <= BOARD_LENGTH; j++) {
             switch (abs(chessBoard[i][j])) {
             case 1:
-                if (pawn.checkKingCapture(sf::Vector2i(j,i), kingPosition, chessBoard, whitePlayer)) {
-                    std::cout << "Pionek zablokowal" << std::endl;
+                if (pawn.checkKingCapture(sf::Vector2i(j,i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                    std::cout << "Pionek przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 2:
-                if (rook.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                    std::cout << "wieza zablokowala" << std::endl;
+                if (rook.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                    std::cout << "wieza przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 3:
-                if (knight.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                    std::cout << "konik zablokowal" << std::endl;
+                if (knight.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                    std::cout << "konik przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 4:
-                if (bishop.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                    std::cout << "laufer zablokowal" << std::endl;
+                if (bishop.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                    std::cout << "laufer przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 5:
-                if (queen.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                    std::cout << "krolowa zablokowal" << std::endl;
+                if (queen.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                    std::cout << "krolowa przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 6:
-                if (king.checkKingCapture(sf::Vector2i(j, i), kingPosition, chessBoard, whitePlayer)) {
-                    std::cout << "krol zablokowal" << std::endl;
+                if (king.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, chessBoard, whitePlayerTurn)) {
+                    std::cout << "krol przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;

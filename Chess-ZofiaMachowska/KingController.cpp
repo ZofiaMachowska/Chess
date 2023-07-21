@@ -6,9 +6,16 @@ bool KingController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 	return blackMove(oldPos, newPos, board);
 }
 
-bool KingController::checkKingCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8], bool isWhite) const {
-	if (isWhite) return whiteCapture(oldPos, kingPos, board);
-	return blackCapture(oldPos, kingPos, board);
+bool KingController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
+	if (whitePlayerTurn && board[figurePos.y][figurePos.x] > 0) {
+		return blackCapture(figurePos, kingPos, board);
+	}
+	else if (!whitePlayerTurn && board[figurePos.y][figurePos.x] < 0) {
+		return whiteCapture(figurePos, kingPos, board);
+	}
+	else {
+		return false;
+	}
 }
 
 bool KingController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
@@ -126,9 +133,8 @@ bool KingController::blackCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int
 
 }
 
-sf::Vector2i KingController::findKingPosition(int board[8][8], bool isWhite) const {
-	if (isWhite) return findWhiteKingPosition(board);
-	return findBlackKingPosition(board);
+sf::Vector2i KingController::findKingPosition(int board[8][8], bool whitePlayerTurn) const {
+	return whitePlayerTurn ? findWhiteKingPosition(board) : findBlackKingPosition(board);
 }
 
 sf::Vector2i KingController::findWhiteKingPosition(int board[8][8]) const {

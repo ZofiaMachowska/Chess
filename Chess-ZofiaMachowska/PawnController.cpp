@@ -6,12 +6,19 @@ bool PawnController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 	return blackMove(oldPos, newPos, board);
 }
 
-bool PawnController::checkKingCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8], bool isWhite) const {
-	if (isWhite) return whiteCapture(oldPos, kingPos, board);
-	return blackCapture(oldPos, kingPos, board);
+bool PawnController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
+	if (whitePlayerTurn && board[figurePos.y][figurePos.x] > 0) {
+		return blackCapture(figurePos, kingPos, board);
+	}
+	else if (!whitePlayerTurn && board[figurePos.y][figurePos.x] < 0) {
+		return whiteCapture(figurePos, kingPos, board);
+	}
+	else {
+		return false;
+	}
 }
 
-//czy moze byc wykonany krok
+//czy moze byc wykonany krok dla bialego pionka
 bool PawnController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[][8]) const {
 	if (oldPos.y == 6) {
 		if ((newPos.y == oldPos.y - 1 && newPos.x == oldPos.x && board[oldPos.y - 1][oldPos.x] == 0) ||

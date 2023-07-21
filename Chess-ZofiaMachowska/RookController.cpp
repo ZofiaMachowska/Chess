@@ -6,9 +6,16 @@ bool RookController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 	return blackMove(oldPos, newPos, board);
 }
 
-bool RookController::checkKingCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8], bool isWhite) const {
-	if (isWhite) return whiteCapture(oldPos, kingPos, board);
-	return blackCapture(oldPos, kingPos, board);
+bool RookController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
+	if (whitePlayerTurn && board[figurePos.y][figurePos.x] > 0) {
+		return blackCapture(figurePos, kingPos, board);
+	}
+	else if (!whitePlayerTurn && board[figurePos.y][figurePos.x] < 0) {
+		return whiteCapture(figurePos, kingPos, board);
+	}
+	else {
+		return false;
+	}
 }
 
 bool RookController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
@@ -83,7 +90,6 @@ bool RookController::blackMove(sf::Vector2i oldPos, sf::Vector2i newPos, int boa
 	return false;
 }
 
-//zagrozenie krolowi
 bool RookController::whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
 	for (int i = oldPos.x - 1; i >= 0; i--) {
 		if (board[oldPos.y][i] >= 0 && (kingPos.x == i && kingPos.y == oldPos.y)) {

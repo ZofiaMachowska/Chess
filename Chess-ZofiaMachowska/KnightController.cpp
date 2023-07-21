@@ -5,9 +5,16 @@ bool KnightController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, 
 	return blackMove(oldPos, newPos, board);
 }
 
-bool KnightController::checkKingCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8], bool isWhite) const {
-	if (isWhite) return whiteCapture(oldPos, kingPos, board);
-	return blackCapture(oldPos, kingPos, board);
+bool KnightController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
+	if (whitePlayerTurn && board[figurePos.y][figurePos.x] > 0) {
+		return blackCapture(figurePos, kingPos, board);
+	}
+	else if (!whitePlayerTurn && board[figurePos.y][figurePos.x] < 0) {
+		return whiteCapture(figurePos, kingPos, board);
+	}
+	else {
+		return false;
+	}
 }
 
 bool KnightController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
