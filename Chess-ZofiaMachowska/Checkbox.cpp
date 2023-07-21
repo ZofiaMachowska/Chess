@@ -7,9 +7,9 @@ Checkbox::Checkbox(const sf::Font& font, const std::string& label, unsigned int 
     checkboxText.setFont(font);
     checkboxText.setString(label);
     checkboxText.setCharacterSize(characterSize);
-    checkboxText.setPosition(position + sf::Vector2f(30.f, 0.f));
+    checkboxText.setPosition(position + sf::Vector2f(40.f, -10.f));
 
-    checkboxBox.setSize(sf::Vector2f(20.f, 20.f));
+    checkboxBox.setSize(sf::Vector2f(30.f, 30.f));
     checkboxBox.setOutlineThickness(2.f);
     checkboxBox.setOutlineColor(sf::Color::Black);
     checkboxBox.setPosition(position);

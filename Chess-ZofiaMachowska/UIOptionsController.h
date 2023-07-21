@@ -14,9 +14,9 @@ public:
 	void initializeVisuals();
 	void handleButtonPress(sf::RenderWindow& window);
 	Checkbox* player1CheckBox;
+	Checkbox* player2CheckBox;
 
 private:
-	sf::Text timerText, timerTimeText, player1AIText, player2AIText;
-	sf::RectangleShape inputBox;
+	sf::Text player1AIText, player2AIText, returnText;
 	sf::Font font;
 };

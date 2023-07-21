@@ -27,7 +27,7 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 }
 
 void GameState::initialize() {
-    uiController.setTexturesOfFigures();
+    uiController.setFiguresVisuals();
     board.startNewGame();
 }
 

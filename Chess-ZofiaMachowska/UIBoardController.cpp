@@ -20,7 +20,7 @@ void UIBoardController::drawPiece(sf::RenderWindow& window, sf::Sprite piece, in
     window.draw(piece);
 }
 
-void UIBoardController::setTexturesOfFigures() {
+void UIBoardController::setFiguresVisuals() {
     pawnWTexture.loadFromFile("images/pionekW.png");
     rookWTexture.loadFromFile("images/wiezaW.png");
     knightWTexture.loadFromFile("images/konikW.png");

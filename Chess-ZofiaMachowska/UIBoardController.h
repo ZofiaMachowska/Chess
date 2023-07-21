@@ -8,7 +8,7 @@ public:
 
     void redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer);
 
-    void setTexturesOfFigures();
+    void setFiguresVisuals();
 
     int getWindowHeight() const;
 
