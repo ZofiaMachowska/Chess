@@ -142,6 +142,7 @@
     <ClCompile Include="Checkbox.cpp" />
     <ClCompile Include="ChessPieceController.cpp" />
     <ClCompile Include="LoadingState.cpp" />
+    <ClCompile Include="shared.cpp" />
     <ClCompile Include="UIBoardController.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -166,7 +167,10 @@
     <ClInclude Include="BoardController.h" />
     <ClInclude Include="Checkbox.h" />
     <ClInclude Include="ChessPieceController.h" />
+    <ClInclude Include="chessStructures.h" />
     <ClInclude Include="LoadingState.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="shared.h" />
     <ClInclude Include="UIBoardController.h" />
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="GameState.h" />
@@ -182,6 +186,9 @@
     <ClInclude Include="RookController.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UIOptionsController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Chess-ZofiaMachowska1.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

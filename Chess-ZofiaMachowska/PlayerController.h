@@ -8,7 +8,7 @@ public:
 	PlayerController();
 	bool isFirstPlayerTurn();
 	bool isActivePlayerAI();
-	void switchPlayer();
+	void switchPlayer(int board[][8]);
 	void startTimer();
 	Player* getCurrentPlayer();
 
@@ -17,6 +17,6 @@ private:
 	Player* player2;
 	AIController aiController;
 
-	void shouldRunAI();
+	void shouldRunAI(int board[][8]);
 
 };

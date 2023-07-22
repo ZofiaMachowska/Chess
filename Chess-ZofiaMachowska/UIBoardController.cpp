@@ -115,6 +115,9 @@ void UIBoardController::setTurnInfoText(sf::RenderWindow& window, Player* curren
     std::pair<int, int> time = currentPlayer->timer->getTime();
     minutes = std::to_string(time.first);
     seconds = time.second == 0 ? "00" : std::to_string(time.second);
+    if (time.second < 10) {
+        seconds = '0' + std::to_string(time.second);
+    }
     timerInformation.setString("Remaining Time: " + minutes + ':' + seconds);
     title.setString(currentPlayer->getColor() + " Player Turn");
     window.draw(timerInformation);

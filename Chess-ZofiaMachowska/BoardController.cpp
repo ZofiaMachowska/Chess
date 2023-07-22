@@ -213,7 +213,7 @@ void BoardController::updateBoardState(sf::Vector2i pos) {
     int figureOnOldPosition = chessBoard[oldPosition.y][oldPosition.x];
     std::cout << "Ruch sie udal, kolej nastepnego gracza" << std::endl;
     chessBoard[pos.y][pos.x] = movedFigure;
-    playerController.switchPlayer();
+    playerController.switchPlayer(chessBoard);
 }
 
 void BoardController::handleNoValidMoves() {

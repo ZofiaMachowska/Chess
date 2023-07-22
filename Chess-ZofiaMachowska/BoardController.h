@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "ChessPieceController.h"
-#include "ChessPieceController.h"
 #include "KingController.h"
 #include "QueenController.h"
 #include "RookController.h"

@@ -129,3 +129,30 @@ bool KnightController::blackCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, i
 	}
 	return false;
 }
+
+std::vector<Move> KnightController::generateValidMoves(sf::Vector2i pos, int board[8][8], bool isWhite) const {
+	std::vector<Move> validMoves;
+	int x = pos.x;
+	int y = pos.y;
+
+	// Tablice z mo¿liwymi ró¿nicami wspó³rzêdnych x i y dla skoczka
+	int dx[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+	int dy[] = { -2, -1, 1, 2, 2, 1, -1, -2 };
+
+	for (int i = 0; i < 8; i++) {
+		int newX = x + dx[i];
+		int newY = y + dy[i];
+
+		// Sprawdzamy czy nowe wspó³rzêdne s¹ na szachownicy
+		if (isOnBoard(newX, newY)) {
+			int piece = board[newY][newX];
+
+			// Jeœli pole jest puste lub znajduje siê na nim figura przeciwnego gracza, to dodajemy ruch
+			if (piece == 0 || (piece > 0 && board[y][x] < 0) || (piece < 0 && board[y][x] > 0)) {
+				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), abs(board[y][x]) });
+			}
+		}
+	}
+
+	return validMoves;
+}
