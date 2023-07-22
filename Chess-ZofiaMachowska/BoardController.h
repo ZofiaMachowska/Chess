@@ -10,7 +10,7 @@
 #include "BishopController.h"
 #include "KnightController.h"
 #include "PawnController.h"
-#include "GameController.h"
+#include "PlayerController.h"
 #include <vector>
 
 class BoardController {
@@ -28,15 +28,16 @@ public:
 
 	int getMovedFigure();
 
+	static void aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos, sf::Vector2i newPos);
+
 	Player* getCurrentPlayer();
 
 	int(&getBoard())[8][8];
 
-
 private:
 	const int BOARD_LENGTH = 7;
-
-	int movedFigure = 0;
+	static sf::Vector2i oldPosition;
+	static int movedFigure;
 	
 	static PawnController pawn;
 	static KnightController knight;
@@ -44,15 +45,14 @@ private:
 	static RookController rook;
 	static QueenController queen;
 	static KingController king;
-	static GameController gameController; //logiczniej moze na odwrot zeby bylo 
-
-	sf::Vector2i oldPosition;
+	static PlayerController playerController;
 
 	void moveThisPiece(int pieceNumber, sf::Vector2i position);
 	void moveBlackPiece(sf::Vector2i position);
 	void moveWhitePiece(sf::Vector2i position);
 	bool checkKingSafe(sf::Vector2i pos, bool whitePlayer);
 	void checkPlayerMoveValidity(sf::Vector2i pos, bool kingSafe, bool movePossible);
-	void updateBoardState(sf::Vector2i pos);
 	void handleNoValidMoves();
+	static void updateBoardState(sf::Vector2i pos);
+
 };

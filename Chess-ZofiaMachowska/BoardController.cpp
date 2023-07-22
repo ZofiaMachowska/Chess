@@ -18,7 +18,9 @@ BishopController BoardController::bishop;
 RookController BoardController::rook;
 QueenController BoardController::queen;
 KingController BoardController::king;
-GameController BoardController::gameController;
+PlayerController BoardController::playerController;
+int BoardController::movedFigure;
+sf::Vector2i BoardController::oldPosition;
 
 BoardController::BoardController() {
 }
@@ -32,7 +34,7 @@ int BoardController::getMovedFigure() {
 }
 
 Player* BoardController::getCurrentPlayer() {
-    return gameController.getCurrentPlayer();
+    return playerController.getCurrentPlayer();
 }
 
 void BoardController::moveThisPiece(int pieceNumber, sf::Vector2i position) {
@@ -91,10 +93,11 @@ void BoardController::moveWhitePiece(sf::Vector2i position) {
 }
 
 void BoardController::onBoardClicked(sf::Vector2i pos) {
+    if (playerController.isActivePlayerAI()) return;
     if (chessBoard[pos.y][pos.x] == 0) return;
 
     sf::Vector2i boardPosition(pos.x, pos.y);
-    bool whitePlayerTurn = gameController.isFirstPlayerTurn();
+    bool whitePlayerTurn = playerController.isFirstPlayerTurn();
 
     if (whitePlayerTurn) moveWhitePiece(boardPosition);
     else moveBlackPiece(boardPosition);
@@ -107,11 +110,11 @@ void BoardController::onBoardClicked(sf::Vector2i pos) {
 }
 
 void BoardController::onBoardReleased(sf::Vector2i pos) {
-
+    if (playerController.isActivePlayerAI()) return;
     if (movedFigure == 0) return;
     bool movePossible = false;
     bool kingSafe = false;
-    bool whitePlayerTurn = gameController.isFirstPlayerTurn();
+    bool whitePlayerTurn = playerController.isFirstPlayerTurn();
 
     switch (abs(movedFigure)) {
     case 1:
@@ -200,11 +203,17 @@ bool BoardController::checkKingSafe(sf::Vector2i pos, bool whitePlayerTurn) {
     return true;
 }
 
+void BoardController::aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos, sf::Vector2i newPos) {
+    movedFigure = aiMovedFigure;
+    chessBoard[oldPos.y][oldPos.x] = 0;
+    updateBoardState(newPos);
+}
+
 void BoardController::updateBoardState(sf::Vector2i pos) {
     int figureOnOldPosition = chessBoard[oldPosition.y][oldPosition.x];
     std::cout << "Ruch sie udal, kolej nastepnego gracza" << std::endl;
     chessBoard[pos.y][pos.x] = movedFigure;
-    gameController.switchPlayer();
+    playerController.switchPlayer();
 }
 
 void BoardController::handleNoValidMoves() {
@@ -242,6 +251,6 @@ void BoardController::resetBoard() {
 
 void BoardController::startNewGame() {
     resetBoard();
-    gameController.startTimer();
+    playerController.startTimer();
 }
 

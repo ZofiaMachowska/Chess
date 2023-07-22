@@ -5,7 +5,6 @@
 #include "BoardController.h"
 #include "UIBoardController.h"
 #include "AIController.h"
-#include "GameController.h"
 #include "UIMenuController.h"
 #include "AppState.h"
 #include "MenuState.h"

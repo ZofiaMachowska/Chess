@@ -1,7 +1,8 @@
 #include "Player.h"
 
-Player::Player(const std::string& color, const bool isActive ) : color(color), isActive(isActive) {
+Player::Player(const std::string& color, const bool isActive, const bool isAI) : color(color), isActive(isActive), isAI(isAI) {
     this->color = color;
+    this->isAI = isAI;
     timer = new Timer();
 }
 
@@ -13,12 +14,11 @@ bool Player::checkIsActive() {
     return isActive;
 }
 
+bool Player::isPlayerAI() {
+    return isAI;
+}
+
 void Player::setActiveState(bool isActive) {
     this->isActive = isActive;
-    if (isActive) {
-        timer->resume();
-    }
-    else {
-        timer->stop();
-    }
+    isActive ? timer->resume() : timer->stop();
 }

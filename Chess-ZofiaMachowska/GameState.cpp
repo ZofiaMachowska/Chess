@@ -1,6 +1,6 @@
 #include "GameState.h"
 
-GameState::GameState() : board(), gameController(), uiController(), event() {
+GameState::GameState() : board(), uiController(), event() {
 }
 
 

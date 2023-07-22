@@ -3,13 +3,11 @@
 #include "BoardController.h"
 #include "UIBoardController.h"
 #include "AIController.h"
-#include "GameController.h"
 #include "AppState.h"
 
 class GameState : public AppState {
 private: 
     BoardController board;
-    GameController gameController;
     UIBoardController uiController;
     sf::Event event;
  

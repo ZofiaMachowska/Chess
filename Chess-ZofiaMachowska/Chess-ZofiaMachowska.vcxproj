@@ -143,7 +143,7 @@
     <ClCompile Include="ChessPieceController.cpp" />
     <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="UIBoardController.cpp" />
-    <ClCompile Include="GameController.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="KingController.cpp" />
     <ClCompile Include="KnightController.cpp" />
@@ -168,7 +168,7 @@
     <ClInclude Include="ChessPieceController.h" />
     <ClInclude Include="LoadingState.h" />
     <ClInclude Include="UIBoardController.h" />
-    <ClInclude Include="GameController.h" />
+    <ClInclude Include="PlayerController.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="KingController.h" />
     <ClInclude Include="KnightController.h" />

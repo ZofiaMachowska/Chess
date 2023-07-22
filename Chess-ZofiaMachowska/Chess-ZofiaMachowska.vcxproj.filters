@@ -78,7 +78,7 @@
     <ClCompile Include="BoardController.cpp">
       <Filter>Source Files\Function</Filter>
     </ClCompile>
-    <ClCompile Include="GameController.cpp">
+    <ClCompile Include="PlayerController.cpp">
       <Filter>Source Files\Function</Filter>
     </ClCompile>
     <ClCompile Include="AIController.cpp">
@@ -167,7 +167,7 @@
     <ClInclude Include="BoardController.h">
       <Filter>Header Files\Function</Filter>
     </ClInclude>
-    <ClInclude Include="GameController.h">
+    <ClInclude Include="PlayerController.h">
       <Filter>Header Files\Function</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
