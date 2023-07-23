@@ -1,5 +1,6 @@
 #include <iostream>
 #include "PlayerController.h"
+#include "BoardController.h"
 
 PlayerController::PlayerController(): aiController()
 {
@@ -35,4 +36,11 @@ void PlayerController::startTimer() {
 	player1->timer->start();
 	player2->timer->start();
 	player2->timer->stop();
+
+	player1->timer->setTimerOverCallback([this]() {
+		BoardController::setGameOver();
+		});
+	player2->timer->setTimerOverCallback([this]() {
+		BoardController::setGameOver();
+		});
 }

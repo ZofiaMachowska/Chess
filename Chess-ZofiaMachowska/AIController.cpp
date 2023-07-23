@@ -277,7 +277,9 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
 }
 
 void AIController::makeAMove() {
-    movePieceCallback();
+    if (movePieceCallback) {
+        movePieceCallback();
+    }
 }
 
 void AIController::calculateBestMove(int board[][8]) {

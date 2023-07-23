@@ -1,13 +1,2 @@
-﻿  AIController.cpp
-  Application.cpp
-  BoardController.cpp
-  GameState.cpp
-  KingController.cpp
-  Main.cpp
-  MenuState.cpp
-  PawnController.cpp
-  PlayerController.cpp
-  Generating Code...
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KingController.cpp(41): warning C4715: 'KingController::findWhiteKingPosition': not all control paths return a value
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KingController.cpp(51): warning C4715: 'KingController::findBlackKingPosition': not all control paths return a value
+﻿  Timer.cpp
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe

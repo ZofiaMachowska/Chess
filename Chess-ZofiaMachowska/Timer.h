@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <functional>
 
 class Timer {
 private:
@@ -11,9 +12,13 @@ private:
     std::thread timer_thread;
     std::chrono::duration<int> elapsed_time;
     std::chrono::duration<int> timeAtStop;
+    std::function<void()> timerOverCallback;
+
+    void timeOver();
 
 public:
     std::chrono::duration<int> remaining_time;
+    void setTimerOverCallback(std::function<void()> callback);
 
     Timer();
     void start();

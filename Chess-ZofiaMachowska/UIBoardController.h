@@ -2,11 +2,13 @@
 #define UIBOARDCONTROLLER_H
 #include "Player.h"
 #include <SFML/Graphics.hpp>
+#include "Button.h"
 
 class UIBoardController {
 public:
+    UIBoardController();
 
-    void redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer);
+    void redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer, bool gameOver);
 
     void setFiguresVisuals();
 
@@ -27,7 +29,7 @@ private:
     void drawPiece(sf::RenderWindow& window, sf::Sprite piece, int j, int i);
     sf::Sprite getMovedFigureSprite(int movedFigure);
     void redrawChessMove(sf::RenderWindow& window, sf::Vector2i mousePos, int movedFigure);
-    void setTurnInfoText(sf::RenderWindow& window, Player* currentPlayer);
+    void redrawInfoPannel(sf::RenderWindow& window, Player* currentPlayer, bool isGameOver);
 
     sf::Texture pawnWTexture, rookWTexture, knightWTexture, bishopWTexture, queenWTexture, kingWTexture;
     sf::Texture pawnBTexture, rookBTexture, knightBTexture, bishopBTexture, queenBTexture, kingBTexture;
@@ -36,6 +38,8 @@ private:
     sf::Sprite pawnWSprite, rookWSprite, knightWSprite, bishopWSprite, queenWSprite, kingWSprite;
     sf::Sprite pawnBSprite, rookBSprite, knightBSprite, bishopBSprite, queenBSprite, kingBSprite;
     sf::Sprite boardSprite;
+    Button* backButton;
+    Button* saveButton;
 
     sf::Font font;
     sf::Text title, timerInformation;

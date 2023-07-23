@@ -3,6 +3,16 @@
 #include <chrono>
 #include <thread>
 
+UIBoardController::UIBoardController() {
+    saveButton = new Button(sf::Vector2f(870, 600), sf::Vector2f(280, 70), font, "Save Game", 36);
+    backButton = new Button(sf::Vector2f(870, 700), sf::Vector2f(280, 70), font, "Back", 36);
+}
+
+//UIBoardController::~UIBoardController() {
+//    delete saveButton;
+//    delete backButton;
+//}
+
 int UIBoardController::getWindowWidth() const {
     return WINDOW_WIDTH;
 }
@@ -110,7 +120,7 @@ void UIBoardController::redrawChessMove(sf::RenderWindow& window, sf::Vector2i m
     window.draw(movedSprite);
 }
 
-void UIBoardController::setTurnInfoText(sf::RenderWindow& window, Player* currentPlayer) {
+void UIBoardController::redrawInfoPannel(sf::RenderWindow& window, Player* currentPlayer, bool isGameOver) {
     std::string minutes, seconds;
     std::pair<int, int> time = currentPlayer->timer->getTime();
     minutes = std::to_string(time.first);
@@ -119,13 +129,20 @@ void UIBoardController::setTurnInfoText(sf::RenderWindow& window, Player* curren
         seconds = '0' + std::to_string(time.second);
     }
     timerInformation.setString("Remaining Time: " + minutes + ':' + seconds);
-    title.setString(currentPlayer->getColor() + " Player Turn");
-    window.draw(timerInformation);
+    if (!isGameOver) {
+        title.setString(currentPlayer->getColor() + " Player Turn");
+        window.draw(timerInformation);
+    }
+    else {
+        title.setString(currentPlayer->getColor() + " Player Lost");
+    }
     window.draw(title);
+    saveButton->draw(window);
+    backButton->draw(window);
 }
 
 //dziêki & mamy dostêp nie do kopii, a do prawdziwego obiektu
-void UIBoardController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer) {
+void UIBoardController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer, bool gameOver) {
     window.draw(boardSprite);
     for (int i = 0; i <= BOARD_LENGTH; i++) {
         for (int j = 0; j <= BOARD_LENGTH; j++) {
@@ -176,5 +193,5 @@ void UIBoardController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mouse
 
     //rysowanie wlasnie poruszanej przez gracza figury
     redrawChessMove(window, mousePos, movedFigure);
-    setTurnInfoText(window, currentPlayer);
+    redrawInfoPannel(window, currentPlayer, gameOver);
 }

@@ -20,10 +20,9 @@ QueenController BoardController::queen;
 KingController BoardController::king;
 PlayerController BoardController::playerController;
 int BoardController::movedFigure;
+bool BoardController::gameOver;
 sf::Vector2i BoardController::oldPosition;
 
-BoardController::BoardController() {
-}
 
 int(&BoardController::getBoard())[8][8]{
     return chessBoard;
@@ -31,6 +30,10 @@ int(&BoardController::getBoard())[8][8]{
 
 int BoardController::getMovedFigure() {
     return movedFigure;
+}
+
+bool BoardController::isGameOver() {
+    return gameOver;
 }
 
 Player* BoardController::getCurrentPlayer() {
@@ -94,7 +97,7 @@ void BoardController::moveWhitePiece(sf::Vector2i position) {
 
 void BoardController::onBoardClicked(sf::Vector2i pos) {
     if (playerController.isActivePlayerAI()) return;
-    if (chessBoard[pos.y][pos.x] == 0) return;
+    if (chessBoard[pos.y][pos.x] == 0 || !isOnBoard(pos.x, pos.y) || gameOver) return;
 
     sf::Vector2i boardPosition(pos.x, pos.y);
     bool whitePlayerTurn = playerController.isFirstPlayerTurn();
@@ -111,7 +114,7 @@ void BoardController::onBoardClicked(sf::Vector2i pos) {
 
 void BoardController::onBoardReleased(sf::Vector2i pos) {
     if (playerController.isActivePlayerAI()) return;
-    if (movedFigure == 0) return;
+    if (movedFigure == 0 || gameOver) return;
     bool movePossible = false;
     bool kingSafe = false;
     bool whitePlayerTurn = playerController.isFirstPlayerTurn();
@@ -203,6 +206,13 @@ bool BoardController::checkKingSafe(sf::Vector2i pos, bool whitePlayerTurn) {
     return true;
 }
 
+
+void BoardController::setGameOver() {
+    gameOver = true;
+    std::cout << "Zakonczona gra" << std::endl;
+}
+
+
 void BoardController::aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos, sf::Vector2i newPos) {
     movedFigure = aiMovedFigure;
     chessBoard[oldPos.y][oldPos.x] = 0;
@@ -251,6 +261,7 @@ void BoardController::resetBoard() {
 
 void BoardController::startNewGame() {
     resetBoard();
+    gameOver = false;
     playerController.startTimer();
 }
 

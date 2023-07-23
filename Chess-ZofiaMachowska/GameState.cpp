@@ -33,5 +33,5 @@ void GameState::initialize() {
 
 void GameState::render(sf::RenderWindow& window) {
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-    uiController.redrawBoard(window, mousePos, board.getBoard(), board.getMovedFigure(), board.getCurrentPlayer());
+    uiController.redrawBoard(window, mousePos, board.getBoard(), board.getMovedFigure(), board.getCurrentPlayer(), board.isGameOver());
 }

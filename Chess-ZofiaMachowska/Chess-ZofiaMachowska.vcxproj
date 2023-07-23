@@ -139,6 +139,7 @@
     <ClCompile Include="AppState.cpp" />
     <ClCompile Include="BishopController.cpp" />
     <ClCompile Include="BoardController.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Checkbox.cpp" />
     <ClCompile Include="ChessPieceController.cpp" />
     <ClCompile Include="LoadingState.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="AppState.h" />
     <ClInclude Include="BishopController.h" />
     <ClInclude Include="BoardController.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Checkbox.h" />
     <ClInclude Include="ChessPieceController.h" />
     <ClInclude Include="chessStructures.h" />

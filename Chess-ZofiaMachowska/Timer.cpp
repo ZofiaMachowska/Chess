@@ -1,6 +1,18 @@
 #include "Timer.h"
 
-Timer::Timer() : initial_duration(std::chrono::minutes(5)), remaining_time(initial_duration), is_running(false) {}
+Timer::Timer() : initial_duration(std::chrono::minutes(5)), remaining_time(initial_duration), is_running(false)
+{
+}
+
+void  Timer::setTimerOverCallback(std::function<void()> callback) {
+    timerOverCallback = std::move(callback);
+}
+
+void Timer::timeOver() {
+    if (timerOverCallback) {
+        timerOverCallback();
+    }
+}
 
 void Timer::start() {
     if (!is_running) {
@@ -12,6 +24,9 @@ void Timer::start() {
                 if (is_running) {
                     elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - start_time);
                     remaining_time = initial_duration - elapsed_time;
+                    if (remaining_time.count() <= 0) {
+                        timeOver();
+                    }
                 }
                 std::this_thread::sleep_for(std::chrono::seconds(1));
             }
@@ -47,6 +62,9 @@ void Timer::resume() {
                 if (is_running) {
                     elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - start_time);
                     remaining_time = timeAtStop - elapsed_time;
+                    if (remaining_time.count() <= 0) {
+                        timeOver();
+                    }
                 }
                 std::this_thread::sleep_for(std::chrono::seconds(1));
             }

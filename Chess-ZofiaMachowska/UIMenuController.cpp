@@ -93,13 +93,19 @@ void UIMenuController::handleButtonPress(sf::RenderWindow& window) {
     sf::Vector2f mousePositionFloat(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
 
     if (newGameButton.getGlobalBounds().contains(mousePositionFloat)) {
-        newGameCallback();
+        if (newGameCallback) {
+            newGameCallback();
+        }
     }
     else if (loadGameButton.getGlobalBounds().contains(mousePositionFloat)) {
-        loadGameCallback();
+        if (loadGameCallback) {
+            loadGameCallback();
+        }
     }
     else if (optionsButton.getGlobalBounds().contains(mousePositionFloat)) {
-        optionsCallback();
+        if (optionsCallback) {
+            optionsCallback();
+        }
     }
     else if (exitButton.getGlobalBounds().contains(mousePositionFloat)) {
         exit(0);
