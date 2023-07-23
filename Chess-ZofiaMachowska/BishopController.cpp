@@ -39,105 +39,10 @@ bool BishopController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, 
 }
 
 bool BishopController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
-	if (whitePlayerTurn && board[figurePos.y][figurePos.x] > 0) {
-		return blackCapture(figurePos, kingPos, board);
-	}
-	else if (!whitePlayerTurn && board[figurePos.y][figurePos.x] < 0) {
-		return whiteCapture(figurePos, kingPos, board);
-	}
-	else {
-		return false;
-	}
+	int kingPiece = board[kingPos.y][kingPos.x];
+	int figurePiece = board[figurePos.y][figurePos.x];
+    return (kingPiece < 0 && figurePiece < 0 || kingPiece > 0 && figurePiece > 0) ? false : isMovePossible(figurePos, kingPos, board, !whitePlayerTurn);
 }
-
-bool BishopController::whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
-	int j = oldPos.x - 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] >= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] >= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	j = oldPos.x - 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] >= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] >= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	return false;
-}
-
-bool BishopController::blackCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
-	int j = oldPos.x - 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] <= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] <= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	j = oldPos.x - 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] <= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] <= 0 && (kingPos.y == i && kingPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	return false;
-}
-
 
 std::vector<Move>  BishopController::generateValidMoves(sf::Vector2i pos, int board[8][8], bool isWhite) const {
 	std::vector<Move> validMoves;

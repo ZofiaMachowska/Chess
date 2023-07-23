@@ -21,73 +21,9 @@ bool KingController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 }
 
 bool KingController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
-	if (whitePlayerTurn && board[figurePos.y][figurePos.x] > 0) {
-		return blackCapture(figurePos, kingPos, board);
-	}
-	else if (!whitePlayerTurn && board[figurePos.y][figurePos.x] < 0) {
-		return whiteCapture(figurePos, kingPos, board);
-	}
-	else {
-		return false;
-	}
-}
-
-bool KingController::whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
-	if (oldPos.x - 1 >= 0 && oldPos.y - 1 >= 0 && kingPos.y == oldPos.y - 1 && kingPos.x == oldPos.x - 1 && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && kingPos.y == oldPos.x && kingPos.y == oldPos.y - 1 && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && oldPos.x + 1 < BOARD_LENGTH && kingPos.x == oldPos.x + 1 && kingPos.y == oldPos.y - 1 && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 <= BOARD_LENGTH && kingPos.y == oldPos.y && kingPos.x == oldPos.x + 1 && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 <= BOARD_LENGTH && oldPos.y + 1 <= BOARD_LENGTH && kingPos.y == oldPos.y + 1 && kingPos.x == oldPos.x + 1 && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.y + 1 <= BOARD_LENGTH && kingPos.y == oldPos.y + 1 && kingPos.x == oldPos.x && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && oldPos.y + 1 <= BOARD_LENGTH && kingPos.x == oldPos.x + 1 && kingPos.y == oldPos.y + 1 && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && kingPos.y == oldPos.y && kingPos.x == oldPos.x - 1 && board[kingPos.y][kingPos.x] <= 0) {
-		return true;
-	}
-	return false;
-
-}
-
-bool KingController::blackCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
-	if (oldPos.x - 1 >= 0 && oldPos.y - 1 >= 0 && kingPos.y == oldPos.y - 1 && kingPos.x == oldPos.x - 1 && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && kingPos.y == oldPos.x && kingPos.y == oldPos.y - 1 && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && oldPos.x + 1 < BOARD_LENGTH && kingPos.x == oldPos.x + 1 && kingPos.y == oldPos.y - 1 && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 <= BOARD_LENGTH && kingPos.y == oldPos.y && kingPos.x == oldPos.x + 1 && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 <= BOARD_LENGTH && oldPos.y + 1 <= BOARD_LENGTH && kingPos.y == oldPos.y + 1 && kingPos.x == oldPos.x + 1 && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.y + 1 <= BOARD_LENGTH && kingPos.y == oldPos.y + 1 && kingPos.x == oldPos.x && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && oldPos.y + 1 <= BOARD_LENGTH && kingPos.x == oldPos.x + 1 && kingPos.y == oldPos.y + 1 && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && kingPos.y == oldPos.y && kingPos.x == oldPos.x - 1 && board[kingPos.y][kingPos.x] >= 0) {
-		return true;
-	}
-	return false;
-
+	int kingPiece = board[kingPos.y][kingPos.x];
+	int figurePiece = board[figurePos.y][figurePos.x];
+	return (kingPiece < 0 && figurePiece < 0 || kingPiece > 0 && figurePiece > 0) ? false : isMovePossible(figurePos, kingPos, board, !whitePlayerTurn);
 }
 
 sf::Vector2i KingController::findKingPosition(int board[8][8], bool whitePlayerTurn) const {

@@ -14,10 +14,6 @@ public:
     sf::Vector2i findKingPosition(int board[8][8], bool isWhite) const;
 
 private:
-    bool whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const;
-
-    bool blackCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const;
-
     sf::Vector2i findWhiteKingPosition(int board[8][8]) const;
 
     sf::Vector2i findBlackKingPosition(int board[8][8]) const;
