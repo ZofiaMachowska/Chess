@@ -31,6 +31,11 @@ bool RookController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 		y += dy;
 	}
 
+	int targetPiece = board[newPos.y][newPos.x];
+	if (targetPiece < 0 && isWhite || targetPiece > 0 && !isWhite) {
+		return false;
+	}
+
 	// Je¿eli nie znaleziono przeszkód, ruch jest mo¿liwy
 	return true;
 }

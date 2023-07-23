@@ -9,29 +9,29 @@ bool PawnController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 
 	int dx = newPos.x - oldPos.x;
 	int dy = newPos.y - oldPos.y;
-
+	int targetPiece = board[newPos.y][newPos.x];
 	// Sprawdzamy, czy ruch jest mo¿liwy dla pionka
 	if (isWhite) {
 		// Ruchy pionka bia³ego
-		if (dy == -1 && std::abs(dx) == 1 && board[newPos.y][newPos.x] > 0) {
+		if (dy == -1 && std::abs(dx) == 1 && targetPiece > 0) {
 			return true; // Bicie w przek¹tnej
 		}
-		if (dy == -1 && dx == 0 && board[newPos.y][newPos.x] == 0) {
+		if (dy == -1 && dx == 0 && targetPiece == 0) {
 			return true; // Zwyk³y ruch do przodu o jedno pole
 		}
-		if (dy == -2 && dx == 0 && oldPos.y == 6 && board[newPos.y][newPos.x] == 0 && board[newPos.y + 1][newPos.x] == 0) {
+		if (dy == -2 && dx == 0 && oldPos.y == 6 && targetPiece == 0 && board[newPos.y + 1][newPos.x] == 0) {
 			return true; // Pionek wychodzi o 2 pola na starcie
 		}
 	}
 	else {
 		// Ruchy pionka czarnego
-		if (dy == 1 && std::abs(dx) == 1 && board[newPos.y][newPos.x] < 0) {
+		if (dy == 1 && std::abs(dx) == 1 && targetPiece < 0) {
 			return true; // Bicie w przek¹tnej
 		}
-		if (dy == 1 && dx == 0 && board[newPos.y][newPos.x] == 0) {
+		if (dy == 1 && dx == 0 && targetPiece == 0) {
 			return true; // Zwyk³y ruch do przodu o jedno pole
 		}
-		if (dy == 2 && dx == 0 && oldPos.y == 1 && board[newPos.y][newPos.x] == 0 && board[newPos.y - 1][newPos.x] == 0) {
+		if (dy == 2 && dx == 0 && oldPos.y == 1 && targetPiece == 0 && board[newPos.y - 1][newPos.x] == 0) {
 			return true; // Pionek wychodzi o 2 pola na starcie
 		}
 	}

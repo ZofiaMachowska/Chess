@@ -6,6 +6,11 @@ bool QueenController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, i
 		return false;
 	}
 
+	int targetPiece = board[newPos.y][newPos.x];
+	if (targetPiece < 0 && isWhite || targetPiece > 0 && !isWhite) {
+		return false;
+	}
+
 	// Ruch w pionie/poziomie (tak samo jak dla wie¿y)
 	if ((oldPos.x != newPos.x && oldPos.y == newPos.y) || (oldPos.x == newPos.x && oldPos.y != newPos.y)) {
 		int dx = 0, dy = 0;

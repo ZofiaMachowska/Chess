@@ -8,9 +8,10 @@ bool KingController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 
 	int dx = std::abs(newPos.x - oldPos.x);
 	int dy = std::abs(newPos.y - oldPos.y);
+	int targetPiece = board[newPos.y][newPos.x];
 
 	// Sprawdzamy, czy ruch jest mo¿liwy dla króla
-	if (dx <= 1 && dy <= 1 && (board[newPos.y][newPos.x] >= 0 && isWhite || board[newPos.y][newPos.x] <= 0 && !isWhite)) {
+	if (dx <= 1 && dy <= 1 && (targetPiece >= 0 && isWhite || targetPiece <= 0 && !isWhite)) {
 		// Ruch o jedno pole w dowolnym kierunku
 		return true;
 	}
