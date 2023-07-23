@@ -32,7 +32,18 @@ void PlayerController::switchPlayer(int board[][8]) {
 	}
 }
 
+void PlayerController::resetFirstPlayer() {
+	player1->setActiveState(true);
+	player2->setActiveState(false);
+}
+
 void PlayerController::startTimer() {
+	player1->timer->stop();
+	player2->timer->stop();
+
+	player1->timer->reset();
+	player2->timer->reset();
+
 	player1->timer->start();
 	player2->timer->start();
 	player2->timer->stop();

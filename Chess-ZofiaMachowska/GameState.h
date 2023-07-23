@@ -4,6 +4,7 @@
 #include "UIBoardController.h"
 #include "AIController.h"
 #include "AppState.h"
+#include "Application.h"
 
 class GameState : public AppState {
 private: 

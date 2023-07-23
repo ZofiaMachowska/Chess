@@ -10,6 +10,7 @@ public:
 	bool isActivePlayerAI();
 	void switchPlayer(int board[][8]);
 	void startTimer();
+	void resetFirstPlayer();
 	Player* getCurrentPlayer();
 
 private:

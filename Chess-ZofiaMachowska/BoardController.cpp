@@ -260,8 +260,9 @@ void BoardController::resetBoard() {
 }
 
 void BoardController::startNewGame() {
-    resetBoard();
     gameOver = false;
+    resetBoard();
+    playerController.resetFirstPlayer();
     playerController.startTimer();
 }
 

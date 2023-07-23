@@ -16,6 +16,13 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
     {
         board.onBoardClicked(boardPosition);
+        if (uiController.saveButton->isMouseOver(mousePos)) {
+            std::cout << "Save button klikniety"  << std::endl;
+        }
+        if (uiController.backButton->isMouseOver(mousePos)) {
+            std::cout << "back button klikniety" << std::endl;
+            Application::changeAppState(std::make_unique<MenuState>());
+        }
         uiController.printBoardDebug(board.getBoard());
     }
 

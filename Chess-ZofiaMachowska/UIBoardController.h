@@ -20,6 +20,9 @@ public:
 
     void printBoardDebug(int board[][8]);
 
+    Button* backButton;
+    Button* saveButton;
+
 private:
     const int WINDOW_HEIGHT = 800;
     const int WINDOW_WIDTH = 1200;
@@ -38,8 +41,6 @@ private:
     sf::Sprite pawnWSprite, rookWSprite, knightWSprite, bishopWSprite, queenWSprite, kingWSprite;
     sf::Sprite pawnBSprite, rookBSprite, knightBSprite, bishopBSprite, queenBSprite, kingBSprite;
     sf::Sprite boardSprite;
-    Button* backButton;
-    Button* saveButton;
 
     sf::Font font;
     sf::Text title, timerInformation;
