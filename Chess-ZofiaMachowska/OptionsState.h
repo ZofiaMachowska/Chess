@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "AppState.h"
 #include "UIOptionsController.h"
-
+#include "Application.h"
 
 class OptionsState : public AppState {
 private:

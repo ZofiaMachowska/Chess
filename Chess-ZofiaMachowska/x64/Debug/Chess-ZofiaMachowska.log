@@ -1,2 +1,8 @@
-﻿  PlayerController.cpp
+﻿  Application.cpp
+  GameState.cpp
+  Main.cpp
+  MenuState.cpp
+  OptionsState.cpp
+  UIOptionsController.cpp
+  Generating Code...
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe

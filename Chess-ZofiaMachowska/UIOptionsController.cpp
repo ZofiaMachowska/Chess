@@ -3,14 +3,15 @@
 UIOptionsController::UIOptionsController() {
     player1CheckBox = new Checkbox(font, "Artificial", 40, sf::Vector2f(600.f, 280.f));
     player2CheckBox = new Checkbox(font, "Artificial", 40, sf::Vector2f(600.f, 430.f));
+    backButton = new Button(sf::Vector2f(20, 20), sf::Vector2f(180, 70), font, "Return", 36);
 }
 
 void UIOptionsController::redrawWindow(sf::RenderWindow& window) {
     window.draw(player1AIText);
     window.draw(player2AIText);
-    window.draw(returnText);
     player1CheckBox->draw(window);
     player2CheckBox->draw(window);
+    backButton->draw(window);
 }
 
 void UIOptionsController::initializeVisuals() {
@@ -27,11 +28,6 @@ void UIOptionsController::initializeVisuals() {
     player1AIText.setCharacterSize(fontSize);
     player1AIText.setPosition(310.f, 250.f);
 
-    returnText.setFont(font);
-    returnText.setString("Return");
-    returnText.setCharacterSize(40);
-    returnText.setPosition(20.f, 20.f);
-
     player2AIText.setFont(font);
     player2AIText.setString("Player 2: ");
     player2AIText.setCharacterSize(fontSize);
@@ -39,5 +35,5 @@ void UIOptionsController::initializeVisuals() {
 }
 
 void UIOptionsController::handleButtonPress(sf::RenderWindow& window) {
-   
+  
 }
