@@ -2,8 +2,37 @@
 
 
 bool RookController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8], bool isWhite) const {
-	if (isWhite) return whiteMove(oldPos, newPos, board);
-	return blackMove(oldPos, newPos, board);
+	if (!isOnBoard(oldPos.x, oldPos.y) || !isOnBoard(newPos.x, newPos.y)) {
+		return false;
+	}
+
+	// Sprawdzamy, czy nowa pozycja jest na tej samej linii (wierszu lub kolumnie) co stara pozycja
+	if (oldPos.x != newPos.x && oldPos.y != newPos.y) {
+		return false;
+	}
+
+	// Sprawdzamy, czy na drodze do nowej pozycji nie ma innych pionków
+	int dx = 0, dy = 0;
+	if (oldPos.x != newPos.x) {
+		dx = (newPos.x - oldPos.x) / std::abs(newPos.x - oldPos.x);
+	}
+	if (oldPos.y != newPos.y) {
+		dy = (newPos.y - oldPos.y) / std::abs(newPos.y - oldPos.y);
+	}
+
+	int x = oldPos.x + dx;
+	int y = oldPos.y + dy;
+
+	while (x != newPos.x || y != newPos.y) {
+		if (board[y][x] != 0) {
+			return false;
+		}
+		x += dx;
+		y += dy;
+	}
+
+	// Je¿eli nie znaleziono przeszkód, ruch jest mo¿liwy
+	return true;
 }
 
 bool RookController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
@@ -16,78 +45,6 @@ bool RookController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingP
 	else {
 		return false;
 	}
-}
-
-bool RookController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
-	for (int i = oldPos.x - 1; i >= 0; i--) {
-		if (board[oldPos.y][i] >= 0 && (newPos.x == i && newPos.y == oldPos.y)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][oldPos.x] >= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.x + 1; i <= BOARD_LENGTH; i++) {
-		if (board[oldPos.y][i] >= 0 && (newPos.y == oldPos.y && newPos.x == i)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][oldPos.x] >= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	return false;
-}
-
-bool RookController::blackMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
-	for (int i = oldPos.x - 1; i >= 0; i--) {
-		if (board[oldPos.y][i] <= 0 && (newPos.x == i && newPos.y == oldPos.y)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][oldPos.x] <= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.x + 1; i <= BOARD_LENGTH; i++) {
-		if (board[oldPos.y][i] <= 0 && (newPos.y == oldPos.y && newPos.x == i)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][oldPos.x] <= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	return false;
 }
 
 bool RookController::whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {

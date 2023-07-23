@@ -2,8 +2,42 @@
 
 
 bool PawnController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, int board[][8], bool isWhite) const {
-	if (isWhite) return whiteMove(oldPos, newPos, board);
-	return blackMove(oldPos, newPos, board);
+	// Sprawdzamy, czy pozycje s¹ na planszy
+	if (!isOnBoard(oldPos.x, oldPos.y) || !isOnBoard(newPos.x, newPos.y)) {
+		return false;
+	}
+
+	int dx = newPos.x - oldPos.x;
+	int dy = newPos.y - oldPos.y;
+
+	// Sprawdzamy, czy ruch jest mo¿liwy dla pionka
+	if (isWhite) {
+		// Ruchy pionka bia³ego
+		if (dy == -1 && std::abs(dx) == 1 && board[newPos.y][newPos.x] > 0) {
+			return true; // Bicie w przek¹tnej
+		}
+		if (dy == -1 && dx == 0 && board[newPos.y][newPos.x] == 0) {
+			return true; // Zwyk³y ruch do przodu o jedno pole
+		}
+		if (dy == -2 && dx == 0 && oldPos.y == 6 && board[newPos.y][newPos.x] == 0 && board[newPos.y + 1][newPos.x] == 0) {
+			return true; // Pionek wychodzi o 2 pola na starcie
+		}
+	}
+	else {
+		// Ruchy pionka czarnego
+		if (dy == 1 && std::abs(dx) == 1 && board[newPos.y][newPos.x] < 0) {
+			return true; // Bicie w przek¹tnej
+		}
+		if (dy == 1 && dx == 0 && board[newPos.y][newPos.x] == 0) {
+			return true; // Zwyk³y ruch do przodu o jedno pole
+		}
+		if (dy == 2 && dx == 0 && oldPos.y == 1 && board[newPos.y][newPos.x] == 0 && board[newPos.y - 1][newPos.x] == 0) {
+			return true; // Pionek wychodzi o 2 pola na starcie
+		}
+	}
+
+	// W przeciwnym przypadku ruch nie jest mo¿liwy
+	return false;
 }
 
 bool PawnController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
@@ -18,54 +52,6 @@ bool PawnController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingP
 	}
 }
 
-//czy moze byc wykonany krok dla bialego pionka
-bool PawnController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[][8]) const {
-	if (oldPos.y == 6) {
-		if ((newPos.y == oldPos.y - 1 && newPos.x == oldPos.x && board[oldPos.y - 1][oldPos.x] == 0) ||
-			(newPos.y == oldPos.y - 2 && newPos.x == oldPos.x && board[oldPos.y - 1][oldPos.x] == 0 && board[oldPos.y - 2][oldPos.x] == 0)) {
-			return true;
-		}
-	} 
-	else if (newPos.y == oldPos.y - 1 && newPos.x == oldPos.x && board[oldPos.y - 1][oldPos.x] == 0) {
-		return true;
-	}
-
-	if (board[oldPos.y - 1][oldPos.x - 1] > 0) {
-		if (newPos.y == oldPos.y - 1 && newPos.x == oldPos.x - 1) {
-			return true;
-		}
-	}
-	if (board[oldPos.y - 1][oldPos.x + 1] > 0) {
-		if (newPos.y == oldPos.y - 1 && newPos.x == oldPos.x + 1) {
-			return true;
-		}
-	}
-	return false;
-}
-
-bool PawnController::blackMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
-	if (oldPos.y == 1) {
-		if ((newPos.y == oldPos.y + 1 && newPos.x == oldPos.x && board[oldPos.y + 1][oldPos.x] == 0) ||
-			(newPos.y == oldPos.y + 2 && newPos.x == oldPos.x && board[oldPos.y + 1][oldPos.x] == 0 && board[oldPos.y + 2][oldPos.x] == 0)) {
-			return true;
-		}
-	}
-	else if (newPos.y == oldPos.y + 1 && newPos.x == oldPos.x && board[oldPos.y + 1][oldPos.x] == 0) {
-		return true;
-	}
-
-	if (board[oldPos.y + 1][oldPos.x - 1] < 0) {
-		if (newPos.y == oldPos.y + 1 && newPos.x == oldPos.x - 1) {
-			return true;
-		}
-	}
-	if (board[oldPos.y + 1][oldPos.x + 1] < 0) {
-		if (newPos.y == oldPos.y + 1 && newPos.x == oldPos.x + 1) {
-			return true;
-		}
-	}
-	return false;
-}
 
 bool PawnController::whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
 	if (board[oldPos.y - 1][oldPos.x - 1] >= 0) {

@@ -2,8 +2,21 @@
 
 
 bool KingController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8], bool isWhite) const {
-	if (isWhite) return whiteMove(oldPos, newPos, board);
-	return blackMove(oldPos, newPos, board);
+	if (!isOnBoard(oldPos.x, oldPos.y) || !isOnBoard(newPos.x, newPos.y)) {
+		return false;
+	}
+
+	int dx = std::abs(newPos.x - oldPos.x);
+	int dy = std::abs(newPos.y - oldPos.y);
+
+	// Sprawdzamy, czy ruch jest mo¿liwy dla króla
+	if (dx <= 1 && dy <= 1 && (board[newPos.y][newPos.x] >= 0 && isWhite || board[newPos.y][newPos.x] <= 0 && !isWhite)) {
+		// Ruch o jedno pole w dowolnym kierunku
+		return true;
+	}
+
+	// W przeciwnym przypadku ruch nie jest mo¿liwy
+	return false;
 }
 
 bool KingController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
@@ -17,64 +30,6 @@ bool KingController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingP
 		return false;
 	}
 }
-
-bool KingController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
-	if (oldPos.x - 1 >= 0 && oldPos.y - 1 >= 0 && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && newPos.x == oldPos.x && newPos.y == oldPos.y - 1 && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && oldPos.x + 1 < 8 && newPos.x == oldPos.x + 1 && newPos.y == oldPos.y - 1 && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 < 8 && newPos.y == oldPos.y && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 < 8 && oldPos.y + 1 < 8 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.y + 1 < 8 && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && oldPos.y + 1 < 8 && newPos.x == oldPos.x - 1 && newPos.y == oldPos.y + 1 && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && newPos.y == oldPos.y && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] >= 0) {
-		return true;
-	}
-	return false;
-}
-
-
-bool KingController::blackMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
-	if (oldPos.x - 1 >= 0 && oldPos.y - 1 >= 0 && newPos.y == oldPos.y - 1 && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && newPos.x == oldPos.x && newPos.y == oldPos.y - 1 && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.y - 1 >= 0 && oldPos.x + 1 < BOARD_LENGTH && newPos.x == oldPos.x + 1 && newPos.y == oldPos.y - 1 && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 < BOARD_LENGTH && newPos.y == oldPos.y && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x + 1 < BOARD_LENGTH && oldPos.y + 1 < BOARD_LENGTH && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x + 1 && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.y + 1 < BOARD_LENGTH && newPos.y == oldPos.y + 1 && newPos.x == oldPos.x && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && oldPos.y + 1 < BOARD_LENGTH && newPos.x == oldPos.x - 1 && newPos.y == oldPos.y + 1 && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	if (oldPos.x - 1 >= 0 && newPos.y == oldPos.y && newPos.x == oldPos.x - 1 && board[newPos.y][newPos.x] <= 0) {
-		return true;
-	}
-	return false;
-}
-
 
 bool KingController::whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
 	if (oldPos.x - 1 >= 0 && oldPos.y - 1 >= 0 && kingPos.y == oldPos.y - 1 && kingPos.x == oldPos.x - 1 && board[kingPos.y][kingPos.x] <= 0) {

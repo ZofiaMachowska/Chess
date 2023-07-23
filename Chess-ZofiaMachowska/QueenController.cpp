@@ -1,8 +1,56 @@
 #include "QueenController.h"
 
 bool QueenController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8], bool isWhite) const {
-	if (isWhite) return whiteMove(oldPos, newPos, board);
-	return blackMove(oldPos, newPos, board);
+	// Sprawdzamy, czy pozycje s¹ na planszy
+	if (!isOnBoard(oldPos.x, oldPos.y) || !isOnBoard(newPos.x, newPos.y)) {
+		return false;
+	}
+
+	// Ruch w pionie/poziomie (tak samo jak dla wie¿y)
+	if ((oldPos.x != newPos.x && oldPos.y == newPos.y) || (oldPos.x == newPos.x && oldPos.y != newPos.y)) {
+		int dx = 0, dy = 0;
+		if (oldPos.x != newPos.x) {
+			dx = (newPos.x - oldPos.x) / std::abs(newPos.x - oldPos.x);
+		}
+		if (oldPos.y != newPos.y) {
+			dy = (newPos.y - oldPos.y) / std::abs(newPos.y - oldPos.y);
+		}
+
+		int x = oldPos.x + dx;
+		int y = oldPos.y + dy;
+
+		while (x != newPos.x || y != newPos.y) {
+			if (board[y][x] != 0) {
+				return false;
+			}
+			x += dx;
+			y += dy;
+		}
+
+		return true;
+	}
+
+	// Ruch po przek¹tnej (tak samo jak dla goñca)
+	if (std::abs(newPos.x - oldPos.x) == std::abs(newPos.y - oldPos.y)) {
+		int dx = (newPos.x - oldPos.x) / std::abs(newPos.x - oldPos.x);
+		int dy = (newPos.y - oldPos.y) / std::abs(newPos.y - oldPos.y);
+
+		int x = oldPos.x + dx;
+		int y = oldPos.y + dy;
+
+		while (x != newPos.x || y != newPos.y) {
+			if (board[y][x] != 0) {
+				return false;
+			}
+			x += dx;
+			y += dy;
+		}
+
+		return true;
+	}
+
+	// W przeciwnym przypadku ruch nie jest mo¿liwy
+	return false;
 }
 
 bool QueenController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingPos, int board[8][8], bool whitePlayerTurn) const {
@@ -15,159 +63,6 @@ bool QueenController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i king
 	else {
 		return false;
 	}
-}
-
-bool QueenController::whiteMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
-	for (int i = oldPos.x - 1; i >= 0; i--) {
-		if (board[oldPos.y][i] >= 0 && (newPos.x == i && newPos.y == oldPos.y)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][oldPos.x] >= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.x + 1; i <= BOARD_LENGTH; i++) {
-		if (board[oldPos.y][i] >= 0 && (newPos.y == oldPos.y && newPos.x == i)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][oldPos.x] >= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	int j = oldPos.x - 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] >= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] >= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	j = oldPos.x - 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] >= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] >= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	return false;
-
-}
-
-bool QueenController::blackMove(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8]) const {
-	for (int i = oldPos.x - 1; i >= 0; i--) {
-		if (board[oldPos.y][i] <= 0 && (newPos.x == i && newPos.y == oldPos.y)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][oldPos.x] <= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.x + 1; i <= BOARD_LENGTH; i++) {
-		if (board[oldPos.y][i] <= 0 && (newPos.y == oldPos.y && newPos.x == i)) {
-			return true;
-		}
-		else if (board[oldPos.y][i] != 0) {
-			break;
-		}
-	}
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][oldPos.x] <= 0 && (newPos.y == i && newPos.x == oldPos.x)) {
-			return true;
-		}
-		else if (board[i][oldPos.x] != 0) {
-			break;
-		}
-	}
-	int j = oldPos.x - 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] <= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y - 1; i >= 0; i--) {
-		if (board[i][j] <= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	j = oldPos.x - 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] <= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j--;
-	}
-	j = oldPos.x + 1;
-	for (int i = oldPos.y + 1; i <= BOARD_LENGTH; i++) {
-		if (board[i][j] <= 0 && (newPos.y == i && newPos.x == j)) {
-			return true;
-		}
-		else if (board[i][j] != 0) {
-			break;
-		}
-		j++;
-	}
-	return false;
 }
 
 bool QueenController::whiteCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8]) const {
