@@ -1,9 +1,7 @@
 #include "UIOptionsController.h"
 
 UIOptionsController::UIOptionsController() {
-    player1CheckBox = new Checkbox(font, "Artificial", 40, sf::Vector2f(600.f, 280.f));
-    player2CheckBox = new Checkbox(font, "Artificial", 40, sf::Vector2f(600.f, 430.f));
-    backButton = new Button(sf::Vector2f(20, 20), sf::Vector2f(180, 70), font, "Return", 36);
+    initializeVisuals();
 }
 
 void UIOptionsController::redrawWindow(sf::RenderWindow& window) {
@@ -21,7 +19,6 @@ void UIOptionsController::initializeVisuals() {
     }
 
     const int fontSize = 60; 
-    const int spacingY = 150; 
 
     player1AIText.setFont(font);
     player1AIText.setString("Player 1: ");
@@ -31,7 +28,11 @@ void UIOptionsController::initializeVisuals() {
     player2AIText.setFont(font);
     player2AIText.setString("Player 2: ");
     player2AIText.setCharacterSize(fontSize);
-    player2AIText.setPosition(310.f, player1AIText.getPosition().y + spacingY);
+    player2AIText.setPosition(310.f, player1AIText.getPosition().y + 150);
+
+    player1CheckBox = new Checkbox(font, "Artificial", 40, sf::Vector2f(600.f, 280.f));
+    player2CheckBox = new Checkbox(font, "Artificial", 40, sf::Vector2f(600.f, 430.f));
+    backButton = new Button(sf::Vector2f(20, 20), sf::Vector2f(180, 70), font, "Return", 36);
 }
 
 void UIOptionsController::handleButtonPress(sf::RenderWindow& window) {

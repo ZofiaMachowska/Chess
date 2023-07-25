@@ -26,5 +26,4 @@ void OptionsState::render(sf::RenderWindow& window) {
 }
 
 void OptionsState::initialize() {
-	uiOptionsController.initializeVisuals();
 }

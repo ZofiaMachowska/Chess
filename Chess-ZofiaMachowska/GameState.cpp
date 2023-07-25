@@ -3,7 +3,6 @@
 GameState::GameState() : board(), uiController(), event() {
 }
 
-
 void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     sf::Vector2i boardPosition(mousePos.x / 100, mousePos.y / 100);
@@ -34,7 +33,6 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 }
 
 void GameState::initialize() {
-    uiController.setFiguresVisuals();
     board.startNewGame();
 }
 

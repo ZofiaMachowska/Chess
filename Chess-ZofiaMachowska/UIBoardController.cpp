@@ -4,26 +4,13 @@
 #include <thread>
 
 UIBoardController::UIBoardController() {
-    saveButton = new Button(sf::Vector2f(870, 600), sf::Vector2f(280, 70), font, "Save Game", 36);
-    backButton = new Button(sf::Vector2f(870, 700), sf::Vector2f(280, 70), font, "Back", 36);
+    setFiguresVisuals();
 }
 
 //UIBoardController::~UIBoardController() {
 //    delete saveButton;
 //    delete backButton;
 //}
-
-int UIBoardController::getWindowWidth() const {
-    return WINDOW_WIDTH;
-}
-
-int UIBoardController::getWindowHeight() const {
-    return WINDOW_HEIGHT;
-}
-
-int UIBoardController::getSquareSize() const{
-    return SQUARE_SIZE;
-}
 
 void UIBoardController::drawPiece(sf::RenderWindow& window, sf::Sprite piece, int j, int i) {
     piece.setPosition(j * SQUARE_SIZE, i * SQUARE_SIZE);
@@ -71,6 +58,9 @@ void UIBoardController::setFiguresVisuals() {
     timerInformation.setCharacterSize(30);
     timerInformation.setFillColor(sf::Color::White);
     timerInformation.setPosition(840, 100);
+
+    saveButton = new Button(sf::Vector2f(870, 600), sf::Vector2f(280, 70), font, "Save Game", 36);
+    backButton = new Button(sf::Vector2f(870, 700), sf::Vector2f(280, 70), font, "Back", 36);
 }
 
 void UIBoardController::printBoardDebug(int board[][8]) {
@@ -120,17 +110,20 @@ void UIBoardController::redrawChessMove(sf::RenderWindow& window, sf::Vector2i m
     window.draw(movedSprite);
 }
 
-void UIBoardController::redrawInfoPannel(sf::RenderWindow& window, Player* currentPlayer, bool isGameOver) {
+void UIBoardController::calculateTimer(std::pair<int, int> time) {
     std::string minutes, seconds;
-    std::pair<int, int> time = currentPlayer->timer->getTime();
     minutes = std::to_string(time.first);
     seconds = time.second == 0 ? "00" : std::to_string(time.second);
     if (time.second < 10) {
         seconds = '0' + std::to_string(time.second);
     }
     timerInformation.setString("Remaining Time: " + minutes + ':' + seconds);
+}
+
+void UIBoardController::redrawInfoPannel(sf::RenderWindow& window, Player* currentPlayer, bool isGameOver) {
     if (!isGameOver) {
         title.setString(currentPlayer->getColor() + " Player Turn");
+        calculateTimer(currentPlayer->timer->getTime());
         window.draw(timerInformation);
     }
     else {
@@ -190,8 +183,6 @@ void UIBoardController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mouse
             }
         }
     }
-
-    //rysowanie wlasnie poruszanej przez gracza figury
     redrawChessMove(window, mousePos, movedFigure);
     redrawInfoPannel(window, currentPlayer, gameOver);
 }

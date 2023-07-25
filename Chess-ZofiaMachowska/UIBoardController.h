@@ -12,12 +12,6 @@ public:
 
     void setFiguresVisuals();
 
-    int getWindowHeight() const;
-
-    int getWindowWidth() const;
-
-    int getSquareSize() const;
-
     void printBoardDebug(int board[][8]);
 
     Button* backButton;
@@ -33,6 +27,7 @@ private:
     sf::Sprite getMovedFigureSprite(int movedFigure);
     void redrawChessMove(sf::RenderWindow& window, sf::Vector2i mousePos, int movedFigure);
     void redrawInfoPannel(sf::RenderWindow& window, Player* currentPlayer, bool isGameOver);
+    void calculateTimer(std::pair<int, int> time);
 
     sf::Texture pawnWTexture, rookWTexture, knightWTexture, bishopWTexture, queenWTexture, kingWTexture;
     sf::Texture pawnBTexture, rookBTexture, knightBTexture, bishopBTexture, queenBTexture, kingBTexture;

@@ -48,9 +48,7 @@ private:
 	static KingController king;
 	static PlayerController playerController;
 
-	void moveThisPiece(int pieceNumber, sf::Vector2i position);
-	void moveBlackPiece(sf::Vector2i position);
-	void moveWhitePiece(sf::Vector2i position);
+	void moveThisPiece(bool whitePlayer, int pieceNumber, sf::Vector2i position);
 	bool checkKingSafe(sf::Vector2i pos, bool whitePlayer);
 	void checkPlayerMoveValidity(sf::Vector2i pos, bool kingSafe, bool movePossible);
 	void handleNoValidMoves();

@@ -3,10 +3,12 @@
 #include <vector>
 #include <iostream>
 #include <functional>
+#include "Button.h"
 
 class UIMenuController
 {
 public:
+	UIMenuController();
    void redrawWindow(sf::RenderWindow& window);
    void initializeVisuals();
    void handleButtonPress(sf::RenderWindow& window);
@@ -16,8 +18,11 @@ public:
    void setOptionsCallback(std::function<void()> callback);
 
 private:
-	sf::Text titleText, newGameText, loadGameText, optionsText, exitText;
-	sf::RectangleShape newGameButton, loadGameButton, optionsButton, exitButton;
+	sf::Text titleText;
 	sf::Font font;
 	std::function<void()> newGameCallback, loadGameCallback, optionsCallback;
+	Button* newGameButton;
+	Button* loadGameButton;
+	Button* optionsButton;
+	Button* exitButton;
 };

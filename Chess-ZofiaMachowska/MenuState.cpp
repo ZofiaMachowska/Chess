@@ -19,7 +19,6 @@ void MenuState::render(sf::RenderWindow& window) {
 }
 
 void MenuState::initialize() {
-    uiMenuController.initializeVisuals();
 
     uiMenuController.setNewGameCallback([this]() {
         std::cout << "udany callback dla setNewGame" << std::endl;

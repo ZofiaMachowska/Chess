@@ -40,58 +40,10 @@ Player* BoardController::getCurrentPlayer() {
     return playerController.getCurrentPlayer();
 }
 
-void BoardController::moveThisPiece(int pieceNumber, sf::Vector2i position) {
-    movedFigure = pieceNumber;
-    chessBoard[position.y][position.x] = 0;
-}
-
-void BoardController::moveBlackPiece(sf::Vector2i position) {
-    switch (chessBoard[position.y][position.x]) {
-    case 1:
-        moveThisPiece(1,  position);
-        break;
-    case 2:
-        moveThisPiece(2,  position);
-        break;
-    case 3:
-        moveThisPiece(3, position);
-        break;
-    case 4:
-        moveThisPiece(4, position);
-        break;
-    case 5:
-        moveThisPiece(5, position);
-        break;
-    case 6:
-        moveThisPiece(6, position);
-        break;
-    default:
-        break;
-    }
-}
-
-void BoardController::moveWhitePiece(sf::Vector2i position) {
-    switch (chessBoard[position.y][position.x]) {
-    case -1:
-        moveThisPiece(-1, position);
-        break;
-    case -2:
-        moveThisPiece(-2, position);
-        break;
-    case -3:
-        moveThisPiece(-3, position);
-        break;
-    case -4:
-        moveThisPiece(-4, position);
-        break;
-    case -5:
-        moveThisPiece(-5, position);
-        break;
-    case -6:
-        moveThisPiece(-6, position);
-        break;
-    default:
-        break;
+void BoardController::moveThisPiece(bool whitePlayer, int pieceNumber, sf::Vector2i position) {
+    if (whitePlayer && pieceNumber < 0 || !whitePlayer && pieceNumber >0) {
+        movedFigure = pieceNumber;
+        chessBoard[position.y][position.x] = 0;
     }
 }
 
@@ -99,11 +51,12 @@ void BoardController::onBoardClicked(sf::Vector2i pos) {
     if (playerController.isActivePlayerAI()) return;
     if (chessBoard[pos.y][pos.x] == 0 || !isOnBoard(pos.x, pos.y) || gameOver) return;
 
-    sf::Vector2i boardPosition(pos.x, pos.y);
     bool whitePlayerTurn = playerController.isFirstPlayerTurn();
+    int pieceType = chessBoard[pos.y][pos.x];
 
-    if (whitePlayerTurn) moveWhitePiece(boardPosition);
-    else moveBlackPiece(boardPosition);
+    if (abs(pieceType) > 0 && abs(pieceType) <= 6) {
+        moveThisPiece(whitePlayerTurn, pieceType, pos);
+    }
 
     //wejscie w ten warunek oznacza, ze udalo sie podniesc figure
     if (chessBoard[pos.y][pos.x] == 0) {

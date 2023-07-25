@@ -15,7 +15,7 @@ void Application::run() {
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My Application");
     window.setVerticalSyncEnabled(true);
 
-    Application::currentState = std::make_unique<GameState>();
+    Application::currentState = std::make_unique<MenuState>();
     Application::currentState->initialize();
 
     while (window.isOpen()) {
