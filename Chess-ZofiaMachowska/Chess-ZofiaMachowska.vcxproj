@@ -143,6 +143,7 @@
     <ClCompile Include="Checkbox.cpp" />
     <ClCompile Include="ChessPieceController.cpp" />
     <ClCompile Include="LoadingState.cpp" />
+    <ClCompile Include="SavingGameController.cpp" />
     <ClCompile Include="shared.cpp" />
     <ClCompile Include="UIBoardController.cpp" />
     <ClCompile Include="PlayerController.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="KingController.cpp" />
     <ClCompile Include="KnightController.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="UILoadingController.cpp" />
     <ClCompile Include="UIMenuController.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="OptionsState.cpp" />
@@ -172,12 +174,14 @@
     <ClInclude Include="chessStructures.h" />
     <ClInclude Include="LoadingState.h" />
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="SavingGameController.h" />
     <ClInclude Include="shared.h" />
     <ClInclude Include="UIBoardController.h" />
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="KingController.h" />
     <ClInclude Include="KnightController.h" />
+    <ClInclude Include="UILoadingController.h" />
     <ClInclude Include="UIMenuController.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="OptionsState.h" />

@@ -12,12 +12,12 @@ void UIOptionsController::redrawWindow(sf::RenderWindow& window) {
     backButton->draw(window);
 }
 
+void  UIOptionsController::setOptionsReturnCallback(std::function<void()> callback) {
+    optionsReturnCallback = std::move(callback);
+}
+
 void UIOptionsController::initializeVisuals() {
     font.loadFromFile("arial.ttf");
-    if (!font.loadFromFile("arial.ttf")) {
-        // Obs³uga b³êdu wczytywania czcionki
-    }
-
     const int fontSize = 60; 
 
     player1AIText.setFont(font);
@@ -36,5 +36,12 @@ void UIOptionsController::initializeVisuals() {
 }
 
 void UIOptionsController::handleButtonPress(sf::RenderWindow& window) {
-  
+    player1CheckBox->handleEvent(window);
+    player2CheckBox->handleEvent(window);
+    sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
+    if (backButton->isMouseOver(mousePosition)) {
+        if (optionsReturnCallback) {
+            optionsReturnCallback();
+        }
+    }
 }

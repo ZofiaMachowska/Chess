@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Function">
       <UniqueIdentifier>{7ac791cf-ffb4-40e4-b8ba-a72041479b28}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Shared">
+      <UniqueIdentifier>{014c4fa2-4365-4639-9cfb-d13268b78346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shared">
+      <UniqueIdentifier>{e52ba33e-6630-4e31-b7ce-edc9f37f5ba7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -105,13 +111,19 @@
     <ClCompile Include="UIOptionsController.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Shared</Filter>
+    </ClCompile>
     <ClCompile Include="Checkbox.cpp">
-      <Filter>Source Files\UI</Filter>
+      <Filter>Source Files\Shared</Filter>
     </ClCompile>
     <ClCompile Include="shared.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shared</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
+    <ClCompile Include="SavingGameController.cpp">
+      <Filter>Source Files\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="UILoadingController.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -179,22 +191,28 @@
     <ClInclude Include="UIOptionsController.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Checkbox.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="resource1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Header Files\Function</Filter>
     </ClInclude>
-    <ClInclude Include="chessStructures.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="shared.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="chessStructures.h">
+      <Filter>Header Files\Shared</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Checkbox.h">
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="SavingGameController.h">
+      <Filter>Header Files\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="UILoadingController.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

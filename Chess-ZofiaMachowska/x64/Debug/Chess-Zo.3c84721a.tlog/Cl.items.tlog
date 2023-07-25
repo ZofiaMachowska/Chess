@@ -7,6 +7,7 @@ C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Button.cpp;C:\Users\Zosia
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Checkbox.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Checkbox.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\ChessPieceController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\ChessPieceController.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\LoadingState.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\LoadingState.obj
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\SavingGameController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\SavingGameController.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\shared.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\shared.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\UIBoardController.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\PlayerController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\PlayerController.obj
@@ -14,6 +15,7 @@ C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\GameState.cpp;C:\Users\Zo
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KingController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\KingController.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KnightController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\KnightController.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Main.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Main.obj
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UILoadingController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\UILoadingController.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIMenuController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\UIMenuController.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\MenuState.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\MenuState.obj
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\OptionsState.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\OptionsState.obj

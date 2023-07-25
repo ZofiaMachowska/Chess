@@ -19,19 +19,15 @@ void MenuState::render(sf::RenderWindow& window) {
 }
 
 void MenuState::initialize() {
-
     uiMenuController.setNewGameCallback([this]() {
-        std::cout << "udany callback dla setNewGame" << std::endl;
         Application::changeAppState(std::make_unique<GameState>());
         });
 
-  /*  uiMenuController.setLoadGameCallback([this]() {
-        std::cout << "udany callback dla options" << std::endl;
+    uiMenuController.setLoadGameCallback([this]() {
         Application::changeAppState(std::make_unique<LoadingState>());
-        });*/
+        });
 
     uiMenuController.setOptionsCallback([this]() {
-        std::cout << "udany callback dla options" << std::endl;
         Application::changeAppState(std::make_unique<OptionsState>());
         });
 }

@@ -1,7 +1,9 @@
-﻿  UIBoardController.cpp
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(16,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(16,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(109,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(109,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(104): warning C4715: 'UIBoardController::getMovedFigureSprite': not all control paths return a value
+﻿  Application.cpp
+  GameState.cpp
+  LoadingState.cpp
+  Main.cpp
+  MenuState.cpp
+  OptionsState.cpp
+  UIOptionsController.cpp
+  Generating Code...
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe

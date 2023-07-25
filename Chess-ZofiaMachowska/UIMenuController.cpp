@@ -43,7 +43,6 @@ void  UIMenuController::setOptionsCallback(std::function<void()> callback) {
 
 void UIMenuController::handleButtonPress(sf::RenderWindow& window) {
     sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-    sf::Vector2f mousePositionFloat(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
 
     if (newGameButton->isMouseOver(mousePosition)) {
         if (newGameCallback) {

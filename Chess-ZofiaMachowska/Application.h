@@ -9,6 +9,7 @@
 #include "AppState.h"
 #include "MenuState.h"
 #include "GameState.h"
+#include "LoadingState.h"
 #include "OptionsState.h"
 
 class Application {
