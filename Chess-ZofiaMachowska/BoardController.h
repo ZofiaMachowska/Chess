@@ -36,7 +36,7 @@ public:
 	bool isGameOver();
 
 private:
-	const int BOARD_LENGTH = 7;
+	static const int BOARD_LENGTH = 7;
 	static sf::Vector2i oldPosition;
 	static int movedFigure;
 
@@ -49,7 +49,13 @@ private:
 	static PlayerController playerController;
 
 	void moveThisPiece(bool whitePlayer, int pieceNumber, sf::Vector2i position);
-	bool checkKingSafe(sf::Vector2i pos, bool whitePlayer);
+	static bool checkKingSafe(int board[][8], bool whitePlayer);
+	static void moveFigureTemporarily(sf::Vector2i pos, int piece);
+	static void prepareTemporaryBoard();
+	static bool checkForCheckMate();
+	static bool isKingMovePossible(bool whitePlayerTurn);
+	static bool checkPossiblePieceMoves(int piece, std::vector<Move> possibleMoves, bool whitePlayerTurn);
+	static bool isAnyFigureMovePossible(bool whitePlayerTurn);
 	void checkPlayerMoveValidity(sf::Vector2i pos, bool kingSafe, bool movePossible);
 	void handleNoValidMoves();
 	static void updateBoardState(sf::Vector2i pos);

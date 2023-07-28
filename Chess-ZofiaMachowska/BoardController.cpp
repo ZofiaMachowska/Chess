@@ -12,6 +12,8 @@ int chessBoard[8][8] = {
    -2, -3, -4, -5, -6, -4, -3, -2,
 };
 
+int temporaryBoard[8][8];
+
 PawnController BoardController::pawn;
 KnightController BoardController::knight;
 BishopController BoardController::bishop;
@@ -69,7 +71,6 @@ void BoardController::onBoardReleased(sf::Vector2i pos) {
     if (playerController.isActivePlayerAI()) return;
     if (movedFigure == 0 || gameOver) return;
     bool movePossible = false;
-    bool kingSafe = false;
     bool whitePlayerTurn = playerController.isFirstPlayerTurn();
 
     switch (abs(movedFigure)) {
@@ -95,57 +96,66 @@ void BoardController::onBoardReleased(sf::Vector2i pos) {
         break;
     }
 
-    //sprawdzenie czy ten ruch nie sprawi ze krol gracza bedzie zagrozony
-    kingSafe = checkKingSafe(pos, whitePlayerTurn);
-    checkPlayerMoveValidity(pos, kingSafe, movePossible);
+    if (!movePossible) {
+        handleNoValidMoves();
+        return;
+    }
+    prepareTemporaryBoard();
+    moveFigureTemporarily(pos, movedFigure);
+    if (checkKingSafe(temporaryBoard, whitePlayerTurn)) {
+        updateBoardState(pos);
+    }
 }
 
-bool BoardController::checkKingSafe(sf::Vector2i pos, bool whitePlayerTurn) {
-    int temporaryBoard[8][8];
+void BoardController::prepareTemporaryBoard() {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             temporaryBoard[i][j] = chessBoard[i][j];
         }
     }
-    temporaryBoard[pos.y][pos.x] = movedFigure;
+}
 
-    sf::Vector2i currentPlayerKingPosition = king.findKingPosition(temporaryBoard, whitePlayerTurn);
+void BoardController::moveFigureTemporarily(sf::Vector2i pos, int piece) {
+    temporaryBoard[pos.y][pos.x] = piece;
+}
 
+bool BoardController::checkKingSafe(int board[][8], bool whitePlayerTurn) {
+    sf::Vector2i currentPlayerKingPosition = king.findKingPosition(board, whitePlayerTurn);
     for (int i = 0; i <= BOARD_LENGTH; i++) {
         for (int j = 0; j <= BOARD_LENGTH; j++) {
-            switch (abs(temporaryBoard[i][j])) {
+            switch (abs(board[i][j])) {
             case 1:
-                if (pawn.checkKingCapture(sf::Vector2i(j,i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
+                if (pawn.checkKingCapture(sf::Vector2i(j,i), currentPlayerKingPosition, board, whitePlayerTurn)) {
                     std::cout << "Pionek przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 2:
-                if (rook.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
+                if (rook.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, board, whitePlayerTurn)) {
                     std::cout << "wieza przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 3:
-                if (knight.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
+                if (knight.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, board, whitePlayerTurn)) {
                     std::cout << "konik przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 4:
-                if (bishop.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
+                if (bishop.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, board, whitePlayerTurn)) {
                     std::cout << "laufer przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 5:
-                if (queen.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
+                if (queen.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, board, whitePlayerTurn)) {
                     std::cout << "krolowa przeciwnika blokuje" << std::endl;
                     return false;
                 };
                 break;
             case 6:
-                if (king.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, temporaryBoard, whitePlayerTurn)) {
+                if (king.checkKingCapture(sf::Vector2i(j, i), currentPlayerKingPosition, board, whitePlayerTurn)) {
                     std::cout << "krol przeciwnika blokuje" << std::endl;
                     return false;
                 };
@@ -159,12 +169,100 @@ bool BoardController::checkKingSafe(sf::Vector2i pos, bool whitePlayerTurn) {
     return true;
 }
 
+bool BoardController::checkPossiblePieceMoves(int piece, std::vector<Move> possibleMoves, bool whitePlayerTurn) {
+    if (possibleMoves.empty()) {
+        return false;
+    }
+    prepareTemporaryBoard();
+    for (const auto& move : possibleMoves) {
+        temporaryBoard[move.start.y][move.start.x] = 0;
+        moveFigureTemporarily(move.destination, piece);
+        if (checkKingSafe(temporaryBoard, whitePlayerTurn)) {
+            std::cout << "UDALO SIE ZNALEZC BEZPIECZNY RUCH FIGURY" << piece << std::endl;
+            return true;
+        }
+        prepareTemporaryBoard();
+    }
+    return false;
+}
+
+bool BoardController::isAnyFigureMovePossible(bool whitePlayerTurn) {
+    std::vector<Move> possibleMoves;
+    int piece;
+    for (int i = 0; i <= BOARD_LENGTH; i++) {
+        for (int j = 0; j <= BOARD_LENGTH; j++) {
+            piece = chessBoard[i][j];
+            if (piece > 0 && whitePlayerTurn || piece <  0 && !whitePlayerTurn) {
+                continue;
+            }
+            switch (abs(piece)) {
+            case 1:
+                possibleMoves = pawn.generateValidMoves(sf::Vector2i(j, i), chessBoard, whitePlayerTurn);
+                if (checkPossiblePieceMoves(piece, possibleMoves, whitePlayerTurn)) {
+                    return true;
+                }
+                break;
+            case 2:
+                possibleMoves = rook.generateValidMoves(sf::Vector2i(j, i), chessBoard, whitePlayerTurn);
+                if (checkPossiblePieceMoves(piece, possibleMoves, whitePlayerTurn)) {
+                    return true;
+                }
+                break;
+            case 3:
+                possibleMoves = knight.generateValidMoves(sf::Vector2i(j, i), chessBoard, whitePlayerTurn);
+                if (checkPossiblePieceMoves(piece, possibleMoves, whitePlayerTurn)) {
+                    return true;
+                }
+                break;
+            case 4:
+                possibleMoves = bishop.generateValidMoves(sf::Vector2i(j, i), chessBoard, whitePlayerTurn);
+                if (checkPossiblePieceMoves(piece, possibleMoves, whitePlayerTurn)) {
+                    return true;
+                }
+                break;
+            case 5:
+                possibleMoves = queen.generateValidMoves(sf::Vector2i(j, i), chessBoard, whitePlayerTurn);
+                if (checkPossiblePieceMoves(piece, possibleMoves, whitePlayerTurn)) {
+                    return true;
+                }
+                break;
+            default:
+                break;
+            }
+            possibleMoves.clear();
+        }
+    }
+    return false;
+}
+
+bool BoardController::isKingMovePossible(bool whitePlayerTurn) {
+    std::vector<Move> possibleMoves;
+    sf::Vector2i currentPlayerKingPosition = king.findKingPosition(chessBoard, whitePlayerTurn);
+    possibleMoves = king.generateValidMoves(currentPlayerKingPosition, chessBoard, whitePlayerTurn);
+    int kingPiece = whitePlayerTurn ? -6 : 6;
+    return checkPossiblePieceMoves(kingPiece, possibleMoves, whitePlayerTurn);
+}
+
+bool BoardController::checkForCheckMate() {
+    bool whitePlayerTurn = playerController.isFirstPlayerTurn();
+    if (checkKingSafe(chessBoard, whitePlayerTurn)) {
+        return false;
+    }
+
+    if (isKingMovePossible(whitePlayerTurn)) {
+        return false;
+    }
+
+    if (isAnyFigureMovePossible(whitePlayerTurn)) {
+        return false;
+    }
+    return true;
+}
 
 void BoardController::setGameOver() {
     gameOver = true;
     std::cout << "Zakonczona gra" << std::endl;
 }
-
 
 void BoardController::aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos, sf::Vector2i newPos) {
     movedFigure = aiMovedFigure;
@@ -177,19 +275,15 @@ void BoardController::updateBoardState(sf::Vector2i pos) {
     std::cout << "Ruch sie udal, kolej nastepnego gracza" << std::endl;
     chessBoard[pos.y][pos.x] = movedFigure;
     playerController.switchPlayer(chessBoard);
+    if (checkForCheckMate()) {
+        setGameOver();
+    }
+    movedFigure = 0;
 }
 
 void BoardController::handleNoValidMoves() {
     chessBoard[oldPosition.y][oldPosition.x] = movedFigure;
     std::cout << "Ruch sie nie udal, odlozenie figury" << std::endl;
-}
-
-void BoardController::checkPlayerMoveValidity(sf::Vector2i pos, bool kingSafe, bool movePossible) {
-    std::cout << "bezpieczenstwo krola: " << kingSafe << std::endl;
-    std::cout << "czy mozliwy ruch: " << movePossible << std::endl;
-
-    (movePossible && kingSafe) ? updateBoardState(pos) : handleNoValidMoves();
-
     movedFigure = 0;
 }
 

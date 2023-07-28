@@ -26,15 +26,15 @@ Player* PlayerController::getCurrentPlayer() {
 }
 
 void PlayerController::shouldRunAI(int board[][8]) {
-	aiController.calculateBestMove(board);
+	if (isActivePlayerAI()) {
+		aiController.calculateBestMove(board);
+	}
 }
 
 void PlayerController::switchPlayer(int board[][8]) {
 	player1->setActiveState(!player1->checkIsActive());
 	player2->setActiveState(!player2->checkIsActive());
-	if (isActivePlayerAI()) {
-		shouldRunAI(board);
-	}
+	shouldRunAI(board);
 }
 
 void PlayerController::resetFirstPlayer() {

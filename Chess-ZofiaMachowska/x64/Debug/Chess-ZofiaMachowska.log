@@ -1,11 +1,2 @@
-﻿  AIController.cpp
-  Application.cpp
-  BoardController.cpp
-  GameState.cpp
-  LoadingState.cpp
-  Main.cpp
-  MenuState.cpp
-  OptionsState.cpp
-  PlayerController.cpp
-  Generating Code...
+﻿  BoardController.cpp
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe
