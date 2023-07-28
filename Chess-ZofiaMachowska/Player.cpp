@@ -18,6 +18,10 @@ bool Player::isPlayerAI() {
     return isAI;
 }
 
+void Player::setAiStatus(bool aiActive) {
+    isAI = aiActive;
+}
+
 void Player::setActiveState(bool isActive) {
     this->isActive = isActive;
     isActive ? timer->resume() : timer->stop();

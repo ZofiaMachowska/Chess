@@ -33,7 +33,7 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 }
 
 void GameState::initialize() {
-    board.startNewGame();
+    board.startNewGame(Application::getAiPlayerOptionsValue());
 }
 
 void GameState::render(sf::RenderWindow& window) {

@@ -1,14 +1,26 @@
 #include "Application.h"
 
 std::unique_ptr<AppState> Application::currentState = nullptr;
+Options Application::aiPlayerOptions;
 
 Application::Application() {
 }
 
+Options Application::getAiPlayerOptionsValue() {
+    return Application::aiPlayerOptions;
+}
+
+void Application::setOptionsChoice(Options optionsChoice) {
+    Application::aiPlayerOptions.firstPlayerAi = optionsChoice.firstPlayerAi;
+    Application::aiPlayerOptions.secondPlayerAi = optionsChoice.secondPlayerAi;
+}
+
 void Application::changeAppState(std::unique_ptr<AppState> newState) {
+    std::cout << "To pierwsze AI: " << Application::aiPlayerOptions.firstPlayerAi <<std::endl;
+    std::cout << "To drugie AI: " << Application::aiPlayerOptions.secondPlayerAi << std::endl;
+
     Application::currentState = std::move(newState);
     Application::currentState->initialize();
-    std::cout << "zmiana stanu okna" << std::endl;
 }
 
 void Application::run() {

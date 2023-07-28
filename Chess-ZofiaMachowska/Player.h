@@ -15,6 +15,6 @@ public:
     bool checkIsActive();
     bool isPlayerAI();
     void setActiveState(bool isActive);
-
+    void setAiStatus(bool aiActive);
     Timer* timer;
 };

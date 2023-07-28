@@ -15,14 +15,12 @@ Checkbox::Checkbox(const sf::Font& font, const std::string& label, unsigned int 
     checkboxBox.setPosition(position);
 }
 
-bool Checkbox::isMouseOver(const sf::RenderWindow& window) const {
-    return checkboxBox.getGlobalBounds().contains(sf::Vector2f(sf::Mouse::getPosition(window)));
-}
-
-void Checkbox::handleEvent(sf::RenderWindow& window) {
-    if (isMouseOver(window)) {
+bool Checkbox::isMouseOver(const sf::Vector2i& mousePosition) {
+    bool isClicked = checkboxBox.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosition));
+    if (isClicked) {
         isChecked = !isChecked;
     }
+    return isClicked;
 }
 
 void Checkbox::draw(sf::RenderWindow& window) const {
@@ -38,4 +36,8 @@ void Checkbox::draw(sf::RenderWindow& window) const {
 
 bool Checkbox::isCheckedStatus() const {
     return isChecked;
+}
+
+void Checkbox::setStatus(bool aiActive) {
+    isChecked = aiActive;
 }

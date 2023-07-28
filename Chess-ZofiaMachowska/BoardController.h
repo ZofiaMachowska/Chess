@@ -21,7 +21,7 @@ public:
 
 	void resetBoard();
 
-	void startNewGame();
+	void startNewGame(Options aiOptionsChoice);
 
 	int getMovedFigure();
 

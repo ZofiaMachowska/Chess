@@ -13,9 +13,7 @@ void UIMenuController::redrawWindow(sf::RenderWindow& window) {
 }
 
 void UIMenuController::initializeVisuals() {
-    if (!font.loadFromFile("arial.ttf")) {
-        // Obs³uga b³êdu wczytywania czcionki
-    }
+    font.loadFromFile("arial.ttf"); 
     titleText.setFont(font);
     titleText.setString("Chess");
     titleText.setCharacterSize(50);

@@ -14,3 +14,8 @@ struct MoveEvaluation {
 	Move move; // Ruch
 	int evaluation; // Wartoœæ oceny pozycji dla tego ruchu
 };
+
+struct Options {
+	bool firstPlayerAi;
+	bool secondPlayerAi;
+};

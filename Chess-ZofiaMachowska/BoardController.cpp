@@ -212,10 +212,12 @@ void BoardController::resetBoard() {
    }
 }
 
-void BoardController::startNewGame() {
+void BoardController::startNewGame(Options aiOptionsChoice) {
     gameOver = false;
     resetBoard();
+    playerController.setPlayersAiFromOptions(aiOptionsChoice);
     playerController.resetFirstPlayer();
     playerController.startTimer();
+    playerController.shouldRunAI(getBoard());
 }
 

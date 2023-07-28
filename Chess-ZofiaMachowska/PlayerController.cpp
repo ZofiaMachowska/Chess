@@ -8,6 +8,11 @@ PlayerController::PlayerController(): aiController()
 	player2 = new Player("Black", false, false);
 }
 
+void PlayerController::setPlayersAiFromOptions(Options aiOptions) {
+	player1->setAiStatus(aiOptions.firstPlayerAi);
+	player2->setAiStatus(aiOptions.secondPlayerAi);
+}
+
 bool PlayerController::isFirstPlayerTurn() {
 	return player1->checkIsActive();
 }
