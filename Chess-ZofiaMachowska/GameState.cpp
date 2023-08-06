@@ -17,6 +17,7 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
         board.onBoardClicked(boardPosition);
         if (uiController.saveButton->isMouseOver(mousePos)) {
             std::cout << "Save button klikniety"  << std::endl;
+            saveController.saveGameToFile(board.getBoard(), board.getCurrentPlayers(), "stan_gry.json");
         }
         if (uiController.backButton->isMouseOver(mousePos)) {
             std::cout << "back button klikniety" << std::endl;

@@ -30,6 +30,11 @@ int(&BoardController::getBoard())[8][8]{
     return chessBoard;
 }
 
+std::vector<Player*> BoardController::getCurrentPlayers() {
+    std::vector<Player*> players = playerController.getPlayers();
+    return players;
+}
+
 int BoardController::getMovedFigure() {
     return movedFigure;
 }

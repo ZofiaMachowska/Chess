@@ -31,6 +31,8 @@ public:
 
 	int(&getBoard())[8][8];
 
+	std::vector<Player*> getCurrentPlayers();
+
 	static void setGameOver();
 
 	bool isGameOver();

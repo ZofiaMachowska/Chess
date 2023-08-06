@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Zosia\library\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\include;C:\Users\Zosia\library\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Zosia\library\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\include;C:\Users\Zosia\library\SFML-2.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +142,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Checkbox.cpp" />
     <ClCompile Include="ChessPieceController.cpp" />
+    <ClCompile Include="dist\jsoncpp.cpp" />
     <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="SavingGameController.cpp" />
     <ClCompile Include="shared.cpp" />
@@ -172,6 +173,8 @@
     <ClInclude Include="Checkbox.h" />
     <ClInclude Include="ChessPieceController.h" />
     <ClInclude Include="chessStructures.h" />
+    <ClInclude Include="dist\json\json-forwards.h" />
+    <ClInclude Include="dist\json\json.h" />
     <ClInclude Include="LoadingState.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="SavingGameController.h" />

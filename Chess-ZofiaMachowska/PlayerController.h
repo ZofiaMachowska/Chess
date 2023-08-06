@@ -14,7 +14,9 @@ public:
 	void startTimer();
 	void resetFirstPlayer();
 	Player* getCurrentPlayer();
+	std::vector<Player*> getPlayers();
 	void shouldRunAI(int board[][8]);
+	std::thread ai_thread;
 
 private:
 	Player* player1;

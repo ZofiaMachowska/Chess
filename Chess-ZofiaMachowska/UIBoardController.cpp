@@ -122,6 +122,7 @@ void UIBoardController::calculateTimer(std::pair<int, int> time) {
 
 void UIBoardController::redrawInfoPannel(sf::RenderWindow& window, Player* currentPlayer, bool isGameOver) {
     if (!isGameOver) {
+        std::cout << "KOLORUJE" << std::endl;
         title.setString(currentPlayer->getColor() + " Player Turn");
         calculateTimer(currentPlayer->timer->getTime());
         window.draw(timerInformation);

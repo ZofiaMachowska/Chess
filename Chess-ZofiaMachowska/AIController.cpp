@@ -1,6 +1,7 @@
 #include "AIController.h"
 #include "BoardController.h"
-
+#include <iostream>
+#include <thread>
 PawnController AIController::pawn;
 KnightController AIController::knight;
 BishopController AIController::bishop;
@@ -251,8 +252,8 @@ void AIController::calculateBestMove(int board[][8], bool isWhitePlayer) {
     int alpha = INT_MIN;
     int beta = INT_MAX;
     int depth = 4;
-
-    bool maximizingPlayer = !isWhitePlayer; 
+   // std::this_thread::sleep_for(std::chrono::seconds(5));
+    bool maximizingPlayer = !isWhitePlayer;
     int boardCopy[8][8];
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {

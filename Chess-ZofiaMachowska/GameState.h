@@ -5,10 +5,12 @@
 #include "AIController.h"
 #include "AppState.h"
 #include "Application.h"
+#include "SavingGameController.h"
 
 class GameState : public AppState {
 private: 
     BoardController board;
+    SavingGameController saveController;
     UIBoardController uiController;
     sf::Event event;
  

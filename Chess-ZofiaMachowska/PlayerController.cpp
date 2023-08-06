@@ -1,7 +1,7 @@
 #include <iostream>
 #include "PlayerController.h"
 #include "BoardController.h"
-
+#include <thread>
 PlayerController::PlayerController(): aiController()
 {
 	player1 = new Player("White", true, false);
@@ -25,9 +25,16 @@ Player* PlayerController::getCurrentPlayer() {
 	return player1->checkIsActive()? player1 : player2;
 }
 
+std::vector<Player*> PlayerController::getPlayers() {
+	std::vector<Player*> players = { player1, player2 };
+	return players;
+}
+
 void PlayerController::shouldRunAI(int board[][8]) {
 	if (isActivePlayerAI()) {
-		aiController.calculateBestMove(board, isFirstPlayerTurn());
+		//ai_thread = std::thread([this, &board]() {
+			aiController.calculateBestMove(board, isFirstPlayerTurn());
+		//});
 	}
 }
 
