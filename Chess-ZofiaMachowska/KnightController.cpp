@@ -48,7 +48,7 @@ std::vector<Move> KnightController::generateValidMoves(sf::Vector2i pos, int boa
 
 			// Jeœli pole jest puste lub znajduje siê na nim figura przeciwnego gracza, to dodajemy ruch
 			if (piece == 0 || (piece > 0 && board[y][x] < 0) || (piece < 0 && board[y][x] > 0)) {
-				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), abs(board[y][x]) });
+				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), isWhite ? -3 : 3 });
 			}
 		}
 	}

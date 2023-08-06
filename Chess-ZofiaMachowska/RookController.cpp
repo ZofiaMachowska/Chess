@@ -65,11 +65,11 @@ std::vector<Move> RookController::generateValidMoves(sf::Vector2i position, int 
 		while (isOnBoard(newPos.x, newPos.y)) {
 			// Je¿eli pole jest puste, dodaj ruch do listy mo¿liwych ruchów
 			if (board[newPos.y][newPos.x] == 0) {
-				validMoves.push_back({ position, newPos, 0 });
+				validMoves.push_back({ position, newPos, isWhite ? -2 : 2 });
 			}
 			// Je¿eli pole jest zajête przez przeciwnika, dodaj ruch ataku
 			else if (board[newPos.y][newPos.x] * board[position.y][position.x] < 0) {
-				validMoves.push_back({ position, newPos, 0 });
+				validMoves.push_back({ position, newPos, isWhite ? -2 : 2 });
 				break; // Przerwij pêtlê w tym kierunku, bo dalsze ruchy s¹ zablokowane
 			}
 			else {

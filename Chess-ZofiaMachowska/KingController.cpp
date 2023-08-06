@@ -73,7 +73,7 @@ std::vector<Move> KingController::generateValidMoves(sf::Vector2i position, int 
 		if (isOnBoard(newPos.x, newPos.y)) {
 			// Je¿eli pole jest puste lub zajête przez przeciwnika, dodaj ruch do listy mo¿liwych ruchów
 			if (board[newPos.y][newPos.x] == 0 || board[newPos.y][newPos.x] * board[position.y][position.x] < 0) {
-				validMoves.push_back({ position, newPos, 0 });
+				validMoves.push_back({ position, newPos, isWhite? -6 : 6 });
 			}
 		}
 	}

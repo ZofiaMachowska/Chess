@@ -27,7 +27,7 @@
 class AIController {
 public:
 	AIController();
-	void calculateBestMove(int board[][8]);
+	void calculateBestMove(int board[][8], bool isWhitePlayer);
 
 private:
 	int positionQuality(int board[][8]);
@@ -35,7 +35,7 @@ private:
 	void make_move(const sf::Vector2i& from, const sf::Vector2i& to, int board[][8]);
 	void unmake_move(const sf::Vector2i& from, const sf::Vector2i& to, int board[][8]);
 	MoveEvaluation minimMaxAlphaBeta(int depth, int alpha, int beta, bool maximizingPlayer, int board[][8]);
-	std::vector<Move> generatePossibleMoves(int board[][8]);
+	std::vector<Move> generatePossibleMoves(int board[][8], bool maximizingPlayer);
 	std::vector<Move> generateValidMovesForPiece(int piece, sf::Vector2i position, int board[][8]);
 	std::vector<std::pair<sf::Vector2i, sf::Vector2i>> possibleMoves;
 	void makeAMove();

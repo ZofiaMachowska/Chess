@@ -63,7 +63,7 @@ std::vector<Move>  BishopController::generateValidMoves(sf::Vector2i pos, int bo
 
 			// Jeœli na przek¹tnej znajduje siê figura przeciwnego gracza lub pole jest puste, to dodajemy ruch
 			if (piece == 0 || (piece > 0 && board[y][x] < 0) || (piece < 0 && board[y][x] > 0)) {
-				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), abs(board[y][x]) });
+				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), isWhite ? -4 : 4 });
 			}
 
 			// Jeœli na przek¹tnej znajduje siê figura, przerywamy pêtlê

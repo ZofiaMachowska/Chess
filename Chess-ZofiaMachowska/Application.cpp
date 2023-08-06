@@ -16,9 +16,6 @@ void Application::setOptionsChoice(Options optionsChoice) {
 }
 
 void Application::changeAppState(std::unique_ptr<AppState> newState) {
-    std::cout << "To pierwsze AI: " << Application::aiPlayerOptions.firstPlayerAi <<std::endl;
-    std::cout << "To drugie AI: " << Application::aiPlayerOptions.secondPlayerAi << std::endl;
-
     Application::currentState = std::move(newState);
     Application::currentState->initialize();
 }

@@ -27,7 +27,7 @@ Player* PlayerController::getCurrentPlayer() {
 
 void PlayerController::shouldRunAI(int board[][8]) {
 	if (isActivePlayerAI()) {
-		aiController.calculateBestMove(board);
+		aiController.calculateBestMove(board, isFirstPlayerTurn());
 	}
 }
 
