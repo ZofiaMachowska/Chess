@@ -1,6 +1,12 @@
 #include "GameState.h"
 
+SavingGameController GameState::saveController;
+
 GameState::GameState() : board(), uiController(), event() {
+    saveController.setSaveNewGameCallback([this]() {
+        std::cout << "callback do Application" << std::endl;
+        Application::setSavedGames(saveController.getGames());
+        });
 }
 
 void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
@@ -17,7 +23,8 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
         board.onBoardClicked(boardPosition);
         if (uiController.saveButton->isMouseOver(mousePos)) {
             std::cout << "Save button klikniety"  << std::endl;
-            saveController.saveGameToFile(board.getBoard(), board.getCurrentPlayers(), "stan_gry.json");
+            saveController.addNewGameToHistory(board.getBoard(), board.getCurrentPlayers(), board.isGameOver());
+            saveController.saveGameToFile();
         }
         if (uiController.backButton->isMouseOver(mousePos)) {
             std::cout << "back button klikniety" << std::endl;
@@ -34,7 +41,12 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 }
 
 void GameState::initialize() {
-    board.startNewGame(Application::getAiPlayerOptionsValue());
+    if (Application::gameToLoad >= 0) {
+        board.loadGame(Application::getGameToLoad());
+    }
+    else {
+        board.startNewGame(Application::getAiPlayerOptionsValue());
+    }
 }
 
 void GameState::render(sf::RenderWindow& window) {

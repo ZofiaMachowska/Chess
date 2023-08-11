@@ -19,7 +19,13 @@ void LoadingState::render(sf::RenderWindow& window) {
 }
 
 void LoadingState::initialize() {
+    uiLoadingController.getSavedGames(Application::getSavedGamesValues());
     uiLoadingController.setReturnToMenuCallback([this]() {
         Application::changeAppState(std::make_unique<MenuState>());
+        });
+
+    uiLoadingController.setLoadThisGameCallback([this]() {
+        Application::setGameIndexToLoad(uiLoadingController.gameToLoadNext);
+        Application::changeAppState(std::make_unique<GameState>());
         });
 }

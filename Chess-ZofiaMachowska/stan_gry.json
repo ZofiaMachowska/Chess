@@ -1,97 +1,347 @@
-{
-	"blackPlayer" : 
+[
 	{
-		"color" : "Black",
-		"isAI" : true,
-		"isActive" : false
+		"blackPlayer" : 
+		{
+			"color" : "Black",
+			"isAI" : false,
+			"isActive" : true,
+			"timer" : 
+			{
+				"elapsed_time" : 6,
+				"initial_duration" : 300,
+				"is_running" : true,
+				"remaining_time" : 289,
+				"timeAtStop" : 295
+			}
+		},
+		"chessBoard" : 
+		[
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				4,
+				3,
+				2
+			],
+			[
+				1,
+				1,
+				1,
+				1,
+				0,
+				1,
+				1,
+				1
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				-1,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				0,
+				-1,
+				-1
+			],
+			[
+				-2,
+				-3,
+				-4,
+				-5,
+				-6,
+				-4,
+				-3,
+				-2
+			]
+		],
+		"gameOver" : false,
+		"timestamp" : "\ufffd",
+		"whitePlayer" : 
+		{
+			"color" : "White",
+			"isAI" : false,
+			"isActive" : false,
+			"timer" : 
+			{
+				"elapsed_time" : 18,
+				"initial_duration" : 300,
+				"is_running" : false,
+				"remaining_time" : 277,
+				"timeAtStop" : 295
+			}
+		}
 	},
-	"chessBoard" : 
-	[
-		[
-			2,
-			0,
-			4,
-			5,
-			6,
-			4,
-			3,
-			2
-		],
-		[
-			1,
-			1,
-			1,
-			1,
-			1,
-			1,
-			1,
-			1
-		],
-		[
-			0,
-			0,
-			3,
-			0,
-			0,
-			0,
-			0,
-			0
-		],
-		[
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0
-		],
-		[
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			-1
-		],
-		[
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0
-		],
-		[
-			-1,
-			-1,
-			-1,
-			-1,
-			-1,
-			-1,
-			-1,
-			0
-		],
-		[
-			-2,
-			-3,
-			-4,
-			-5,
-			-6,
-			-4,
-			-3,
-			-2
-		]
-	],
-	"whitePlayer" : 
 	{
-		"color" : "White",
-		"isAI" : false,
-		"isActive" : true
+		"blackPlayer" : 
+		{
+			"color" : "Black",
+			"isAI" : false,
+			"isActive" : true,
+			"timer" : 
+			{
+				"elapsed_time" : 6,
+				"initial_duration" : 300,
+				"is_running" : true,
+				"remaining_time" : 289,
+				"timeAtStop" : 295
+			}
+		},
+		"chessBoard" : 
+		[
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				4,
+				3,
+				2
+			],
+			[
+				1,
+				1,
+				1,
+				1,
+				0,
+				1,
+				1,
+				1
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				1,
+				-1,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				0,
+				-1,
+				-1
+			],
+			[
+				-2,
+				-3,
+				-4,
+				-5,
+				-6,
+				-4,
+				-3,
+				-2
+			]
+		],
+		"gameOver" : false,
+		"timestamp" : "\ufffd",
+		"whitePlayer" : 
+		{
+			"color" : "White",
+			"isAI" : false,
+			"isActive" : false,
+			"timer" : 
+			{
+				"elapsed_time" : 18,
+				"initial_duration" : 300,
+				"is_running" : false,
+				"remaining_time" : 277,
+				"timeAtStop" : 295
+			}
+		}
+	},
+	{
+		"blackPlayer" : 
+		{
+			"color" : "Black",
+			"isAI" : false,
+			"isActive" : false,
+			"timer" : 
+			{
+				"elapsed_time" : 4,
+				"initial_duration" : 300,
+				"is_running" : false,
+				"remaining_time" : 285,
+				"timeAtStop" : 289
+			}
+		},
+		"chessBoard" : 
+		[
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				4,
+				3,
+				2
+			],
+			[
+				1,
+				1,
+				1,
+				1,
+				0,
+				1,
+				1,
+				1
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				1,
+				-1,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				0,
+				-1,
+				-1
+			],
+			[
+				-2,
+				-3,
+				-4,
+				-5,
+				-6,
+				-4,
+				-3,
+				-2
+			]
+		],
+		"gameOver" : false,
+		"timestamp" : "\ufffd",
+		"whitePlayer" : 
+		{
+			"color" : "White",
+			"isAI" : false,
+			"isActive" : true,
+			"timer" : 
+			{
+				"elapsed_time" : 1,
+				"initial_duration" : 300,
+				"is_running" : true,
+				"remaining_time" : 276,
+				"timeAtStop" : 277
+			}
+		}
 	}
-}
+]

@@ -5,6 +5,10 @@
 
 class Timer {
 private:
+
+    void timeOver();
+
+public:
     std::chrono::time_point<std::chrono::system_clock> start_time;
     std::chrono::duration<int> initial_duration;
     bool is_running;
@@ -13,10 +17,6 @@ private:
     std::chrono::duration<int> elapsed_time;
     std::chrono::duration<int> timeAtStop;
     std::function<void()> timerOverCallback;
-
-    void timeOver();
-
-public:
     std::chrono::duration<int> remaining_time;
     void setTimerOverCallback(std::function<void()> callback);
 

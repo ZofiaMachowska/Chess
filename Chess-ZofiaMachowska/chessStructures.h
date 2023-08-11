@@ -2,6 +2,7 @@
 #include <iostream>
 #include <functional>
 #include <vector>
+#include "Player.h"
 #include <SFML/Graphics.hpp>
 
 struct Move {
@@ -18,4 +19,12 @@ struct MoveEvaluation {
 struct Options {
 	bool firstPlayerAi;
 	bool secondPlayerAi;
+};
+
+struct Game {
+	int board[8][8];
+	Player* player1;
+	Player* player2;
+	bool gameOver;
+	std::string timestamp;
 };

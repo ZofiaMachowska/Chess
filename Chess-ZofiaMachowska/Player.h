@@ -16,5 +16,6 @@ public:
     bool isPlayerAI();
     void setActiveState(bool isActive);
     void setAiStatus(bool aiActive);
+    void loadPlayerOptions(Player* playerOption);
     Timer* timer;
 };

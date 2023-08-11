@@ -67,3 +67,8 @@ void PlayerController::startTimer() {
 		BoardController::setGameOver();
 		});
 }
+
+void PlayerController::setLoadedPlayers(Game gameToLoad) {
+	player1->loadPlayerOptions(gameToLoad.player1);
+	player2->loadPlayerOptions(gameToLoad.player2);
+}

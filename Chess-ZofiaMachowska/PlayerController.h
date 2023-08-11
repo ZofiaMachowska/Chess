@@ -8,6 +8,7 @@ class PlayerController {
 public:
 	PlayerController();
 	void setPlayersAiFromOptions(Options aiOptions);
+	void setLoadedPlayers(Game gameToLoad);
 	bool isFirstPlayerTurn();
 	bool isActivePlayerAI();
 	void switchPlayer(int board[][8]);

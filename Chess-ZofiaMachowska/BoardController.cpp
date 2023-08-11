@@ -320,3 +320,13 @@ void BoardController::startNewGame(Options aiOptionsChoice) {
     playerController.shouldRunAI(getBoard());
 }
 
+void BoardController::loadGame(Game gameToLoad) {
+    gameOver = gameToLoad.gameOver;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            chessBoard[i][j] = gameToLoad.board[i][j];
+        }
+    }
+   playerController.setLoadedPlayers(gameToLoad);
+   playerController.shouldRunAI(getBoard());
+}

@@ -23,6 +23,8 @@ public:
 
 	void startNewGame(Options aiOptionsChoice);
 
+	void loadGame(Game gameToLoad);
+
 	int getMovedFigure();
 
 	static void aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos, sf::Vector2i newPos);

@@ -10,11 +10,11 @@
 class GameState : public AppState {
 private: 
     BoardController board;
-    SavingGameController saveController;
     UIBoardController uiController;
     sf::Event event;
  
 public:
+    static SavingGameController saveController;
     GameState();
     void handleEvent(sf::Event event, sf::RenderWindow& window) override;
     void render(sf::RenderWindow& window) override;
