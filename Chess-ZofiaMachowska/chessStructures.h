@@ -26,5 +26,5 @@ struct Game {
 	Player* player1;
 	Player* player2;
 	bool gameOver;
-	std::string timestamp;
+	std::string timeOfSaving;
 };

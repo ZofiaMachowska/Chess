@@ -17,11 +17,14 @@ void UILoadingController::getSavedGames(std::vector<Game> games) {
     gamesLoading = games;
 
     buttons.clear();
+    int gameIndex = games.size();
     int i = 1;
     for (Game game : gamesLoading) {
-       Button* button = new Button(sf::Vector2f(450, i*100), sf::Vector2f(300, 80), font, "Zapis " + std::to_string(i), 36);
+       std::string buttonText = "Zapis " + std::to_string(gameIndex) + ": " + game.timeOfSaving;
+       Button* button = new Button(sf::Vector2f(350, i*100), sf::Vector2f(550, 80), font, buttonText, 36);
        buttons.push_back(button);
        i++;
+       gameIndex--;
     }
 }
 

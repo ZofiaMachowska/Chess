@@ -28,6 +28,7 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
         }
         if (uiController.backButton->isMouseOver(mousePos)) {
             std::cout << "back button klikniety" << std::endl;
+            Application::setGameIndexToLoad(-1);
             Application::changeAppState(std::make_unique<MenuState>());
         }
         uiController.printBoardDebug(board.getBoard());

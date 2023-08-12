@@ -8,6 +8,7 @@
 class SavingGameController
 {
 public:
+	const int maxGameHistory = 6;
 	void setSaveNewGameCallback(std::function<void()> callback);
 	std::function<void()> savedNewGameCallback;
 	const std::string fileName = "stan_gry.json";

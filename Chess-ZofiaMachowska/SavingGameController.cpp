@@ -31,6 +31,14 @@ Json::Value SavingGameController::playerToJson(Player* player) const {
 void SavingGameController::addNewGameToHistory(int board[][8], std::vector<Player*> players, bool gameOver) {
     auto currentTime = std::chrono::system_clock::now();
     std::time_t timestamp = std::chrono::system_clock::to_time_t(currentTime);
+
+    std::tm timeinfo;
+    localtime_s(&timeinfo, &timestamp);
+    char buffer[80];
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", &timeinfo);
+    std::string readableTime(buffer);
+    std::cout << readableTime << std::endl;
+
     Game game;
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
@@ -39,9 +47,12 @@ void SavingGameController::addNewGameToHistory(int board[][8], std::vector<Playe
     }
     game.player1 = players[0];
     game.player2 = players[1];
-    game.timestamp = timestamp;
+    game.timeOfSaving = readableTime;
     game.gameOver = gameOver;
-    games.push_back(game);
+    games.insert(games.begin(), game);  // Dodaj grê na pocz¹tek wektora
+    if (games.size() > maxGameHistory) {
+        games.erase(games.begin() + maxGameHistory, games.end());
+    }
 
     if (savedNewGameCallback) {
         savedNewGameCallback();
@@ -62,7 +73,7 @@ void SavingGameController::saveGameToFile() {
         // Serializacja graczy
         jsonGame["whitePlayer"] = playerToJson(game.player1);
         jsonGame["blackPlayer"] = playerToJson(game.player2);
-        jsonGame["timestamp"] = game.timestamp;
+        jsonGame["timeOfSaving"] = game.timeOfSaving;
         jsonGame["gameOver"] = game.gameOver;
         jsonGames.append(jsonGame);
     }
@@ -129,7 +140,7 @@ void SavingGameController::loadGamesFromFile() {
             // Deserializacja graczy
             game.player1 = createPlayerFromJson(jsonGame["whitePlayer"]);
             game.player2 = createPlayerFromJson(jsonGame["blackPlayer"]);
-            game.timestamp = jsonGame["timestamp"].asString();
+            game.timeOfSaving = jsonGame["timeOfSaving"].asString();
             game.gameOver = jsonGame["gameOver"].asBool();
             games.push_back(game);
         }

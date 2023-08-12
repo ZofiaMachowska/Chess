@@ -7,11 +7,11 @@
 			"isActive" : true,
 			"timer" : 
 			{
-				"elapsed_time" : 6,
+				"elapsed_time" : 7,
 				"initial_duration" : 300,
 				"is_running" : true,
-				"remaining_time" : 289,
-				"timeAtStop" : 295
+				"remaining_time" : 291,
+				"timeAtStop" : 298
 			}
 		},
 		"chessBoard" : 
@@ -51,6 +51,16 @@
 				0,
 				0,
 				0,
+				0,
+				0,
+				-3,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
 				1,
 				0,
 				0,
@@ -59,17 +69,7 @@
 			[
 				0,
 				0,
-				0,
-				0,
-				0,
-				-1,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
+				-3,
 				0,
 				0,
 				0,
@@ -82,150 +82,35 @@
 				-1,
 				-1,
 				-1,
-				0,
+				-1,
 				-1,
 				-1
 			],
 			[
 				-2,
-				-3,
+				0,
 				-4,
 				-5,
 				-6,
 				-4,
-				-3,
+				0,
 				-2
 			]
 		],
 		"gameOver" : false,
-		"timestamp" : "\ufffd",
+		"timeOfSaving" : "2023-08-12 19:06:31",
 		"whitePlayer" : 
 		{
 			"color" : "White",
-			"isAI" : false,
+			"isAI" : true,
 			"isActive" : false,
 			"timer" : 
 			{
-				"elapsed_time" : 18,
+				"elapsed_time" : 0,
 				"initial_duration" : 300,
 				"is_running" : false,
-				"remaining_time" : 277,
-				"timeAtStop" : 295
-			}
-		}
-	},
-	{
-		"blackPlayer" : 
-		{
-			"color" : "Black",
-			"isAI" : false,
-			"isActive" : true,
-			"timer" : 
-			{
-				"elapsed_time" : 6,
-				"initial_duration" : 300,
-				"is_running" : true,
-				"remaining_time" : 289,
-				"timeAtStop" : 295
-			}
-		},
-		"chessBoard" : 
-		[
-			[
-				2,
-				3,
-				4,
-				5,
-				6,
-				4,
-				3,
-				2
-			],
-			[
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				1
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				1,
-				-1,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			[
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1
-			],
-			[
-				-2,
-				-3,
-				-4,
-				-5,
-				-6,
-				-4,
-				-3,
-				-2
-			]
-		],
-		"gameOver" : false,
-		"timestamp" : "\ufffd",
-		"whitePlayer" : 
-		{
-			"color" : "White",
-			"isAI" : false,
-			"isActive" : false,
-			"timer" : 
-			{
-				"elapsed_time" : 18,
-				"initial_duration" : 300,
-				"is_running" : false,
-				"remaining_time" : 277,
-				"timeAtStop" : 295
+				"remaining_time" : 300,
+				"timeAtStop" : 300
 			}
 		}
 	},
@@ -237,11 +122,11 @@
 			"isActive" : false,
 			"timer" : 
 			{
-				"elapsed_time" : 4,
+				"elapsed_time" : 0,
 				"initial_duration" : 300,
 				"is_running" : false,
-				"remaining_time" : 285,
-				"timeAtStop" : 289
+				"remaining_time" : 300,
+				"timeAtStop" : -842150451
 			}
 		},
 		"chessBoard" : 
@@ -261,7 +146,7 @@
 				1,
 				1,
 				1,
-				0,
+				1,
 				1,
 				1,
 				1
@@ -291,28 +176,28 @@
 				0,
 				0,
 				0,
-				1,
-				-1,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
-				0,
 				0,
 				0,
 				0,
 				0
 			],
 			[
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
 				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
 				-1,
 				-1
 			],
@@ -328,19 +213,249 @@
 			]
 		],
 		"gameOver" : false,
-		"timestamp" : "\ufffd",
+		"timeOfSaving" : "2023-08-11 18:25:45",
 		"whitePlayer" : 
 		{
 			"color" : "White",
 			"isAI" : false,
 			"isActive" : true,
+			"timer" : 
+			{
+				"elapsed_time" : 2,
+				"initial_duration" : 300,
+				"is_running" : true,
+				"remaining_time" : 298,
+				"timeAtStop" : 300
+			}
+		}
+	},
+	{
+		"blackPlayer" : 
+		{
+			"color" : "Black",
+			"isAI" : false,
+			"isActive" : false,
+			"timer" : 
+			{
+				"elapsed_time" : 0,
+				"initial_duration" : 300,
+				"is_running" : false,
+				"remaining_time" : 300,
+				"timeAtStop" : -842150451
+			}
+		},
+		"chessBoard" : 
+		[
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				4,
+				3,
+				2
+			],
+			[
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				-1
+			],
+			[
+				-2,
+				-3,
+				-4,
+				-5,
+				-6,
+				-4,
+				-3,
+				-2
+			]
+		],
+		"gameOver" : false,
+		"timeOfSaving" : "2023-08-11 18:25:44",
+		"whitePlayer" : 
+		{
+			"color" : "White",
+			"isAI" : false,
+			"isActive" : true,
+			"timer" : 
+			{
+				"elapsed_time" : 2,
+				"initial_duration" : 300,
+				"is_running" : true,
+				"remaining_time" : 298,
+				"timeAtStop" : 300
+			}
+		}
+	},
+	{
+		"blackPlayer" : 
+		{
+			"color" : "Black",
+			"isAI" : false,
+			"isActive" : true,
+			"timer" : 
+			{
+				"elapsed_time" : 0,
+				"initial_duration" : 300,
+				"is_running" : true,
+				"remaining_time" : 300,
+				"timeAtStop" : 300
+			}
+		},
+		"chessBoard" : 
+		[
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				4,
+				3,
+				2
+			],
+			[
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				-1,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			[
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				0,
+				-1
+			],
+			[
+				-2,
+				-3,
+				-4,
+				-5,
+				-6,
+				-4,
+				-3,
+				-2
+			]
+		],
+		"gameOver" : false,
+		"timeOfSaving" : "2023-08-11 18:23:13",
+		"whitePlayer" : 
+		{
+			"color" : "White",
+			"isAI" : false,
+			"isActive" : false,
 			"timer" : 
 			{
 				"elapsed_time" : 1,
 				"initial_duration" : 300,
-				"is_running" : true,
-				"remaining_time" : 276,
-				"timeAtStop" : 277
+				"is_running" : false,
+				"remaining_time" : 299,
+				"timeAtStop" : 300
 			}
 		}
 	}

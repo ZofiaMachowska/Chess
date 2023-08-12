@@ -251,7 +251,7 @@ void AIController::makeAMove() {
 void AIController::calculateBestMove(int board[][8], bool isWhitePlayer) {
     int alpha = INT_MIN;
     int beta = INT_MAX;
-    int depth = 4;
+    int depth = 3;
    // std::this_thread::sleep_for(std::chrono::seconds(5));
     bool maximizingPlayer = !isWhitePlayer;
     int boardCopy[8][8];
