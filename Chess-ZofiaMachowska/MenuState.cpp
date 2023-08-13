@@ -4,6 +4,9 @@ MenuState::MenuState() {
     initialize();
 }
 
+MenuState::~MenuState() {
+}
+
 void MenuState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     if (event.type == sf::Event::Closed)
     {

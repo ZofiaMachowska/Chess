@@ -24,6 +24,9 @@ int BoardController::movedFigure;
 bool BoardController::gameOver;
 sf::Vector2i BoardController::oldPosition;
 
+BoardController::~BoardController() {
+
+}
 
 int(&BoardController::getBoard())[8][8]{
     return chessBoard;
@@ -105,8 +108,8 @@ void BoardController::onBoardReleased(sf::Vector2i newPosition) {
 }
 
 void BoardController::prepareTemporaryBoard() {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
+    for (int i = 0; i <= BOARD_LENGTH; i++) {
+        for (int j = 0; j <= BOARD_LENGTH; j++) {
             temporaryBoard[i][j] = chessBoard[i][j];
         }
     }
@@ -156,7 +159,6 @@ bool BoardController::checkPossiblePieceMoves(int piece, std::vector<Move> possi
         temporaryBoard[move.start.y][move.start.x] = 0;
         moveFigureTemporarily(move.destination, piece);
         if (checkKingSafe(temporaryBoard, whitePlayerTurn)) {
-            std::cout << "Udalo siê znalezc bezpieczny ruch dla figury: " << piece << std::endl;
             return true;
         }
         prepareTemporaryBoard();
@@ -208,7 +210,7 @@ bool BoardController::isKingMovePossible(bool whitePlayerTurn) {
     std::vector<Move> possibleMoves;
     sf::Vector2i currentPlayerKingPosition = king.findKingPosition(chessBoard, whitePlayerTurn);
     possibleMoves = king.generateValidMoves(currentPlayerKingPosition, chessBoard, whitePlayerTurn);
-    int kingPiece = whitePlayerTurn ? -6 : 6;
+    int kingPiece = whitePlayerTurn ? king.WHITE_KING : king.BLACK_KING;
     return checkPossiblePieceMoves(kingPiece, possibleMoves, whitePlayerTurn);
 }
 
@@ -230,7 +232,6 @@ bool BoardController::checkForCheckMate() {
 
 void BoardController::setGameOver() {
     gameOver = true;
-    std::cout << "Zakonczona gra" << std::endl;
 }
 
 void BoardController::aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos, sf::Vector2i newPos) {
@@ -241,23 +242,20 @@ void BoardController::aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos,
 
 void BoardController::updateBoardState(sf::Vector2i pos) {
     int figureOnOldPosition = chessBoard[oldPosition.y][oldPosition.x];
-    std::cout << "Ruch sie udal, kolej nastepnego gracza" << std::endl;
     chessBoard[pos.y][pos.x] = movedFigure;
-    playerController.switchPlayer(chessBoard);
     if (checkForCheckMate()) {
         setGameOver();
     }
     movedFigure = 0;
+    playerController.switchPlayer(chessBoard);
 }
 
 void BoardController::handleNoValidMoves() {
     chessBoard[oldPosition.y][oldPosition.x] = movedFigure;
-    std::cout << "Ruch sie nie udal, odlozenie figury" << std::endl;
     movedFigure = 0;
 }
 
 void BoardController::resetBoard() {
-   std::cout << "Tablica ustawiona na stan poczatkowy" << std::endl;
    int initialChessBoard[8][8] = {
    2, 3, 4, 5, 6, 4, 3, 2,
    1, 1, 1, 1, 1, 1, 1, 1,
@@ -268,8 +266,8 @@ void BoardController::resetBoard() {
    -1, -1, -1, -1, -1, -1, -1, -1,
    -2, -3, -4, -5, -6, -4, -3, -2,
    };
-   for (int i = 0; i < 8; i++) {
-       for (int j = 0; j < 8; j++) {
+   for (int i = 0; i <= BOARD_LENGTH; i++) {
+       for (int j = 0; j <= BOARD_LENGTH; j++) {
            chessBoard[i][j] = initialChessBoard[i][j];
        }
    }
@@ -286,8 +284,8 @@ void BoardController::startNewGame(Options aiOptionsChoice) {
 
 void BoardController::loadGame(Game gameToLoad) {
     gameOver = gameToLoad.gameOver;
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
+    for (int i = 0; i <= BOARD_LENGTH; i++) {
+        for (int j = 0; j <= BOARD_LENGTH; j++) {
             chessBoard[i][j] = gameToLoad.board[i][j];
         }
     }

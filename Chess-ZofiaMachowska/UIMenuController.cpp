@@ -4,6 +4,9 @@ UIMenuController::UIMenuController() {
     initializeVisuals();
 }
 
+UIMenuController::~UIMenuController() {
+}
+
 void UIMenuController::redrawWindow(sf::RenderWindow& window) {
     window.draw(titleText);
     newGameButton->draw(window);

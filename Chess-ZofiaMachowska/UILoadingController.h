@@ -11,6 +11,7 @@ class UILoadingController
 {
 public:
 	UILoadingController();
+	~UILoadingController();
 	void redrawWindow(sf::RenderWindow& window);
 	void initializeVisuals();
 	void handleButtonPress(sf::RenderWindow& window);

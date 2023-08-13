@@ -34,6 +34,7 @@ sf::Vector2i KingController::findWhiteKingPosition(int board[8][8]) const {
 			}
 		}
 	}
+	return(sf::Vector2i(-1, -1));
 }
 
 sf::Vector2i KingController::findBlackKingPosition(int board[8][8]) const {
@@ -44,6 +45,7 @@ sf::Vector2i KingController::findBlackKingPosition(int board[8][8]) const {
 			}
 		}
 	}
+	return(sf::Vector2i(-1, -1));
 }
 
 std::vector<Move> KingController::generateValidMoves(sf::Vector2i position, int board[8][8], bool isWhite) const {

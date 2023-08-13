@@ -4,6 +4,9 @@ OptionsState::OptionsState() {
     initialize();
 }
 
+OptionsState::~OptionsState() {
+}
+
 void OptionsState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
 

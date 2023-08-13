@@ -4,6 +4,121 @@
 		{
 			"color" : "Black",
 			"isAI" : false,
+			"isActive" : false,
+			"timer" : 
+			{
+				"elapsedTime" : 0,
+				"initialDuration" : 300,
+				"isRunning" : false,
+				"remainingTime" : 298,
+				"timeAtStop" : 298
+			}
+		},
+		"chessBoard" : 
+		[
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				0,
+				3,
+				2
+			],
+			[
+				1,
+				1,
+				1,
+				1,
+				0,
+				1,
+				1,
+				0
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				1,
+				0,
+				0,
+				0
+			],
+			[
+				0,
+				0,
+				4,
+				0,
+				0,
+				0,
+				0,
+				1
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				-1
+			],
+			[
+				0,
+				0,
+				0,
+				0,
+				0,
+				-1,
+				-1,
+				0
+			],
+			[
+				-1,
+				-1,
+				-1,
+				-1,
+				-1,
+				0,
+				0,
+				0
+			],
+			[
+				-2,
+				-3,
+				-4,
+				-5,
+				-6,
+				-4,
+				-3,
+				-2
+			]
+		],
+		"gameOver" : false,
+		"timeOfSaving" : "2023-08-13 15:13:52",
+		"whitePlayer" : 
+		{
+			"color" : "White",
+			"isAI" : false,
+			"isActive" : true,
+			"timer" : 
+			{
+				"elapsedTime" : 1,
+				"initialDuration" : 300,
+				"isRunning" : true,
+				"remainingTime" : 285,
+				"timeAtStop" : 286
+			}
+		}
+	},
+	{
+		"blackPlayer" : 
+		{
+			"color" : "Black",
+			"isAI" : false,
 			"isActive" : true,
 			"timer" : 
 			{

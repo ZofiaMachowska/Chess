@@ -10,6 +10,7 @@ private:
 	
 public:
 	MenuState();
+	~MenuState();
 	void handleEvent(sf::Event event, sf::RenderWindow& window) override;
 	void render(sf::RenderWindow& window) override;
 	void initialize() override;

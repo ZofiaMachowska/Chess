@@ -4,6 +4,9 @@ UIOptionsController::UIOptionsController() {
     initializeVisuals();
 }
 
+UIOptionsController::~UIOptionsController() {
+}
+
 void UIOptionsController::redrawWindow(sf::RenderWindow& window) {
     window.draw(player1AIText);
     window.draw(player2AIText);

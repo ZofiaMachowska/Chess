@@ -15,6 +15,10 @@ Button::Button(const sf::Vector2f& position, const sf::Vector2f& size, const sf:
     text.setPosition(position.x  + 20, position.y + 10);
 }
 
+Button::~Button() {
+
+}
+
 void Button::draw(sf::RenderWindow& window) {
     window.draw(shape);
     window.draw(text);

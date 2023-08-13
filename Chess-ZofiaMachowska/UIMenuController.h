@@ -9,13 +9,14 @@ class UIMenuController
 {
 public:
 	UIMenuController();
-   void redrawWindow(sf::RenderWindow& window);
-   void initializeVisuals();
-   void handleButtonPress(sf::RenderWindow& window);
+	~UIMenuController();
+	void redrawWindow(sf::RenderWindow& window);
+	void initializeVisuals();
+	void handleButtonPress(sf::RenderWindow& window);
 
-   void setNewGameCallback(std::function<void()> callback);
-   void setLoadGameCallback(std::function<void()> callback);
-   void setOptionsCallback(std::function<void()> callback);
+	void setNewGameCallback(std::function<void()> callback);
+	void setLoadGameCallback(std::function<void()> callback);
+	void setOptionsCallback(std::function<void()> callback);
 
 private:
 	sf::Text titleText;

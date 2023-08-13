@@ -14,6 +14,7 @@
 class Application {
 public:
     Application();
+    ~Application();
     static void changeAppState(std::unique_ptr<AppState> newState);
     static void setOptionsChoice(Options optionsChoice);
     static void setGameIndexToLoad(int index);

@@ -7,6 +7,9 @@ PlayerController::PlayerController(): aiController()
 	player2 = new Player("Black", false, false);
 }
 
+PlayerController::~PlayerController() {
+}
+
 bool PlayerController::isFirstPlayerTurn() {
 	return player1->checkIsActive();
 }
@@ -36,7 +39,16 @@ void PlayerController::setLoadedPlayers(Game gameToLoad) {
 
 void PlayerController::shouldRunAI(int board[][8]) {
 	if (isActivePlayerAI()) {
-		aiController.calculateBestMove(board, isFirstPlayerTurn());
+		std::thread aiThread([this, board]() {
+			std::random_device rd;
+			std::mt19937 gen(rd());
+			std::uniform_int_distribution<> distr(1, 3);
+			int sleepTime = distr(gen); 
+			std::this_thread::sleep_for(std::chrono::seconds(sleepTime));
+
+			aiController.calculateBestMove(board, isFirstPlayerTurn());
+			});
+		aiThread.detach();
 	}
 }
 

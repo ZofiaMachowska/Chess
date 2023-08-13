@@ -4,10 +4,10 @@ UIBoardController::UIBoardController() {
     setFiguresVisuals();
 }
 
-//UIBoardController::~UIBoardController() {
-//    delete saveButton;
-//    delete backButton;
-//}
+UIBoardController::~UIBoardController() {
+    delete saveButton;
+    delete backButton;
+}
 
 void UIBoardController::drawPiece(sf::RenderWindow& window, sf::Sprite piece, int j, int i) {
     piece.setPosition(j * SQUARE_SIZE, i * SQUARE_SIZE);

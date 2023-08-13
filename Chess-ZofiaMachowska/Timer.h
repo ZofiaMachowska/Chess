@@ -13,10 +13,12 @@ private:
 
 public:
     Timer();
+    ~Timer();
     void start();
     void stop();
     void resume();
     void reset();
+    void startThread();
     void setTimerOverCallback(std::function<void()> callback);
     std::pair<int, int> getTime();
 

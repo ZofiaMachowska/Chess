@@ -14,6 +14,10 @@ Checkbox::Checkbox(const sf::Font& font, const std::string& label, unsigned int 
     checkboxBox.setPosition(position);
 }
 
+Checkbox::~Checkbox() {
+
+}
+
 bool Checkbox::isMouseOver(const sf::Vector2i& mousePosition) {
     bool isClicked = checkboxBox.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePosition));
     if (isClicked) {

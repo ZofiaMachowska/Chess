@@ -14,8 +14,10 @@
 
 class BoardController {
 public:
+	~BoardController();
 	static void setGameOver();
 	static void aiUpdateBoardState(int aiMovedFigure, sf::Vector2i oldPos, sf::Vector2i newPos);
+	static bool checkKingSafe(int board[][8], bool whitePlayer);
     void onBoardClicked(sf::Vector2i pos);
 	void onBoardReleased(sf::Vector2i pos);
 	void startNewGame(Options aiOptionsChoice);
@@ -36,7 +38,6 @@ private:
 	void handleNoValidMoves();
 	void resetBoard();
 
-	static bool checkKingSafe(int board[][8], bool whitePlayer);
 	static bool checkForCheckMate();
 	static bool isKingMovePossible(bool whitePlayerTurn);
 	static bool checkPossiblePieceMoves(int piece, std::vector<Move> possibleMoves, bool whitePlayerTurn);

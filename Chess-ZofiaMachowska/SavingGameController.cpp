@@ -1,5 +1,9 @@
 #include "SavingGameController.h"
 
+SavingGameController::~SavingGameController() {
+
+}
+
 std::vector<Game> SavingGameController::getGames() {
     return games;
 }
@@ -76,10 +80,6 @@ void SavingGameController::saveGameToFile() {
         std::string jsonString = Json::writeString(writer, jsonGames);
         outputFile << jsonString;
         outputFile.close();
-        std::cout << "Stan gry zosta³ zapisany do pliku: " << FILE_NAME << std::endl;
-    }
-    else {
-        std::cout << "Blad podczas zapisu do pliku." << std::endl;
     }
 }
 
@@ -133,10 +133,6 @@ void SavingGameController::loadGamesFromFile() {
             games.push_back(game);
         }
         inputFile.close();
-        std::cout << "Gry zostaly wczytane z pliku: " << FILE_NAME << std::endl;
-    }
-    else {
-        std::cout << "Blad podczas odczytu pliku." << std::endl;
     }
     if (savedNewGameCallback) {
         savedNewGameCallback();

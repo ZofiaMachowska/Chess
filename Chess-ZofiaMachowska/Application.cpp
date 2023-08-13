@@ -10,6 +10,9 @@ Application::Application() {
     Application::setSavedGames(GameState::saveController.getGames());
 }
 
+Application::~Application() {
+}
+
 Options Application::getAiPlayerOptionsValue() {
     return Application::aiPlayerOptions;
 }
@@ -41,7 +44,7 @@ void Application::changeAppState(std::unique_ptr<AppState> newState) {
 }
 
 void Application::run() {
-    sf::RenderWindow window(sf::VideoMode(1200, 800), "My Application");
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "Chess by Zofia Machowska");
     window.setVerticalSyncEnabled(true);
     Application::currentState = std::make_unique<MenuState>();
 

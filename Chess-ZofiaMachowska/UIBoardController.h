@@ -9,6 +9,7 @@
 class UIBoardController {
 public:
     UIBoardController();
+    ~UIBoardController();
     void redrawBoard(sf::RenderWindow& window, int board[][8], int movedFigure, Player* currentPlayer, bool gameOver);
     void printBoardDebug(int board[][8]);
 

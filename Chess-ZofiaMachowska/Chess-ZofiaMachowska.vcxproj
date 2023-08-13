@@ -136,12 +136,10 @@
   <ItemGroup>
     <ClCompile Include="AIController.cpp" />
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="AppState.cpp" />
     <ClCompile Include="BishopController.cpp" />
     <ClCompile Include="BoardController.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Checkbox.cpp" />
-    <ClCompile Include="ChessPieceController.cpp" />
     <ClCompile Include="dist\jsoncpp.cpp" />
     <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="SavingGameController.cpp" />

@@ -4,6 +4,9 @@ UILoadingController::UILoadingController() {
     initializeVisuals();
 }
 
+UILoadingController::~UILoadingController() {
+}
+
 void  UILoadingController::setReturnToMenuCallback(std::function<void()> callback) {
     returnToMenuCallback = std::move(callback);
 }
@@ -50,7 +53,6 @@ void UILoadingController::handleButtonPress(sf::RenderWindow& window) {
     int i = 0;
     for (Button* button : buttons) {
         if (button->isMouseOver(mousePosition)) {
-            std::cout << "Wybrany do wczytania " <<  i << std::endl;
             gameToLoadNext = i;
             if (loadThisGameCallback) {
                 loadThisGameCallback();

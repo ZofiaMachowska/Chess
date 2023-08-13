@@ -15,6 +15,7 @@ private:
  
 public:
     GameState();
+    ~GameState();
     static SavingGameController saveController;
     void handleEvent(sf::Event event, sf::RenderWindow& window) override;
     void render(sf::RenderWindow& window) override;

@@ -4,6 +4,9 @@ LoadingState::LoadingState() {
     initialize();
 }
 
+LoadingState::~LoadingState() {
+}
+
 void LoadingState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     if (event.type == sf::Event::Closed)
     {

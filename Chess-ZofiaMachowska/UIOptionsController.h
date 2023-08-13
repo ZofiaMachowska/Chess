@@ -12,6 +12,7 @@ class UIOptionsController
 {
 public:
 	UIOptionsController();
+	~UIOptionsController();
 	void redrawWindow(sf::RenderWindow& window);
 	void initializeVisuals();
 	void handleButtonPress(const sf::Vector2i& mousePosition);

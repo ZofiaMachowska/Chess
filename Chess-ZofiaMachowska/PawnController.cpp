@@ -41,7 +41,6 @@ bool PawnController::checkKingCapture(sf::Vector2i figurePos, sf::Vector2i kingP
 }
 
 std::vector<Move> PawnController::generateValidMoves(sf::Vector2i position, int board[][8], bool isWhitePlayer) const {
-	
 	std::vector<Move> validMoves;
 	int x = position.x;
 	int y = position.y;

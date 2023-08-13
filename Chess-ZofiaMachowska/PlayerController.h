@@ -2,10 +2,14 @@
 #include "Player.h"
 #include "AIController.h"
 #include "chessStructures.h"
+#include <thread>
+#include <chrono>
+#include <random>
 
 class PlayerController {
 public:
 	PlayerController();
+	~PlayerController();
 	void setPlayersAiFromOptions(Options aiOptions);
 	void setLoadedPlayers(Game gameToLoad);
 	void shouldRunAI(int board[][8]);

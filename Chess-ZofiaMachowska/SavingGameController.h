@@ -8,6 +8,7 @@
 class SavingGameController
 {
 public:
+	~SavingGameController();
 	void addNewGameToHistory(int board[][8], std::vector<Player*> players, bool gameOver);
 	void saveGameToFile();
 	void loadGamesFromFile();

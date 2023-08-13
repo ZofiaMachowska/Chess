@@ -6,6 +6,10 @@ Player::Player(const std::string& color, const bool isActive, const bool isAI) :
     this->timer = new Timer();
 }
 
+Player::~Player() {
+    delete timer;
+}
+
 std::string Player::getColor() const {
     return color;
 }
