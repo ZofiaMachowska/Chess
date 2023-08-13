@@ -1,5 +1,4 @@
 # Szachy
-Projekt stworzony w ramach przedmiotu "Zaawansowane C++".
 
 ## Specyfikacja
 
