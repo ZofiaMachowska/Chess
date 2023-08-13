@@ -126,7 +126,7 @@ int AIController::positionQuality() {
     return score;
 }
 
-MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, bool maximizingPlayer) {
+MoveEvaluation AIController::alphaBetaPruning(int depth, int alpha, int beta, bool maximizingPlayer) {
     std::vector<Move> possibleMoves = generatePossibleMoves(maximizingPlayer);
 
     if (depth == 0 || possibleMoves.empty()) {
@@ -140,7 +140,7 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
         for (const auto& move : possibleMoves) {
             makeMove(move.start, move.destination);
 
-            MoveEvaluation eval = minimMaxAlphaBeta(depth - 1, alpha, beta, false);
+            MoveEvaluation eval = alphaBetaPruning(depth - 1, alpha, beta, false);
             int evalScore = eval.evaluation;
             if (evalScore > maxEval && move.pieceType != 0 && move.pieceType >0) {
                 maxEval = evalScore;
@@ -161,7 +161,7 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
         MoveEvaluation bestMoveEval;
         for (const auto& move : possibleMoves) {
             makeMove(move.start, move.destination);
-            MoveEvaluation eval = minimMaxAlphaBeta(depth - 1, alpha, beta, true);
+            MoveEvaluation eval = alphaBetaPruning(depth - 1, alpha, beta, true);
             int evalScore = eval.evaluation;
             if (evalScore < minEval && move.pieceType != 0 && move.pieceType < 0) {
                 minEval = evalScore;
@@ -195,7 +195,7 @@ void AIController::calculateBestMove(int board[][8], bool isWhitePlayer) {
             boardCopy[i][j] = board[i][j];
         }
     }
-    bestMoveEvaluation = minimMaxAlphaBeta(depth, alpha, beta, maximizingPlayer);
+    bestMoveEvaluation = alphaBetaPruning(depth, alpha, beta, maximizingPlayer);
     bestMove = bestMoveEvaluation.move;
 
     if (bestMove.start == sf::Vector2i(-1, -1) && bestMove.destination == sf::Vector2i(-1, -1)) {

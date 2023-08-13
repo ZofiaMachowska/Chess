@@ -2,12 +2,13 @@
   Application.cpp
   BoardController.cpp
 C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\BoardController.cpp(197,9): warning C4101: 'piece': unreferenced local variable
-  GameState.cpp
+  Button.cpp
   LoadingState.cpp
+  PlayerController.cpp
+  GameState.cpp
   Main.cpp
   MenuState.cpp
   OptionsState.cpp
-  PlayerController.cpp
-  SavingGameController.cpp
+  UIOptionsController.cpp
   Generating Code...
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe
