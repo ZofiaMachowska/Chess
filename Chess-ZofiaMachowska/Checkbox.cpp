@@ -1,6 +1,5 @@
 #include "Checkbox.h"
 
-
 Checkbox::Checkbox(const sf::Font& font, const std::string& label, unsigned int characterSize, sf::Vector2f position)
     : font(font), isChecked(false)
 {

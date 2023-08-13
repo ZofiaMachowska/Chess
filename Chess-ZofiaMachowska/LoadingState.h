@@ -6,6 +6,7 @@
 class LoadingState : public AppState {
 private:
 	UILoadingController uiLoadingController;
+
 public:
 	LoadingState();
 	void handleEvent(sf::Event event, sf::RenderWindow& window) override;

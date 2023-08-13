@@ -1,16 +1,10 @@
-#include <iostream>
 #include "PlayerController.h"
 #include "BoardController.h"
-#include <thread>
+
 PlayerController::PlayerController(): aiController()
 {
 	player1 = new Player("White", true, false);
 	player2 = new Player("Black", false, false);
-}
-
-void PlayerController::setPlayersAiFromOptions(Options aiOptions) {
-	player1->setAiStatus(aiOptions.firstPlayerAi);
-	player2->setAiStatus(aiOptions.secondPlayerAi);
 }
 
 bool PlayerController::isFirstPlayerTurn() {
@@ -30,11 +24,19 @@ std::vector<Player*> PlayerController::getPlayers() {
 	return players;
 }
 
+void PlayerController::setPlayersAiFromOptions(Options aiOptions) {
+	player1->setAiStatus(aiOptions.firstPlayerAi);
+	player2->setAiStatus(aiOptions.secondPlayerAi);
+}
+
+void PlayerController::setLoadedPlayers(Game gameToLoad) {
+	player1->loadPlayerOptions(gameToLoad.player1);
+	player2->loadPlayerOptions(gameToLoad.player2);
+}
+
 void PlayerController::shouldRunAI(int board[][8]) {
 	if (isActivePlayerAI()) {
-		//ai_thread = std::thread([this, &board]() {
-			aiController.calculateBestMove(board, isFirstPlayerTurn());
-		//});
+		aiController.calculateBestMove(board, isFirstPlayerTurn());
 	}
 }
 
@@ -50,9 +52,6 @@ void PlayerController::resetFirstPlayer() {
 }
 
 void PlayerController::startTimer() {
-	player1->timer->stop();
-	player2->timer->stop();
-
 	player1->timer->reset();
 	player2->timer->reset();
 
@@ -66,9 +65,4 @@ void PlayerController::startTimer() {
 	player2->timer->setTimerOverCallback([this]() {
 		BoardController::setGameOver();
 		});
-}
-
-void PlayerController::setLoadedPlayers(Game gameToLoad) {
-	player1->loadPlayerOptions(gameToLoad.player1);
-	player2->loadPlayerOptions(gameToLoad.player2);
 }

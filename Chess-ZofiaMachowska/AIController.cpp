@@ -1,7 +1,6 @@
 #include "AIController.h"
 #include "BoardController.h"
-#include <iostream>
-#include <thread>
+
 PawnController AIController::pawn;
 KnightController AIController::knight;
 BishopController AIController::bishop;
@@ -16,7 +15,6 @@ void  AIController::setMovePieceCallback(std::function<void()> callback) {
 AIController::AIController()
 {
     setMovePieceCallback([this]() {
-        std::cout << "callback do updateBoardState" << std::endl;
         BoardController::aiUpdateBoardState(bestMove.pieceType, bestMove.start, bestMove.destination);
         });
 }
@@ -122,29 +120,20 @@ std::vector<Move> AIController::generatePossibleMoves(int board[][8], bool maxim
     return possibleMoves;
 }
 
-void AIController::make_move(const sf::Vector2i& from, const sf::Vector2i& to, int board[][8]) {
-    int piece = board[from.y][from.x];
-    board[to.y][to.x] = piece;
-    board[from.y][from.x] = 0;
+void AIController::makeMove(const sf::Vector2i& oldPosition, const sf::Vector2i& newPosition, int board[][8]) {
+    int piece = board[oldPosition.y][oldPosition.x];
+    board[newPosition.y][newPosition.x] = piece;
+    board[oldPosition.y][oldPosition.x] = 0;
 }
 
-void AIController::unmake_move(const sf::Vector2i& from, const sf::Vector2i& to, int board[][8]) {
-    int piece = board[to.y][to.x];
-    board[from.y][from.x] = piece;
-    board[to.y][to.x] = 0;
+void AIController::unmakeMove(const sf::Vector2i& oldPosition, const sf::Vector2i& newPosition, int board[][8]) {
+    int piece = board[newPosition.y][newPosition.x];
+    board[oldPosition.y][oldPosition.x] = piece;
+    board[newPosition.y][newPosition.x] = 0;
 }
-
 
 int AIController::positionQuality(int board[][8]) {
-
     int score = 0;
-
-    int pawnValue = 1;
-    int knightValue = 3;
-    int bishopValue = 3;
-    int rookValue = 5;
-    int queenValue = 9;
-
     int positionValues[8][8] = {
      { 4,  3,  2,  1,  1,  2,  3,  4},
      { 3,  2,  1,  0,  0,  1,  2,  3},
@@ -163,20 +152,20 @@ int AIController::positionQuality(int board[][8]) {
                 continue;
             }
 
-            if (piece == 1 || piece == -1) {
-                score += pawnValue;
+            if (piece == pawn.BLACK_PAWN || piece == pawn.WHITE_PAWN) {
+                score += pawn.VALUE;
             }
-            else if (piece == 2 || piece == -2) {
-                score += rookValue;
+            else if (piece == rook.BLACK_ROOK || piece == rook.WHITE_ROOK) {
+                score += rook.VALUE;
             }
-            else if (piece == 3 || piece == -3) {
-                score += knightValue;
+            else if (piece == knight.BLACK_KNIGHT || piece == knight.WHITE_KNIGHT) {
+                score += knight.VALUE;
             }
-            else if (piece == 4 || piece == -4) {
-                score += bishopValue;
+            else if (piece == bishop.BLACK_BISHOP || piece == bishop.WHITE_BISHOP) {
+                score += bishop.VALUE;
             }
-            else if (piece == 5 || piece == -5) {
-                score += queenValue;
+            else if (piece == queen.BLACK_QUEEN || piece == queen.WHITE_QUEEN) {
+                score += queen.VALUE;
             }
             if (piece > 0) {
                 score += positionValues[row][col];
@@ -201,7 +190,7 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
         int maxEval = INT_MIN;
         MoveEvaluation bestMoveEval;
         for (const auto& move : possibleMoves) {
-            make_move(move.start, move.destination, board);
+            makeMove(move.start, move.destination, board);
 
             MoveEvaluation eval = minimMaxAlphaBeta(depth - 1, alpha, beta, false, board);
             int evalScore = eval.evaluation;
@@ -212,7 +201,7 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
             }
             alpha = std::max(alpha, evalScore);
 
-            unmake_move(move.start, move.destination, board);
+            unmakeMove(move.start, move.destination, board);
             if (beta <= alpha)
                 break;
         }
@@ -223,7 +212,7 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
         int minEval = INT_MAX;
         MoveEvaluation bestMoveEval;
         for (const auto& move : possibleMoves) {
-            make_move(move.start, move.destination, board);
+            makeMove(move.start, move.destination, board);
             MoveEvaluation eval = minimMaxAlphaBeta(depth - 1, alpha, beta, true, board);
             int evalScore = eval.evaluation;
             if (evalScore < minEval && move.pieceType != 0 && move.pieceType < 0) {
@@ -233,7 +222,7 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
             }
             beta = std::min(beta, evalScore);
 
-            unmake_move(move.start, move.destination, board);
+            unmakeMove(move.start, move.destination, board);
 
             if (beta <= alpha)
                 break;
@@ -242,7 +231,7 @@ MoveEvaluation AIController::minimMaxAlphaBeta(int depth, int alpha, int beta, b
     }
 }
 
-void AIController::makeAMove() {
+void AIController::makePlayerMove() {
     if (movePieceCallback) {
         movePieceCallback();
     }
@@ -252,7 +241,6 @@ void AIController::calculateBestMove(int board[][8], bool isWhitePlayer) {
     int alpha = INT_MIN;
     int beta = INT_MAX;
     int depth = 3;
-   // std::this_thread::sleep_for(std::chrono::seconds(5));
     bool maximizingPlayer = !isWhitePlayer;
     int boardCopy[8][8];
     for (int i = 0; i < 8; i++) {
@@ -262,5 +250,5 @@ void AIController::calculateBestMove(int board[][8], bool isWhitePlayer) {
     }
     bestMoveEvaluation = minimMaxAlphaBeta(depth, alpha, beta, maximizingPlayer, boardCopy);
     bestMove = bestMoveEvaluation.move;
-    makeAMove();
+    makePlayerMove();
 }

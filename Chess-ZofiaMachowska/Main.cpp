@@ -1,5 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <iostream>
 #include "Application.h"
 
 int main()
@@ -8,4 +6,3 @@ int main()
     app.run();
     return 0;
 }
-

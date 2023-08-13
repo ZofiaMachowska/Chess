@@ -1,6 +1,6 @@
 #include "Timer.h"
 
-Timer::Timer() : initial_duration(std::chrono::minutes(5)), remaining_time(initial_duration), is_running(false)
+Timer::Timer() : initialDuration(std::chrono::minutes(5)), remainingTime(initialDuration), isRunning(false)
 {
 }
 
@@ -15,16 +15,16 @@ void Timer::timeOver() {
 }
 
 void Timer::start() {
-    if (!is_running) {
-        start_time = std::chrono::system_clock::now();
-        is_running = true;
-        is_terminated = false;
-        timer_thread = std::thread([this]() {
-            while (!is_terminated) {
-                if (is_running) {
-                    elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - start_time);
-                    remaining_time = initial_duration - elapsed_time;
-                    if (remaining_time.count() <= 0) {
+    if (!isRunning) {
+        startTime = std::chrono::system_clock::now();
+        isRunning = true;
+        isTerminated = false;
+        timerThread = std::thread([this]() {
+            while (!isTerminated) {
+                if (isRunning) {
+                    elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - startTime);
+                    remainingTime = initialDuration - elapsedTime;
+                    if (remainingTime.count() <= 0) {
                         timeOver();
                     }
                 }
@@ -40,10 +40,10 @@ void Timer::start() {
 }
 
 void Timer::stop() {
-    if (is_running) {
-        is_running = false;
-        is_terminated = true;
-        timer_thread.join();
+    if (isRunning) {
+        isRunning = false;
+        isTerminated = true;
+        timerThread.join();
         std::cout << "Timer stopped." << std::endl;
     }
     else {
@@ -52,17 +52,17 @@ void Timer::stop() {
 }
 
 void Timer::resume() {
-    if (!is_running) {
-        timeAtStop = remaining_time;
-        start_time = std::chrono::system_clock::now();
-        is_running = true;
-        is_terminated = false;
-        timer_thread = std::thread([this]() {
-            while (!is_terminated) {
-                if (is_running) {
-                    elapsed_time = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - start_time);
-                    remaining_time = timeAtStop - elapsed_time;
-                    if (remaining_time.count() <= 0) {
+    if (!isRunning) {
+        timeAtStop = remainingTime;
+        startTime = std::chrono::system_clock::now();
+        isRunning = true;
+        isTerminated = false;
+        timerThread = std::thread([this]() {
+            while (!isTerminated) {
+                if (isRunning) {
+                    elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - startTime);
+                    remainingTime = timeAtStop - elapsedTime;
+                    if (remainingTime.count() <= 0) {
                         timeOver();
                     }
                 }
@@ -77,17 +77,12 @@ void Timer::resume() {
 }
 
 void Timer::reset() {
-    if (!is_running) {
-        remaining_time = initial_duration;
-        std::cout << "Timer reset." << std::endl;
-    }
-    else {
-        std::cout << "Stop the timer before resetting." << std::endl;
-    }
+    remainingTime = initialDuration;
+    std::cout << "Timer reset." << std::endl;
 }
 
 std::pair<int, int> Timer::getTime() {
-    int minutes = std::chrono::duration_cast<std::chrono::minutes>(remaining_time).count();
-    int seconds = std::chrono::duration_cast<std::chrono::seconds>(remaining_time).count() % 60;
+    int minutes = std::chrono::duration_cast<std::chrono::minutes>(remainingTime).count();
+    int seconds = std::chrono::duration_cast<std::chrono::seconds>(remainingTime).count() % 60;
     return std::make_pair(minutes, seconds);
 }

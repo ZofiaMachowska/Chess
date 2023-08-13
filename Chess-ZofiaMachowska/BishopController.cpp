@@ -8,12 +8,10 @@ bool BishopController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, 
 	int dx = newPos.x - oldPos.x;
 	int dy = newPos.y - oldPos.y;
 
-	// Sprawdzamy, czy ruch jest po skosie (tzn. przemieszcza siê na tak¹ sam¹ odleg³oœæ w poziomie i pionie)
 	if (std::abs(dx) != std::abs(dy)) {
 		return false;
 	}
 
-	// Sprawdzamy, czy na drodze ruchu nie ma innych figur
 	int stepX = (dx > 0) ? 1 : -1;
 	int stepY = (dy > 0) ? 1 : -1;
 
@@ -28,13 +26,11 @@ bool BishopController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, 
 		y += stepY;
 	}
 
-	// Sprawdzamy, czy pole docelowe jest puste lub zajête przez przeciwnika
 	int targetPiece = board[newPos.y][newPos.x];
 	if ((isWhite && targetPiece >= 0) || (!isWhite && targetPiece <= 0)) {
 		return true;
 	}
 
-	// W przeciwnym przypadku ruch nie jest mo¿liwy
 	return false;
 }
 
@@ -49,7 +45,6 @@ std::vector<Move>  BishopController::generateValidMoves(sf::Vector2i pos, int bo
 	int x = pos.x;
 	int y = pos.y;
 
-	// Tablica z ró¿nicami wspó³rzêdnych x i y, aby sprawdziæ przek¹tne
 	int dx[] = { 1, 1, -1, -1 };
 	int dy[] = { 1, -1, 1, -1 };
 
@@ -57,16 +52,13 @@ std::vector<Move>  BishopController::generateValidMoves(sf::Vector2i pos, int bo
 		int newX = x + dx[i];
 		int newY = y + dy[i];
 
-		// Sprawdzamy przek¹tne, dopóki nie wyjdziemy poza szachownicê
 		while (isOnBoard(newX, newY)) {
 			int piece = board[newY][newX];
 
-			// Jeœli na przek¹tnej znajduje siê figura przeciwnego gracza lub pole jest puste, to dodajemy ruch
 			if (piece == 0 || (piece > 0 && board[y][x] < 0) || (piece < 0 && board[y][x] > 0)) {
-				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), isWhite ? -4 : 4 });
+				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), isWhite ? WHITE_BISHOP : BLACK_BISHOP });
 			}
 
-			// Jeœli na przek¹tnej znajduje siê figura, przerywamy pêtlê
 			if (piece != 0) {
 				break;
 			}
@@ -75,6 +67,5 @@ std::vector<Move>  BishopController::generateValidMoves(sf::Vector2i pos, int bo
 			newY += dy[i];
 		}
 	}
-
 	return validMoves;
 }

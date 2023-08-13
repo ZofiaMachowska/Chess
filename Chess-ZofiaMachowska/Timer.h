@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -5,25 +6,24 @@
 
 class Timer {
 private:
-
     void timeOver();
+    std::thread timerThread;
+    std::atomic<bool> isTerminated;
+    std::chrono::time_point<std::chrono::system_clock> startTime;
 
 public:
-    std::chrono::time_point<std::chrono::system_clock> start_time;
-    std::chrono::duration<int> initial_duration;
-    bool is_running;
-    std::atomic<bool> is_terminated;
-    std::thread timer_thread;
-    std::chrono::duration<int> elapsed_time;
-    std::chrono::duration<int> timeAtStop;
-    std::function<void()> timerOverCallback;
-    std::chrono::duration<int> remaining_time;
-    void setTimerOverCallback(std::function<void()> callback);
-
     Timer();
     void start();
     void stop();
     void resume();
     void reset();
+    void setTimerOverCallback(std::function<void()> callback);
     std::pair<int, int> getTime();
+
+    std::chrono::duration<int> initialDuration;
+    std::chrono::duration<int> elapsedTime;
+    std::chrono::duration<int> timeAtStop;
+    std::function<void()> timerOverCallback;
+    std::chrono::duration<int> remainingTime;
+    bool isRunning;
 };

@@ -1,6 +1,7 @@
 #include "MenuState.h"
 
 MenuState::MenuState() {
+    initialize();
 }
 
 void MenuState::handleEvent(sf::Event event, sf::RenderWindow& window) {

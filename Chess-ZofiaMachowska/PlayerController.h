@@ -1,5 +1,4 @@
 #pragma once
-#define PLAYERCONTROLLER_H
 #include "Player.h"
 #include "AIController.h"
 #include "chessStructures.h"
@@ -9,15 +8,14 @@ public:
 	PlayerController();
 	void setPlayersAiFromOptions(Options aiOptions);
 	void setLoadedPlayers(Game gameToLoad);
-	bool isFirstPlayerTurn();
-	bool isActivePlayerAI();
+	void shouldRunAI(int board[][8]);
 	void switchPlayer(int board[][8]);
 	void startTimer();
 	void resetFirstPlayer();
+	bool isFirstPlayerTurn();
+	bool isActivePlayerAI();
 	Player* getCurrentPlayer();
 	std::vector<Player*> getPlayers();
-	void shouldRunAI(int board[][8]);
-	std::thread ai_thread;
 
 private:
 	Player* player1;

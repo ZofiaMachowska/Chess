@@ -1,1 +1,43 @@
-﻿  Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe
+﻿  AIController.cpp
+  AppState.cpp
+  Application.cpp
+  BishopController.cpp
+  BoardController.cpp
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\BoardController.cpp(195,9): warning C4101: 'piece': unreferenced local variable
+  Button.cpp
+  ChessPieceController.cpp
+  GameState.cpp
+  KingController.cpp
+  KnightController.cpp
+  LoadingState.cpp
+  Main.cpp
+  MenuState.cpp
+  OptionsState.cpp
+  PawnController.cpp
+  Player.cpp
+  PlayerController.cpp
+  QueenController.cpp
+  RookController.cpp
+  SavingGameController.cpp
+  Generating Code...
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KingController.cpp(37): warning C4715: 'KingController::findWhiteKingPosition': not all control paths return a value
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KingController.cpp(47): warning C4715: 'KingController::findBlackKingPosition': not all control paths return a value
+  Compiling...
+  Timer.cpp
+  UIBoardController.cpp
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(13,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(13,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(104,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(104,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  UILoadingController.cpp
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UILoadingController.cpp(20,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UILoadingController.cpp(24,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  UIMenuController.cpp
+  UIOptionsController.cpp
+  Generating Code...
+C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp(99): warning C4715: 'UIBoardController::getMovedFigureSprite': not all control paths return a value
+  Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe

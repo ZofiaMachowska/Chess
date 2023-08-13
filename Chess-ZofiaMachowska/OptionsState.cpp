@@ -1,6 +1,7 @@
 #include "OptionsState.h"
 
 OptionsState::OptionsState() {
+    initialize();
 }
 
 void OptionsState::handleEvent(sf::Event event, sf::RenderWindow& window) {

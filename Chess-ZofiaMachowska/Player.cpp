@@ -22,14 +22,14 @@ void Player::setAiStatus(bool aiActive) {
     isAI = aiActive;
 }
 
-void Player::loadPlayerOptions(Player* playerOption) {
-    isAI = playerOption->isAI;
-    timer->remaining_time = playerOption->timer->remaining_time;
-    isActive = playerOption->isActive;
+void Player::setActiveState(bool isActive) {
+    this->isActive = isActive;
     isActive ? timer->resume() : timer->stop();
 }
 
-void Player::setActiveState(bool isActive) {
-    this->isActive = isActive;
+void Player::loadPlayerOptions(Player* playerOption) {
+    isAI = playerOption->isAI;
+    timer->remainingTime = playerOption->timer->remainingTime;
+    isActive = playerOption->isActive;
     isActive ? timer->resume() : timer->stop();
 }

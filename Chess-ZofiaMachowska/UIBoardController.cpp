@@ -1,7 +1,4 @@
 #include "UIBoardController.h"
-#include <iostream>
-#include <chrono>
-#include <thread>
 
 UIBoardController::UIBoardController() {
     setFiguresVisuals();
@@ -38,14 +35,12 @@ void UIBoardController::setFiguresVisuals() {
     bishopWSprite.setTexture(bishopWTexture);
     queenWSprite.setTexture(queenWTexture);
     kingWSprite.setTexture(kingWTexture);
-
     pawnBSprite.setTexture(pawnBTexture);
     rookBSprite.setTexture(rookBTexture);
     knightBSprite.setTexture(knightBTexture);
     bishopBSprite.setTexture(bishopBTexture);
     queenBSprite.setTexture(queenBTexture);
     kingBSprite.setTexture(kingBTexture);
-
     boardSprite.setTexture(boardTexture);
 
     font.loadFromFile("arial.ttf");
@@ -134,8 +129,8 @@ void UIBoardController::redrawInfoPannel(sf::RenderWindow& window, Player* curre
     backButton->draw(window);
 }
 
-//dziêki & mamy dostêp nie do kopii, a do prawdziwego obiektu
-void UIBoardController::redrawBoard(sf::RenderWindow& window, sf::Vector2i mousePos, int board[][8], int movedFigure, Player* currentPlayer, bool gameOver) {
+void UIBoardController::redrawBoard(sf::RenderWindow& window, int board[][8], int movedFigure, Player* currentPlayer, bool gameOver) {
+    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
     window.draw(boardSprite);
     for (int i = 0; i <= BOARD_LENGTH; i++) {
         for (int j = 0; j <= BOARD_LENGTH; j++) {

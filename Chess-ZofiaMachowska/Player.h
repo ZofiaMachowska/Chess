@@ -1,5 +1,4 @@
 #pragma once
-#define PLAYER_H
 #include "Timer.h"
 
 class Player
@@ -11,11 +10,11 @@ private:
 
 public:
     Player(const std::string& kolor, const bool isActive, const bool isAI);
-    std::string getColor() const;
-    bool checkIsActive();
-    bool isPlayerAI();
     void setActiveState(bool isActive);
     void setAiStatus(bool aiActive);
     void loadPlayerOptions(Player* playerOption);
+    bool checkIsActive();
+    bool isPlayerAI();
+    std::string getColor() const;
     Timer* timer;
 };

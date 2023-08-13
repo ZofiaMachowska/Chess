@@ -4,22 +4,15 @@ bool KnightController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, 
 	if (!isOnBoard(oldPos.x, oldPos.y) || !isOnBoard(newPos.x, newPos.y) || newPos == oldPos) {
 		return false;
 	}
-
-	// Sprawdzamy, czy ruch jest mo¿liwy dla skoczka
-
 	int dx = std::abs(newPos.x - oldPos.x);
 	int dy = std::abs(newPos.y - oldPos.y);
 
-	// Skoczek przemieszcza siê w jednym kierunku o 2 pola i w drugim o 1 pole, lub w jednym kierunku o 1 pole i w drugim o 2 pola
 	if ((dx == 1 && dy == 2) || (dx == 2 && dy == 1)) {
-		// Sprawdzamy, czy pole docelowe jest puste lub zajête przez przeciwnika
 		int targetPiece = board[newPos.y][newPos.x];
 		if ((isWhite && targetPiece >= 0) || (!isWhite && targetPiece <= 0)) {
 			return true;
 		}
 	}
-
-	// W przeciwnym przypadku ruch nie jest mo¿liwy
 	return false;
 }
 
@@ -34,7 +27,6 @@ std::vector<Move> KnightController::generateValidMoves(sf::Vector2i pos, int boa
 	int x = pos.x;
 	int y = pos.y;
 
-	// Tablice z mo¿liwymi ró¿nicami wspó³rzêdnych x i y dla skoczka
 	int dx[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
 	int dy[] = { -2, -1, 1, 2, 2, 1, -1, -2 };
 
@@ -42,16 +34,13 @@ std::vector<Move> KnightController::generateValidMoves(sf::Vector2i pos, int boa
 		int newX = x + dx[i];
 		int newY = y + dy[i];
 
-		// Sprawdzamy czy nowe wspó³rzêdne s¹ na szachownicy
 		if (isOnBoard(newX, newY)) {
 			int piece = board[newY][newX];
 
-			// Jeœli pole jest puste lub znajduje siê na nim figura przeciwnego gracza, to dodajemy ruch
 			if (piece == 0 || (piece > 0 && board[y][x] < 0) || (piece < 0 && board[y][x] > 0)) {
-				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), isWhite ? -3 : 3 });
+				validMoves.push_back(Move{ pos, sf::Vector2i(newX, newY), isWhite ? WHITE_KNIGHT : BLACK_KNIGHT });
 			}
 		}
 	}
-
 	return validMoves;
 }

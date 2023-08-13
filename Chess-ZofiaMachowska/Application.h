@@ -1,6 +1,4 @@
-#ifndef APPLICATION_H
-#define APPLICATION_H
-
+#pragma once
 #include <SFML/Graphics.hpp>
 #include "BoardController.h"
 #include "UIBoardController.h"
@@ -16,23 +14,20 @@
 class Application {
 public:
     Application();
-    void run();
     static void changeAppState(std::unique_ptr<AppState> newState);
     static void setOptionsChoice(Options optionsChoice);
-    static Options getAiPlayerOptionsValue();
     static void setGameIndexToLoad(int index);
-    static Game getGameToLoad();
     static void setSavedGames(std::vector<Game> games);
+    void run();
+
+    static Options getAiPlayerOptionsValue();
+    static Game getGameToLoad();
     static std::vector<Game> getSavedGamesValues();
     static int gameToLoad;
-
 
 private:
     static Options aiPlayerOptions;
     static std::vector<Game> games;
-    sf::RenderWindow window;
     static std::unique_ptr<AppState> currentState;
+    sf::RenderWindow window;
 };
-
-#endif // APPLICATION_H
-

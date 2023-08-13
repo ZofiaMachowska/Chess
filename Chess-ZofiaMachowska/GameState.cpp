@@ -3,10 +3,7 @@
 SavingGameController GameState::saveController;
 
 GameState::GameState() : board(), uiController(), event() {
-    saveController.setSaveNewGameCallback([this]() {
-        std::cout << "callback do Application" << std::endl;
-        Application::setSavedGames(saveController.getGames());
-        });
+    initialize();
 }
 
 void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
@@ -27,7 +24,6 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
             saveController.saveGameToFile();
         }
         if (uiController.backButton->isMouseOver(mousePos)) {
-            std::cout << "back button klikniety" << std::endl;
             Application::setGameIndexToLoad(-1);
             Application::changeAppState(std::make_unique<MenuState>());
         }
@@ -42,6 +38,10 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 }
 
 void GameState::initialize() {
+    saveController.setSaveNewGameCallback([this]() {
+        Application::setSavedGames(saveController.getGames());
+        });
+
     if (Application::gameToLoad >= 0) {
         board.loadGame(Application::getGameToLoad());
     }
@@ -51,6 +51,5 @@ void GameState::initialize() {
 }
 
 void GameState::render(sf::RenderWindow& window) {
-    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-    uiController.redrawBoard(window, mousePos, board.getBoard(), board.getMovedFigure(), board.getCurrentPlayer(), board.isGameOver());
+    uiController.redrawBoard(window, board.getBoard(), board.getMovedFigure(), board.getCurrentPlayer(), board.isGameOver());
 }

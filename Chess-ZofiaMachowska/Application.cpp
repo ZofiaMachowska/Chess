@@ -1,8 +1,8 @@
 #include "Application.h"
 
+int Application::gameToLoad = -1;
 std::unique_ptr<AppState> Application::currentState = nullptr;
 Options Application::aiPlayerOptions;
-int Application::gameToLoad = -1;
 std::vector<Game> Application::games;
 
 Application::Application() {
@@ -14,16 +14,16 @@ Options Application::getAiPlayerOptionsValue() {
     return Application::aiPlayerOptions;
 }
 
-void Application::setGameIndexToLoad(int index) {
-    gameToLoad = index;
-}
-
 Game Application::getGameToLoad() {
     return Application::games[gameToLoad];
 }
 
 std::vector<Game> Application::getSavedGamesValues() {
     return Application::games;
+}
+
+void Application::setGameIndexToLoad(int index) {
+    gameToLoad = index;
 }
 
 void Application::setSavedGames(std::vector<Game> games) {
@@ -38,15 +38,12 @@ void Application::setOptionsChoice(Options optionsChoice) {
 
 void Application::changeAppState(std::unique_ptr<AppState> newState) {
     Application::currentState = std::move(newState);
-    Application::currentState->initialize();
 }
 
 void Application::run() {
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My Application");
     window.setVerticalSyncEnabled(true);
-
     Application::currentState = std::make_unique<MenuState>();
-    Application::currentState->initialize();
 
     while (window.isOpen()) {
         sf::Event event;

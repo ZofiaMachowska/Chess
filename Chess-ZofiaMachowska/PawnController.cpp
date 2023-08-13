@@ -2,7 +2,6 @@
 
 
 bool PawnController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, int board[][8], bool isWhite) const {
-	// Sprawdzamy, czy pozycje s¹ na planszy
 	if (!isOnBoard(oldPos.x, oldPos.y) || !isOnBoard(newPos.x, newPos.y) || newPos == oldPos) {
 		return false;
 	}
@@ -10,33 +9,28 @@ bool PawnController::isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, in
 	int dx = newPos.x - oldPos.x;
 	int dy = newPos.y - oldPos.y;
 	int targetPiece = board[newPos.y][newPos.x];
-	// Sprawdzamy, czy ruch jest mo¿liwy dla pionka
 	if (isWhite) {
-		// Ruchy pionka bia³ego
 		if (dy == -1 && std::abs(dx) == 1 && targetPiece > 0) {
-			return true; // Bicie w przek¹tnej
+			return true;
 		}
 		if (dy == -1 && dx == 0 && targetPiece == 0) {
-			return true; // Zwyk³y ruch do przodu o jedno pole
+			return true;
 		}
 		if (dy == -2 && dx == 0 && oldPos.y == 6 && targetPiece == 0 && board[newPos.y + 1][newPos.x] == 0) {
-			return true; // Pionek wychodzi o 2 pola na starcie
+			return true;
 		}
 	}
 	else {
-		// Ruchy pionka czarnego
 		if (dy == 1 && std::abs(dx) == 1 && targetPiece < 0) {
-			return true; // Bicie w przek¹tnej
+			return true;
 		}
 		if (dy == 1 && dx == 0 && targetPiece == 0) {
-			return true; // Zwyk³y ruch do przodu o jedno pole
+			return true;
 		}
 		if (dy == 2 && dx == 0 && oldPos.y == 1 && targetPiece == 0 && board[newPos.y - 1][newPos.x] == 0) {
-			return true; // Pionek wychodzi o 2 pola na starcie
+			return true;
 		}
 	}
-
-	// W przeciwnym przypadku ruch nie jest mo¿liwy
 	return false;
 }
 
@@ -52,29 +46,22 @@ std::vector<Move> PawnController::generateValidMoves(sf::Vector2i position, int 
 	int x = position.x;
 	int y = position.y;
 
-	// Bia³e pionki poruszaj¹ siê w kierunku malej¹cych wspó³rzêdnych Y, a czarne w kierunku rosn¹cych
 	int direction = isWhitePlayer ? -1 : 1;
 
-	// Sprawdzamy czy pionek mo¿e wykonaæ zwyk³y ruch do przodu
 	if (isOnBoard(x, y + direction) && board[y + direction][x] == 0) {
-		validMoves.push_back(Move{ position, sf::Vector2i(x, y + direction), isWhitePlayer ? -1 : 1 });
+		validMoves.push_back(Move{ position, sf::Vector2i(x, y + direction), isWhitePlayer ? WHITE_PAWN : BLACK_PAWN });
 
-		// Sprawdzamy czy pionek mo¿e wykonaæ podwójny ruch do przodu, jeœli stoi na swoim pocz¹tkowym polu
 		if ((isWhitePlayer && y == 6) || (!isWhitePlayer && y == 1)) {
 			if (board[y + 2 * direction][x] == 0) {
-				validMoves.push_back(Move{ position, sf::Vector2i(x, y + 2 * direction), isWhitePlayer? -1 :1 });
+				validMoves.push_back(Move{ position, sf::Vector2i(x, y + 2 * direction), isWhitePlayer? WHITE_PAWN : BLACK_PAWN });
 			}
 		}
 	}
-
-	// Sprawdzamy czy pionek mo¿e wykonaæ bicie w prawo
 	if (isOnBoard(x + 1, y + direction) && board[y + direction][x + 1] * direction < 0) {
-		validMoves.push_back(Move{ position, sf::Vector2i(x + 1, y + direction), isWhitePlayer ? -1 : 1 });
+		validMoves.push_back(Move{ position, sf::Vector2i(x + 1, y + direction), isWhitePlayer ? WHITE_PAWN : BLACK_PAWN });
 	}
-
-	// Sprawdzamy czy pionek mo¿e wykonaæ bicie w lewo
 	if (isOnBoard(x - 1, y + direction) && board[y + direction][x - 1] * direction < 0) {
-		validMoves.push_back(Move{ position, sf::Vector2i(x - 1, y + direction), isWhitePlayer ? -1 : 1 });
+		validMoves.push_back(Move{ position, sf::Vector2i(x - 1, y + direction), isWhitePlayer ? WHITE_PAWN : BLACK_PAWN });
 	}
 	return validMoves;
 }

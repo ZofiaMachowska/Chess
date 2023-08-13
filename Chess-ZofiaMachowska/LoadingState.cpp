@@ -1,6 +1,7 @@
 #include "LoadingState.h"
 
 LoadingState::LoadingState() {
+    initialize();
 }
 
 void LoadingState::handleEvent(sf::Event event, sf::RenderWindow& window) {
