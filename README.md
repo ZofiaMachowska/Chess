@@ -3,7 +3,7 @@ Projekt stworzony w ramach przedmiotu "Zaawansowane C++".
 
 ## Specyfikacja
 
-* Język implementacji:C++
+* Język implementacji: C++
 * Biblioteka graficzna: SFML
 * Środowisko: Visual Studio 
 
