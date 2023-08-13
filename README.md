@@ -1,6 +1,5 @@
 # Szachy
-Projekt stworzony w ramach przedmiotu "Zaawansowane C++". Gra dla dwóch lub jednego gracza. Wprowadzona jest usługa
-inteligentnego gracza.
+Projekt stworzony w ramach przedmiotu "Zaawansowane C++".
 
 ## Specyfikacja
 
