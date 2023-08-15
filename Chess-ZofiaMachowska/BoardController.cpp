@@ -98,13 +98,13 @@ void BoardController::onBoardReleased(sf::Vector2i newPosition) {
     bool whitePlayerTurn = playerController.isFirstPlayerTurn();
 
     if (!checkPieceMovePossible(newPosition, whitePlayerTurn)) {
-        handleNoValidMoves();
+        handleNoValidMove();
         return;
     }
 
     prepareTemporaryBoard();
     moveFigureTemporarily(newPosition, movedFigure);
-    checkKingSafe(temporaryBoard, whitePlayerTurn) ? updateBoardState(newPosition) : handleNoValidMoves();
+    checkKingSafe(temporaryBoard, whitePlayerTurn) ? updateBoardState(newPosition) : handleNoValidMove();
 }
 
 void BoardController::prepareTemporaryBoard() {
@@ -250,7 +250,7 @@ void BoardController::updateBoardState(sf::Vector2i pos) {
     playerController.switchPlayer(chessBoard);
 }
 
-void BoardController::handleNoValidMoves() {
+void BoardController::handleNoValidMove() {
     chessBoard[oldPosition.y][oldPosition.x] = movedFigure;
     movedFigure = 0;
 }

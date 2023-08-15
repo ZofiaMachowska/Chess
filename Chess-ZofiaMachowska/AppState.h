@@ -25,7 +25,7 @@ public:
     virtual void render(sf::RenderWindow& window) = 0;
 
     /**
-     * @brief Initialize or reset state-specific elements.
+     * @brief Initialize or reset state elements.
      */
     virtual void initialize() = 0;
 };

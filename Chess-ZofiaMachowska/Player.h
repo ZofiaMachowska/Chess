@@ -2,7 +2,7 @@
 #include "Timer.h"
 
 /**
- * @brief Represents a player in the game, whether human or AI.
+ * @brief Represents a player in the game.
  */
 class Player {
 public:
@@ -13,10 +13,10 @@ public:
      * @param isActive Determines if the player is currently active.
      * @param isAI Determines if the player is controlled by AI.
      */
-    Player(const std::string& kolor, const bool isActive, const bool isAI);
+    Player(const std::string& color, const bool isActive, const bool isAI);
 
     /**
-     * @brief Destroy the Player object and free resources.
+     * @brief Destroy the Player object.
      */
     ~Player();
 

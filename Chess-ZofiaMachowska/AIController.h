@@ -18,7 +18,7 @@
  * @class AIController
  * @brief Class that controls the AI for the chess game.
  *
- * This class encompasses methods and utilities to determine the best possible moves the AI can make in a chess game.
+ * This class includes methods to determine the best possible moves the AI can make in chess .
  */
 class AIController {
 public:
@@ -102,8 +102,6 @@ private:
 	 * @param callback A function to be called when a move is made.
 	 */
 	void setMovePieceCallback(std::function<void()> callback);
-
-	// ... Attributes ...
 
 	/**
 	 * @brief Static controller for pawn moves.

@@ -12,12 +12,12 @@
 class PlayerController {
 public:
     /**
-     * @brief Constructs a new PlayerController object with default attributes.
+     * @brief Constructs a new PlayerController object.
      */
     PlayerController();
 
     /**
-     * @brief Destroys the PlayerController object and frees associated resources.
+     * @brief Destroys the PlayerController object.
      */
     ~PlayerController();
 

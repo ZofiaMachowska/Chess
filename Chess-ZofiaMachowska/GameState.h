@@ -16,7 +16,7 @@ class GameState : public AppState {
 private:
     BoardController board;       /**< The main game board controller. */
     UIBoardController uiController; /**< Controller for the game's user interface. */
-    sf::Event event;             /**< Stores the latest event for processing. */
+    sf::Event event;             /**< Stores the latest event. */
 
 public:
     /**
@@ -50,7 +50,7 @@ public:
     void render(sf::RenderWindow& window) override;
 
     /**
-     * @brief Initializes or resets game-specific elements for the game state.
+     * @brief Initializes or resets game elements for the game state.
      */
     void initialize() override;
 };

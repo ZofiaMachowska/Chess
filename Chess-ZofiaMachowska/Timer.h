@@ -5,22 +5,22 @@
 #include <functional>
 
 /**
- * @brief A utility class that manages and measures time intervals.
+ * @brief A class that manages and measures time intervals.
  *
  * This timer can be started, stopped, and reset. It also allows users to register a callback
- * that is invoked when the timer's allotted time has been exhausted.
+ * that is invoked when the timer's time has been over.
  */
 class Timer {
 private:
     /**
      * @brief Invoked when the timer's time runs out.
      *
-     * This function triggers the `timerOverCallback` if it's set.
+     * This function triggers the `timerOverCallback`.
      */
     void timeOver();
 
     /**
-     * @brief A separate thread for the timer, allowing it to run in parallel to the main application.
+     * @brief A thread for the timer.
      */
     std::thread timerThread;
 
@@ -41,7 +41,7 @@ public:
     Timer();
 
     /**
-     * @brief Destroys the Timer object and ensures the timer thread is appropriately handled.
+     * @brief Destroys the Timer object.
      */
     ~Timer();
 

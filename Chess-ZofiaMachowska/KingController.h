@@ -3,9 +3,9 @@
 
 /**
  * @class KingController
- * @brief Class for controlling the behavior of a king in a chess game.
+ * @brief Class for controlling the behavior of a king in chess.
  *
- * Provides the functionalities specific to a king, like determining its valid moves, checking if it can capture another king, and finding its position.
+ * Provides the functionalities specific to a king.
  */
 class KingController : public ChessPieceController {
 public:
@@ -14,8 +14,8 @@ public:
      *
      * @param oldPos Starting position of the king.
      * @param newPos Desired position to move to.
-     * @param board Current state of the chess board.
-     * @param isWhite Flag to determine if the king is white.
+     * @param board Current state of the board.
+     * @param isWhite Flag to determine if the player is white.
      * @return true if the move is possible, false otherwise.
      */
     bool isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8], bool isWhite) const override;
@@ -25,8 +25,8 @@ public:
      *
      * @param oldPos Starting position of the king.
      * @param kingPos Position of the opponent's king.
-     * @param board Current state of the chess board.
-     * @param isWhite Flag to determine if the king is white.
+     * @param board Current state of the board.
+     * @param isWhite Flag to determine if the player is white.
      * @return true if the move captures the king, false otherwise.
      */
     bool checkKingCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8], bool isWhite) const override;
@@ -35,8 +35,8 @@ public:
      * @brief Generates a list of valid moves for the king from a specific position.
      *
      * @param pos Current position of the king.
-     * @param board Current state of the chess board.
-     * @param isWhite Flag to determine if the king is white.
+     * @param board Current state of the board.
+     * @param isWhite Flag to determine if the player is white.
      * @return A vector containing all valid moves.
      */
     std::vector<Move> generateValidMoves(sf::Vector2i pos, int board[8][8], bool isWhite) const override;
@@ -44,7 +44,7 @@ public:
     /**
      * @brief Finds the position of the king on the board.
      *
-     * @param board Current state of the chess board.
+     * @param board Current state of the board.
      * @param isWhite Flag to determine if the king is white.
      * @return The position of the king as a Vector2i.
      */
@@ -57,7 +57,7 @@ private:
     /**
      * @brief Finds the position of the white king on the board.
      *
-     * @param board Current state of the chess board.
+     * @param board Current state of the board.
      * @return The position of the white king as a Vector2i.
      */
     sf::Vector2i findWhiteKingPosition(int board[8][8]) const;
@@ -65,7 +65,7 @@ private:
     /**
      * @brief Finds the position of the black king on the board.
      *
-     * @param board Current state of the chess board.
+     * @param board Current state of the board.
      * @return The position of the black king as a Vector2i.
      */
     sf::Vector2i findBlackKingPosition(int board[8][8]) const;

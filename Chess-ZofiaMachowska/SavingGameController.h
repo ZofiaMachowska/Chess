@@ -14,7 +14,7 @@ class SavingGameController
 {
 public:
     /**
-     * @brief Destroys the SavingGameController object and frees associated resources.
+     * @brief Destroys the SavingGameController object.
      */
     ~SavingGameController();
 
@@ -23,7 +23,7 @@ public:
      *
      * @param board The current state of the chessboard.
      * @param players Vector containing pointers to player objects.
-     * @param gameOver Indicates if the game is over or ongoing.
+     * @param gameOver Indicates if the game is over or not.
      */
     void addNewGameToHistory(int board[][8], std::vector<Player*> players, bool gameOver);
 

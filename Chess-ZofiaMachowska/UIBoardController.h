@@ -29,8 +29,8 @@ public:
      * @brief Renders the entire chessboard, including pieces and UI elements.
      *
      * @param window Reference to the SFML RenderWindow.
-     * @param board 2D array representing the state of the chessboard.
-     * @param movedFigure Integer identifier of a piece being moved (if any).
+     * @param board array representing the state of the chessboard.
+     * @param movedFigure Integer identifier of a piece being moved.
      * @param currentPlayer Pointer to the current player's information.
      * @param gameOver Flag indicating if the game is over.
      */
@@ -39,7 +39,7 @@ public:
     /**
      * @brief Prints the state of the board to the console (for debugging purposes).
      *
-     * @param board 2D array representing the state of the chessboard.
+     * @param board array representing the state of the chessboard.
      */
     void printBoardDebug(int board[][8]);
 
@@ -108,7 +108,7 @@ private:
      */
     void drawPiece(sf::RenderWindow& window, sf::Sprite piece, int j, int i);
     /**
-     * @brief Redraws the board when a chess move is made, highlighting the moved piece.
+     * @brief Redraws the board when a chess move is made.
      *
      * @param window Reference to the SFML RenderWindow.
      * @param mousePos Coordinates of the mouse position.
@@ -126,14 +126,14 @@ private:
     void redrawInfoPannel(sf::RenderWindow& window, Player* currentPlayer, bool isGameOver);
 
     /**
-     * @brief Calculates the time remaining or elapsed for the game's timer.
+     * @brief Calculates the time remaining.
      *
      * @param time A pair representing the minutes and seconds.
      */
     void calculateTimer(std::pair<int, int> time);
 
     /**
-     * @brief Fetches the sprite for a given piece, useful for rendering the moved piece.
+     * @brief Fetches the sprite for a given piece.
      *
      * @param movedFigure Integer identifier of the piece being moved.
      * @return Returns a sprite representing the moved chess piece.

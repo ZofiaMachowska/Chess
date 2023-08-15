@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AIController" Collapsed="true">
+    <Position X="11.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACIAgFAAgAAgJLIAQAABAAAIAAAAAgAIQAQAAAJA=</HashCode>
+      <FileName>AIController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Application" Collapsed="true">
+    <Position X="15.75" Y="8.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAgAEABRAAAAAIAAAAAAAAAACBAAIAABACEAIAQA=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="aiPlayerOptions" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AppState" Collapsed="true">
+    <Position X="17.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>AppState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BishopController" Collapsed="true">
+    <Position X="19" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAACAAAAAACAABAAAAEAAAAAAAAAAIAA=</HashCode>
+      <FileName>BishopController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoardController" Collapsed="true">
+    <Position X="12" Y="10.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AADDIaAQCMAAAAAhZIAAAITABAIAkAABgAhAAEAAgOA=</HashCode>
+      <FileName>BoardController.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="playerController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Button" Collapsed="true">
+    <Position X="22.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEAAAAAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAAAEABAA=</HashCode>
+      <FileName>Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Checkbox" Collapsed="true">
+    <Position X="22.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQIAIAAAAAgAAAggAAIAAAAABAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Checkbox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChessPieceController" Collapsed="true">
+    <Position X="20" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAACAAAAIAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChessPieceController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameState" Collapsed="true">
+    <Position X="14.25" Y="10" Width="1.5" />
+    <AssociationLine Name="board" Type="BoardController" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.25" Y="10.5" />
+        <Point X="14.183" Y="10.517" />
+        <Point X="12.875" Y="10.517" />
+        <Point X="12.875" Y="10.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAARAAAAEAAAAAAAgAAAIAIAIAAAAQIAA=</HashCode>
+      <FileName>GameState.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="saveController" />
+      <Field Name="uiController" />
+      <Field Name="board" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KingController" Collapsed="true">
+    <Position X="15.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAEAwCAEAAAEAEAAAAACAAAAAAA=</HashCode>
+      <FileName>KingController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KnightController" Collapsed="true">
+    <Position X="20.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAACAAAAAACAAAAAAAEAAAAABAAAAIAA=</HashCode>
+      <FileName>KnightController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadingState" Collapsed="true">
+    <Position X="18.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACABAAAAEAABAAAAAAAAAAgAAAAAAQAAA=</HashCode>
+      <FileName>LoadingState.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uiLoadingController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MenuState" Collapsed="true">
+    <Position X="20.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAABAAAgEACAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>MenuState.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uiMenuController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="OptionsState" Collapsed="true">
+    <Position X="16.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAABAABAEAAAAAAAAgAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>OptionsState.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="uiOptionsController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PawnController" Collapsed="true">
+    <Position X="17.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAACCACAAAAAEAAAAAAAAAAIAA=</HashCode>
+      <FileName>PawnController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="13.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQIAAAAAAgIAAAAAAAAABAgAAAAAACAAEAAgQAAABA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="timer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlayerController" Collapsed="true">
+    <Position X="12.5" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4AACAAAAAAAAAAggAAAAACgEAICIAQACAAAAIAAAAAA=</HashCode>
+      <FileName>PlayerController.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="player1" />
+      <Field Name="aiController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="QueenController" Collapsed="true">
+    <Position X="22.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAACACAAAAAEAEAAAAAAAAAgIAA=</HashCode>
+      <FileName>QueenController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RookController" Collapsed="true">
+    <Position X="24.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAACAAAAAACAAAAAEAEAABAAAAAAAIAA=</HashCode>
+      <FileName>RookController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SavingGameController" Collapsed="true">
+    <Position X="14.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAEAAAAABAAAAAAAAAgAgAEAAAAEAAEAiQAAEgAAAA=</HashCode>
+      <FileName>SavingGameController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer" Collapsed="true">
+    <Position X="13" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAEAEIQAAAIhgAAAwAAAAAAAgEAAAAAAAgEEEEAA=</HashCode>
+      <FileName>Timer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIBoardController" Collapsed="true">
+    <Position X="12" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQYQAAAgSQAEAhAAgEwCgSIoAQIIIAQAAEAAQsAqSAI=</HashCode>
+      <FileName>UIBoardController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UILoadingController" Collapsed="true">
+    <Position X="18.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAACAAAAQAACQAoAACAAAAAQAAAABAAAABACAAAAA=</HashCode>
+      <FileName>UILoadingController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIMenuController" Collapsed="true">
+    <Position X="20.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgCAAAAAAACgAoAAAAAAAIIBAAAAIQCAQACAACAA=</HashCode>
+      <FileName>UIMenuController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIOptionsController" Collapsed="true">
+    <Position X="16.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgIAAAAAAAAAAyAAwAAAAQABAQIAAgAARAIAADAAAAA=</HashCode>
+      <FileName>UIOptionsController.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Game" Collapsed="true">
+    <Position X="24.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAIAAAAAAAAIA=</HashCode>
+      <FileName>chessStructures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Move" Collapsed="true">
+    <Position X="24.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQBAAAAAA=</HashCode>
+      <FileName>chessStructures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MoveEvaluation" Collapsed="true">
+    <Position X="24.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>chessStructures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Options" Collapsed="true">
+    <Position X="13.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIAAAAA=</HashCode>
+      <FileName>chessStructures.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -6,7 +6,7 @@
 
 /**
  * @class OptionsState
- * @brief Represents the options/settings state of the application.
+ * @brief Represents the options state of the application.
  */
 class OptionsState : public AppState {
 private:
@@ -34,7 +34,7 @@ public:
     /**
      * @brief Renders the options state.
      *
-     * @param window The SFML window to render to.
+     * @param window The SFML window to render.
      */
     void render(sf::RenderWindow& window) override;
 

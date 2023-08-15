@@ -10,7 +10,7 @@
 
 /**
  * @brief Represents the user interface (UI) controller for the game's options menu.
- * This class is responsible for rendering and handling the options, especially AI choices.
+ * This class is responsible for rendering and handling AI choices.
  */
 class UIOptionsController
 {
@@ -21,7 +21,7 @@ public:
     UIOptionsController();
 
     /**
-     * @brief Destroys the UIOptionsController, cleaning up any allocated resources.
+     * @brief Destroys the UIOptionsController.
      */
     ~UIOptionsController();
 

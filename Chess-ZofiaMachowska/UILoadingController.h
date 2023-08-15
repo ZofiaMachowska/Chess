@@ -20,7 +20,7 @@ public:
     UILoadingController();
 
     /**
-     * @brief Destroys the UILoadingController, cleaning up any allocated resources.
+     * @brief Destroys the UILoadingController.
      */
     ~UILoadingController();
 
@@ -32,7 +32,7 @@ public:
     void redrawWindow(sf::RenderWindow& window);
 
     /**
-     * @brief Initializes the visuals (like fonts, buttons, etc.) for the loading screen.
+     * @brief Initializes the visuals for the loading screen.
      */
     void initializeVisuals();
 

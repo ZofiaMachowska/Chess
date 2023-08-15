@@ -3,9 +3,9 @@
 
 /**
  * @class BishopController
- * @brief Class for controlling the behavior of a bishop in a chess game.
+ * @brief Class for controlling the behavior of a bishop in chess.
  *
- * This class provides the functionalities specific to a bishop, like determining its valid moves, checking if it can capture the king, etc.
+ * This class provides the functionalities specific to a bishop.
  */
 class BishopController : public ChessPieceController {
 public:
@@ -14,8 +14,8 @@ public:
      *
      * @param oldPos Starting position of the bishop.
      * @param newPos Desired position to move to.
-     * @param board Current state of the chess board.
-     * @param isWhite Flag to determine if the bishop is white.
+     * @param board Current state of the board.
+     * @param isWhite Flag to determine if the player is white.
      * @return true if the move is possible, false otherwise.
      */
     bool isMovePossible(sf::Vector2i oldPos, sf::Vector2i newPos, int board[8][8], bool isWhite) const override;
@@ -25,8 +25,8 @@ public:
      *
      * @param oldPos Starting position of the bishop.
      * @param kingPos Position of the opponent's king.
-     * @param board Current state of the chess board.
-     * @param isWhite Flag to determine if the bishop is white.
+     * @param board Current state of the board.
+     * @param isWhite Flag to determine if the player is white.
      * @return true if the move captures the king, false otherwise.
      */
     bool checkKingCapture(sf::Vector2i oldPos, sf::Vector2i kingPos, int board[8][8], bool isWhite) const override;
@@ -35,8 +35,8 @@ public:
      * @brief Generates a list of valid moves for the bishop from a specific position.
      *
      * @param pos Current position of the bishop.
-     * @param board Current state of the chess board.
-     * @param isWhite Flag to determine if the bishop is white.
+     * @param board Current state of the board.
+     * @param isWhite Flag to determine if the player is white.
      * @return A vector containing all valid moves.
      */
     std::vector<Move> generateValidMoves(sf::Vector2i pos, int board[8][8], bool isWhite) const override;

@@ -18,7 +18,7 @@ public:
     UIMenuController();
 
     /**
-     * @brief Destroys the UIMenuController, cleaning up any allocated resources.
+     * @brief Destroys the UIMenuController.
      */
     ~UIMenuController();
 
@@ -30,7 +30,7 @@ public:
     void redrawWindow(sf::RenderWindow& window);
 
     /**
-     * @brief Initializes the visuals (like fonts, buttons, etc.) for the main menu.
+     * @brief Initializes the visuals for the main menu.
      */
     void initializeVisuals();
 

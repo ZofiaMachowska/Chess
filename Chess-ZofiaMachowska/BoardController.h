@@ -15,12 +15,12 @@
 /**
  * @brief Responsible for controlling and managing the game board state, including pieces and players.
  *
- * The BoardController class handles the logic behind piece movements, player turns, and game end conditions. It also integrates the rules and movement logic for each specific type of chess piece.
+ * The BoardController class handles the logic behind piece movements, player turns, and game end conditions.
  */
 class BoardController {
 public:
     /**
-     * @brief Destructs the BoardController object, cleaning up any resources.
+     * @brief Destructs the BoardController.
      */
     ~BoardController();
 
@@ -41,7 +41,7 @@ public:
     /**
      * @brief Checks if the king of the specified player is in a safe position.
      *
-     * @param board The current state of the chess board.
+     * @param board The current state of the board.
      * @param whitePlayer Indicates whether to check for the white player's king or the black player's king.
      * @return true If the king is safe, false otherwise.
      */
@@ -84,7 +84,7 @@ public:
     /**
      * @brief Provides access to the current state of the game board.
      *
-     * @return int(&)[8][8] A reference to the 8x8 board matrix.
+     * @return int(&)[8][8] A reference to the board matrix.
      */
     int(&getBoard())[8][8];
 
@@ -116,7 +116,7 @@ private:
     static void moveFigureTemporarily(sf::Vector2i pos, int piece);
 
     /**
-     * @brief Prepares a temporary board state, often for validation or testing.
+     * @brief Prepares a temporary board state for validation testing.
      */
     static void prepareTemporaryBoard();
 
@@ -131,9 +131,9 @@ private:
     void moveThisPiece(bool whitePlayer, int pieceNumber, sf::Vector2i position);
 
     /**
-     * @brief Handles scenarios where no valid moves are available.
+     * @brief Handles scenario where move is not possible.
      */
-    void handleNoValidMoves();
+    void handleNoValidMove();
 
     /**
      * @brief Resets the board to its initial state.
@@ -175,10 +175,8 @@ private:
      */
     bool checkPieceMovePossible(const sf::Vector2i& newPosition, bool whitePlayerTurn);
 
-
-    // Data members can be documented as well, for example:
     /**
-     * @brief The length of the board side (as the board is a square).
+     * @brief The length of the board side.
      */
     static const int BOARD_LENGTH = 7;
 
@@ -198,32 +196,32 @@ private:
     static sf::Vector2i oldPosition;
 
     /**
-     * @brief Static instance for controlling the pawn pieces' behavior on the board.
+     * @brief Static instance for controlling the pawn behavior on the board.
      */
     static PawnController pawn;
 
     /**
-     * @brief Static instance for controlling the knight pieces' behavior on the board.
+     * @brief Static instance for controlling the knight behavior on the board.
      */
     static KnightController knight;
 
     /**
-     * @brief Static instance for controlling the bishop pieces' behavior on the board.
+     * @brief Static instance for controlling the bishop behavior on the board.
      */
     static BishopController bishop;
 
     /**
-     * @brief Static instance for controlling the rook pieces' behavior on the board.
+     * @brief Static instance for controlling the rook behavior on the board.
      */
     static RookController rook;
 
     /**
-     * @brief Static instance for controlling the queen pieces' behavior on the board.
+     * @brief Static instance for controlling the queen behavior on the board.
      */
     static QueenController queen;
 
     /**
-     * @brief Static instance for controlling the king pieces' behavior on the board.
+     * @brief Static instance for controlling the king behavior on the board.
      */
     static KingController king;
 

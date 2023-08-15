@@ -22,14 +22,14 @@ public:
     Application();
 
     /**
-     * @brief Destroy the Application object and free resources.
+     * @brief Destroy the Application.
      */
     ~Application();
 
     /**
      * @brief Change the current application state.
      *
-     * @param newState Unique pointer to the new application state.
+     * @param newState pointer to the new application state.
      */
     static void changeAppState(std::unique_ptr<AppState> newState);
 
@@ -97,7 +97,7 @@ private:
     static std::vector<Game> games;
 
     /**
-     * @brief Unique pointer to the current application state.
+     * @brief Pointer to the current application state.
      */
     static std::unique_ptr<AppState> currentState;
 

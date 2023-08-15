@@ -4,8 +4,9 @@
 #include "UILoadingController.h"
 
 /**
- * @brief Represents the state in the application lifecycle when the game is in the loading phase.
- * It inherits from the AppState base class to provide specific functionalities related to loading game resources and visuals.
+ * @class LoadingState
+ * @brief Represents the Loading game screen of the application.
+ *
  */
 class LoadingState : public AppState {
 private:
@@ -13,32 +14,32 @@ private:
 
 public:
     /**
-     * @brief Constructs the LoadingState, setting up the initial state.
+     * @brief Constructs the LoadingState.
      */
     LoadingState();
 
     /**
-     * @brief Destroys the LoadingState, cleaning up any allocated resources.
+     * @brief Destroys the LoadingState.
      */
     ~LoadingState();
 
     /**
-     * @brief Overrides the handleEvent method from AppState to provide specific handling for events during the loading phase.
+     * @brief Overrides the handleEvent method from AppState to provide specific handling for events during the loading state.
      *
      * @param event The event object representing user interactions or system events.
-     * @param window Reference to the SFML RenderWindow, used to interact with the graphical interface.
+     * @param window Reference to the SFML RenderWindow.
      */
     void handleEvent(sf::Event event, sf::RenderWindow& window) override;
 
     /**
-     * @brief Overrides the render method from AppState to display the user interface for the loading phase.
+     * @brief Overrides the render method from AppState to display the user interface for the loading screen.
      *
-     * @param window Reference to the SFML RenderWindow, where the loading UI elements are drawn.
+     * @param window Reference to the SFML RenderWindow.
      */
     void render(sf::RenderWindow& window) override;
 
     /**
-     * @brief Overrides the initialize method from AppState to set up the necessary resources and visuals for the loading phase.
+     * @brief Overrides the initialize method from AppState, initializes resources and visuals for the loading screen.
      */
     void initialize() override;
 };

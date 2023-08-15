@@ -34,7 +34,7 @@ public:
     /**
      * @brief Renders the menu state.
      *
-     * @param window The SFML window to render to.
+     * @param window The SFML window to render.
      */
     void render(sf::RenderWindow& window) override;
 

@@ -6,8 +6,7 @@
  * @brief A GUI component representing a checkbox.
  *
  * This class manages the visual appearance and behavior of a checkbox,
- * allowing users to select or deselect an option. It also provides methods
- * for determining its current state and rendering it on the screen.
+ * allowing users to select or deselect an option.
  */
 class Checkbox
 {
@@ -18,17 +17,17 @@ public:
      * @param font The font used to render the checkbox's label.
      * @param label The text to be displayed next to the checkbox.
      * @param characterSize The font size of the label text.
-     * @param position Coordinates where the top-left corner of the checkbox should be located.
+     * @param position Coordinates where the corner of the checkbox should be located.
      */
     Checkbox(const sf::Font& font, const std::string& label, unsigned int characterSize, sf::Vector2f position);
 
     /**
-     * @brief Destroys the Checkbox object, releasing any resources.
+     * @brief Destroys the Checkbox object.
      */
     ~Checkbox();
 
     /**
-     * @brief Checks if the mouse cursor is currently hovering over the checkbox.
+     * @brief Checks if the mouse cursor is currently over the checkbox.
      *
      * @param mousePosition The current position of the mouse cursor.
      * @return true if the mouse is over the checkbox, false otherwise.
@@ -68,12 +67,12 @@ private:
     sf::Font font;
 
     /**
-     * @brief Represents the square shape of the checkbox.
+     * @brief Represents the shape of the checkbox.
      */
     sf::RectangleShape checkboxBox;
 
     /**
-     * @brief The text label displayed next to the checkbox.
+     * @brief The text displayed next to the checkbox.
      */
     sf::Text checkboxText;
 };
