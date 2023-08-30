@@ -1,1 +1,7 @@
-﻿  Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy\x64\Debug\Chess-ZofiaMachowska.exe
+﻿  Timer.cpp
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Timer.cpp(92,81): warning C4244: 'return': conversion from '_Rep' to 'int', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+  Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy — obiektowe\x64\Debug\Chess-ZofiaMachowska.exe

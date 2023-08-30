@@ -1,43 +1,24 @@
 #include "Application.h"
 
-int Application::gameToLoad = -1;
 std::unique_ptr<AppState> Application::currentState = nullptr;
-Options Application::aiPlayerOptions;
-std::vector<Game> Application::games;
+SaveLoadManager Application::saveLoadManager;
+//Options Application::aiPlayerOptions;
 
 Application::Application() {
-    GameState::saveController.loadGamesFromFile();
-    Application::setSavedGames(GameState::saveController.getGames());
+    saveLoadManager.loadGamesFromFile();
 }
 
 Application::~Application() {
 }
 
-Options Application::getAiPlayerOptionsValue() {
-    return Application::aiPlayerOptions;
-}
-
-Game Application::getGameToLoad() {
-    return Application::games[gameToLoad];
-}
-
-std::vector<Game> Application::getSavedGamesValues() {
-    return Application::games;
-}
-
-void Application::setGameIndexToLoad(int index) {
-    gameToLoad = index;
-}
-
-void Application::setSavedGames(std::vector<Game> games) {
-    Application::games.clear();
-    Application::games = games;
-}
-
-void Application::setOptionsChoice(Options optionsChoice) {
-    Application::aiPlayerOptions.firstPlayerAi = optionsChoice.firstPlayerAi;
-    Application::aiPlayerOptions.secondPlayerAi = optionsChoice.secondPlayerAi;
-}
+//Options Application::getAiPlayerOptionsValue() {
+//    return Application::aiPlayerOptions;
+//}
+//
+//void Application::setOptionsChoice(Options optionsChoice) {
+//    Application::aiPlayerOptions.firstPlayerAi = optionsChoice.firstPlayerAi;
+//    Application::aiPlayerOptions.secondPlayerAi = optionsChoice.secondPlayerAi;
+//}
 
 void Application::changeAppState(std::unique_ptr<AppState> newState) {
     Application::currentState = std::move(newState);

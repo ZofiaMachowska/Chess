@@ -1,347 +1,542 @@
 [
 	{
-		"blackPlayer" : 
-		{
-			"color" : "Black",
-			"isAI" : false,
-			"isActive" : false,
-			"timer" : 
-			{
-				"elapsedTime" : 0,
-				"initialDuration" : 300,
-				"isRunning" : false,
-				"remainingTime" : 298,
-				"timeAtStop" : 298
-			}
-		},
 		"chessBoard" : 
 		[
 			[
-				2,
-				3,
-				4,
-				5,
-				6,
-				0,
-				3,
-				2
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 0,
+					"type" : "N"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 0,
+					"type" : "Q"
+				},
+				null,
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				},
+				{
+					"col" : 6,
+					"color" : "B",
+					"row" : 0,
+					"type" : "N"
+				},
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				}
 			],
 			[
-				1,
-				1,
-				1,
-				1,
-				0,
-				1,
-				1,
-				0
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				}
 			],
 			[
-				0,
-				0,
-				0,
-				0,
-				1,
-				0,
-				0,
-				0
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
 			],
 			[
-				0,
-				0,
-				4,
-				0,
-				0,
-				0,
-				0,
-				1
+				null,
+				null,
+				null,
+				null,
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 4,
+					"type" : "K"
+				},
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				null
 			],
 			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				-1
+				null,
+				null,
+				null,
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 6,
+					"type" : "N"
+				},
+				null,
+				null,
+				null
 			],
 			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				-1,
-				-1,
-				0
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
 			],
 			[
-				-1,
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				0,
-				0
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				}
 			],
 			[
-				-2,
-				-3,
-				-4,
-				-5,
-				-6,
-				-4,
-				-3,
-				-2
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				},
+				{
+					"col" : 1,
+					"color" : "W",
+					"row" : 7,
+					"type" : "N"
+				},
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 7,
+					"type" : "Q"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 7,
+					"type" : "K"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				},
+				null,
+				null
 			]
 		],
+		"currentPlayerColor" : "B",
 		"gameOver" : false,
-		"timeOfSaving" : "2023-08-13 15:13:52",
-		"whitePlayer" : 
+		"player1" : 
 		{
-			"color" : "White",
+			"color" : "W",
 			"isAI" : false,
-			"isActive" : true,
 			"timer" : 
 			{
-				"elapsedTime" : 1,
-				"initialDuration" : 300,
-				"isRunning" : true,
-				"remainingTime" : 285,
-				"timeAtStop" : 286
+				"initialDuration" : 5,
+				"isRunning" : false,
+				"remainingTime" : 285
 			}
-		}
+		},
+		"player2" : 
+		{
+			"color" : "B",
+			"isAI" : false,
+			"timer" : 
+			{
+				"initialDuration" : 5,
+				"isRunning" : true,
+				"remainingTime" : 292
+			}
+		},
+		"timeOfSaving" : "2023-08-30 21:59:33"
 	},
 	{
-		"blackPlayer" : 
-		{
-			"color" : "Black",
-			"isAI" : false,
-			"isActive" : true,
-			"timer" : 
-			{
-				"elapsedTime" : 8,
-				"initialDuration" : 300,
-				"isRunning" : true,
-				"remainingTime" : 292,
-				"timeAtStop" : 300
-			}
-		},
 		"chessBoard" : 
 		[
 			[
-				2,
-				3,
-				4,
-				5,
-				6,
-				4,
-				3,
-				2
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 0,
+					"type" : "N"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 0,
+					"type" : "Q"
+				},
+				null,
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				},
+				{
+					"col" : 6,
+					"color" : "B",
+					"row" : 0,
+					"type" : "N"
+				},
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				}
 			],
 			[
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				}
 			],
 			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
 			],
 			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
+				null,
+				null,
+				null,
+				null,
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 4,
+					"type" : "K"
+				},
+				null,
+				null,
+				null
 			],
 			[
-				0,
-				0,
-				0,
-				0,
-				-1,
-				0,
-				0,
-				0
+				null,
+				null,
+				null,
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 6,
+					"type" : "N"
+				},
+				null,
+				null,
+				null
 			],
 			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
 			],
 			[
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				}
 			],
 			[
-				-2,
-				-3,
-				-4,
-				-5,
-				-6,
-				-4,
-				-3,
-				-2
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				},
+				{
+					"col" : 1,
+					"color" : "W",
+					"row" : 7,
+					"type" : "N"
+				},
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 7,
+					"type" : "Q"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 7,
+					"type" : "K"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				},
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				}
 			]
 		],
+		"currentPlayerColor" : "W",
 		"gameOver" : false,
-		"timeOfSaving" : "2023-08-13 10:00:03",
-		"whitePlayer" : 
+		"player1" : 
 		{
-			"color" : "White",
+			"color" : "W",
 			"isAI" : false,
-			"isActive" : false,
 			"timer" : 
 			{
-				"elapsedTime" : 1,
-				"initialDuration" : 300,
+				"initialDuration" : 5,
 				"isRunning" : false,
-				"remainingTime" : 299,
-				"timeAtStop" : 300
-			}
-		}
-	},
-	{
-		"blackPlayer" : 
-		{
-			"color" : "Black",
-			"isAI" : false,
-			"isActive" : true,
-			"timer" : 
-			{
-				"elapsedTime" : 8,
-				"initialDuration" : 300,
-				"isRunning" : true,
-				"remainingTime" : 292,
-				"timeAtStop" : 300
+				"remainingTime" : 285
 			}
 		},
-		"chessBoard" : 
-		[
-			[
-				2,
-				3,
-				4,
-				5,
-				6,
-				4,
-				3,
-				2
-			],
-			[
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1,
-				1
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				-1,
-				0,
-				0,
-				0
-			],
-			[
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0,
-				0
-			],
-			[
-				-1,
-				-1,
-				-1,
-				-1,
-				0,
-				-1,
-				-1,
-				-1
-			],
-			[
-				-2,
-				-3,
-				-4,
-				-5,
-				-6,
-				-4,
-				-3,
-				-2
-			]
-		],
-		"gameOver" : false,
-		"timeOfSaving" : "2023-08-13 09:59:55",
-		"whitePlayer" : 
+		"player2" : 
 		{
-			"color" : "White",
+			"color" : "B",
 			"isAI" : false,
-			"isActive" : false,
 			"timer" : 
 			{
-				"elapsedTime" : 1,
-				"initialDuration" : 300,
-				"isRunning" : false,
-				"remainingTime" : 299,
-				"timeAtStop" : 300
+				"initialDuration" : 5,
+				"isRunning" : true,
+				"remainingTime" : 292
 			}
-		}
+		},
+		"timeOfSaving" : "2023-08-30 21:59:18"
 	}
 ]

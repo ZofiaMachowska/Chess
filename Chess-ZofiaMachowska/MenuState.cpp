@@ -14,24 +14,24 @@ void MenuState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     }
     if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
     {
-       uiMenuController.handleButtonPress(window);
+       uiMenu.handleButtonPress(window);
     }
 }
 
 void MenuState::render(sf::RenderWindow& window) {
-    uiMenuController.redrawWindow(window);
+    uiMenu.redrawWindow(window);
 }
 
 void MenuState::initialize() {
-    uiMenuController.setNewGameCallback([this]() {
+    uiMenu.setNewGameCallback([this]() {
         Application::changeAppState(std::make_unique<GameState>());
         });
 
-    uiMenuController.setLoadGameCallback([this]() {
+    uiMenu.setLoadGameCallback([this]() {
         Application::changeAppState(std::make_unique<LoadingState>());
         });
 
-    uiMenuController.setOptionsCallback([this]() {
+    uiMenu.setOptionsCallback([this]() {
         Application::changeAppState(std::make_unique<OptionsState>());
         });
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "UIMenuController.h"
+#include "UIMenu.h"
 #include "AppState.h"
 #include "Application.h"
 #include "GameState.h"
@@ -10,7 +10,7 @@
  */
 class MenuState : public AppState {
 private:
-    UIMenuController uiMenuController; /**< Controller for the menu UI. */
+    UIMenu uiMenu; /**< Controller for the menu UI. */
 
 public:
     /**

@@ -1,39 +1,42 @@
 #include "Player.h"
 
-Player::Player(const std::string& color, const bool isActive, const bool isAI) : color(color), isActive(isActive), isAI(isAI) {
-    this->color = color;
-    this->isAI = isAI;
-    this->timer = new Timer();
-}
-
-Player::~Player() {
-    delete timer;
+Player::Player(std::string color, bool playerAI) : color(color), firstMove(true), playerAI(playerAI) {
+    this->playerTimer = new Timer();
 }
 
 std::string Player::getColor() const {
     return color;
 }
 
-bool Player::checkIsActive() {
-    return isActive;
+bool Player::getIsPlayerAI() const {
+    return playerAI;
 }
 
-bool Player::isPlayerAI() {
-    return isAI;
+Timer* Player::getTimer() {
+    return playerTimer;
 }
 
-void Player::setAiStatus(bool aiActive) {
-    isAI = aiActive;
+void Player::setTimer(Timer* timer) {
+    playerTimer = timer;
 }
 
-void Player::setActiveState(bool isActive) {
-    this->isActive = isActive;
-    isActive ? timer->resume() : timer->stop();
+bool Player::isFirstMove() {
+    return firstMove;
 }
 
-void Player::loadPlayerOptions(Player* playerOption) {
-    isAI = playerOption->isAI;
-    timer->remainingTime = playerOption->timer->remainingTime;
-    isActive = playerOption->isActive;
-    isActive ? timer->resume() : timer->stop();
+void Player::setFirstMove(bool move1) {
+    firstMove = move1;
+}
+
+void Player::startNewTimer() {
+    playerTimer->reset();
+    playerTimer->start();
+}
+
+void Player::stopTimer() {
+    playerTimer->stop();
+}
+
+void Player::resumeTimer() {
+    playerTimer->resume();
 }

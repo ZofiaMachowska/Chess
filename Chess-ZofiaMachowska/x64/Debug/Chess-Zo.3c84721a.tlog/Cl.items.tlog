@@ -1,26 +1,29 @@
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\AIController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\AIController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Application.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Application.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\BishopController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\BishopController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\BoardController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\BoardController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Button.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Button.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Checkbox.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Checkbox.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\dist\jsoncpp.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\jsoncpp.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\LoadingState.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\LoadingState.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\SavingGameController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\SavingGameController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\shared.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\shared.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIBoardController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\UIBoardController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\PlayerController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\PlayerController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\GameState.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\GameState.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KingController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\KingController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\KnightController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\KnightController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Main.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Main.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UILoadingController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\UILoadingController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIMenuController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\UIMenuController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\MenuState.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\MenuState.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\OptionsState.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\OptionsState.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\PawnController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\PawnController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Player.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Player.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\QueenController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\QueenController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\RookController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\RookController.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\Timer.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\Timer.obj
-C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\UIOptionsController.cpp;C:\Users\Zosia\Desktop\git\szachy\Chess-ZofiaMachowska\x64\Debug\UIOptionsController.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\AI.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\AI.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Application.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Application.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Bishop.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Bishop.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Board.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Board.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Button.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Button.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Checkbox.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Checkbox.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\ChessPiece.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\ChessPiece.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\dist\jsoncpp.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\jsoncpp.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Game.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Game.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\LoadingState.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\LoadingState.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Move.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Move.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\MoveValidator.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\MoveValidator.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\SaveLoadManager.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\SaveLoadManager.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\shared.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\shared.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIBoard.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\UIBoard.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\GameState.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\GameState.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\King.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\King.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Knight.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Knight.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Main.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Main.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UILoading.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\UILoading.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIMenu.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\UIMenu.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\MenuState.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\MenuState.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\OptionsState.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\OptionsState.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Pawn.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Pawn.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Player.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Player.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Queen.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Queen.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Rook.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Rook.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Timer.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\Timer.obj
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIOptions.cpp;C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\x64\Debug\UIOptions.obj

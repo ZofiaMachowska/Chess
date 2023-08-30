@@ -1,11 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "BoardController.h"
-#include "UIBoardController.h"
-#include "AIController.h"
+#include "UIBoard.h"
 #include "AppState.h"
 #include "Application.h"
-#include "SavingGameController.h"
+#include "Game.h"
 
 /**
  * @class GameState
@@ -14,9 +12,9 @@
  */
 class GameState : public AppState {
 private:
-    BoardController board;       /**< The main game board controller. */
-    UIBoardController uiController; /**< Controller for the game's user interface. */
+    UIBoard uiBoard; /**< Controller for the game's user interface. */
     sf::Event event;             /**< Stores the latest event. */
+    Game game;
 
 public:
     /**
@@ -28,11 +26,6 @@ public:
      * @brief Destructor for GameState.
      */
     ~GameState();
-
-    /**
-     * @brief Controller to handle saving game state.
-     */
-    static SavingGameController saveController;
 
     /**
      * @brief Handle SFML events for the game state.

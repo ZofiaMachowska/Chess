@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "AppState.h"
-#include "UIOptionsController.h"
+#include "UIOptions.h"
 #include "Application.h"
 
 /**
@@ -10,7 +10,7 @@
  */
 class OptionsState : public AppState {
 private:
-    UIOptionsController uiOptionsController; /**< Controller for the options UI. */
+    UIOptions uiOptions; /**< Controller for the options UI. */
 
 public:
     /**

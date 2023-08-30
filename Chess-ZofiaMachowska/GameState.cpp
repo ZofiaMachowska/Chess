@@ -1,8 +1,6 @@
 #include "GameState.h"
 
-SavingGameController GameState::saveController;
-
-GameState::GameState() : board(), uiController(), event() {
+GameState::GameState() : game(false, false) {
     initialize();
 }
 
@@ -20,36 +18,34 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 
     if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
     {
-        board.onBoardClicked(boardPosition);
-        if (uiController.saveButton->isMouseOver(mousePos)) {
-            saveController.addNewGameToHistory(board.getBoard(), board.getCurrentPlayers(), board.isGameOver());
-            saveController.saveGameToFile();
+        game.onBoardClicked(boardPosition.x, boardPosition.y);
+        if (uiBoard.saveButton->isMouseOver(mousePos)) {
+            Application::saveLoadManager.addNewGameToHistory(game);
+            Application::saveLoadManager.saveGameToFile();
         }
-        if (uiController.backButton->isMouseOver(mousePos)) {
-            Application::setGameIndexToLoad(-1);
+        if (uiBoard.backButton->isMouseOver(mousePos)) {
             Application::changeAppState(std::make_unique<MenuState>());
+            Application::saveLoadManager.setFlagToLoadGame(-1);
         }
     }
 
     if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
     {
-        board.onBoardReleased(boardPosition);
+       game.onBoardReleased(boardPosition.x, boardPosition.y);
     }
 }
 
 void GameState::initialize() {
-    saveController.setSaveNewGameCallback([this]() {
-        Application::setSavedGames(saveController.getGames());
-        });
-
-    if (Application::gameToLoad >= 0) {
-        board.loadGame(Application::getGameToLoad());
+    if (Application::saveLoadManager.shouldLoadAGame()) {
+        std::cout << "Wybrano ladowanie";
+        game.loadGame(Application::saveLoadManager.getGameToLoad());
     }
     else {
-        board.startNewGame(Application::getAiPlayerOptionsValue());
+        game.start();
+        std::cout << "Wybrano nowa gre";
     }
 }
 
 void GameState::render(sf::RenderWindow& window) {
-    uiController.redrawBoard(window, board.getBoard(), board.getMovedFigure(), board.getCurrentPlayer(), board.isGameOver());
+    uiBoard.redrawBoard(window, game);
 }

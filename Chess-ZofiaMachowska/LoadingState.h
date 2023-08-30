@@ -1,7 +1,7 @@
 #pragma once
 #include "AppState.h"
 #include "Application.h"
-#include "UILoadingController.h"
+#include "UILoading.h"
 
 /**
  * @class LoadingState
@@ -10,7 +10,7 @@
  */
 class LoadingState : public AppState {
 private:
-    UILoadingController uiLoadingController; ///< Controller responsible for managing the user interface during the loading state.
+    UILoading uiLoading; ///< Controller responsible for managing the user interface during the loading state.
 
 public:
     /**

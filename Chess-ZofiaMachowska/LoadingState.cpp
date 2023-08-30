@@ -14,22 +14,23 @@ void LoadingState::handleEvent(sf::Event event, sf::RenderWindow& window) {
     }
     if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
     {
-        uiLoadingController.handleButtonPress(window);
+        uiLoading.handleButtonPress(window);
     }
 }
 
 void LoadingState::render(sf::RenderWindow& window) {
-    uiLoadingController.redrawWindow(window);
+    uiLoading.redrawWindow(window);
 }
 
 void LoadingState::initialize() {
-    uiLoadingController.getSavedGames(Application::getSavedGamesValues());
-    uiLoadingController.setReturnToMenuCallback([this]() {
+    uiLoading.getSavedGames(Application::saveLoadManager.getGames());
+
+    uiLoading.setReturnToMenuCallback([this]() {
         Application::changeAppState(std::make_unique<MenuState>());
         });
 
-    uiLoadingController.setLoadThisGameCallback([this]() {
-        Application::setGameIndexToLoad(uiLoadingController.gameToLoadNext);
+    uiLoading.setLoadThisGameCallback([this]() {
+        Application::saveLoadManager.setFlagToLoadGame(uiLoading.gameToLoadNext);
         Application::changeAppState(std::make_unique<GameState>());
         });
 }
