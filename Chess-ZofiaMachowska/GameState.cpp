@@ -1,6 +1,6 @@
 #include "GameState.h"
 
-GameState::GameState() : game(false, false) {
+GameState::GameState() : game(Application::savedAiOptions.getFirstPlayerAi(), Application::savedAiOptions.getSecondPlayerAi()) {
     initialize();
 }
 
@@ -37,12 +37,10 @@ void GameState::handleEvent(sf::Event event, sf::RenderWindow& window) {
 
 void GameState::initialize() {
     if (Application::saveLoadManager.shouldLoadAGame()) {
-        std::cout << "Wybrano ladowanie";
         game.loadGame(Application::saveLoadManager.getGameToLoad());
     }
     else {
         game.start();
-        std::cout << "Wybrano nowa gre";
     }
 }
 

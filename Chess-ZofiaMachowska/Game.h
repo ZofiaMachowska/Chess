@@ -8,6 +8,7 @@
 #include <vector>
 #include <SFML/System/Vector2.hpp>
 #include "chessStructures.h"
+#include "Pawn.h"
 
 class Game {
 private:
@@ -17,6 +18,7 @@ private:
     Player* currentPlayer;
     ChessPiece* selectedPiece;
     sf::Vector2i pieceOldPosition;
+    AI ai;
     bool gameOver;
 
 public:
@@ -24,14 +26,13 @@ public:
     void start();
     void loadGame(GameSaveLoad gameToLoad);
     void switchPlayer();
-    bool isCheck();
     bool isGameOver();
     Player* getCurrentPlayer();
     Player get1Player();
     Player get2Player();
     ChessPiece* (&getChessBoard())[8][8];
     ChessPiece* getSelectedPiece();
-    bool isCheckmate();
     void onBoardClicked(int x, int y);
     void onBoardReleased(int x, int y);
+    void makeAMove(Move newMove);
 };

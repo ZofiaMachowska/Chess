@@ -4,7 +4,6 @@ SaveLoadManager::SaveLoadManager() {
 
 }
 
-
 SaveLoadManager::~SaveLoadManager() {
 
 }

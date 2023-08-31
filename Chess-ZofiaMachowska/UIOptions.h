@@ -6,6 +6,8 @@
 #include "Checkbox.h"
 #include <iostream>
 #include "Button.h"
+#include "chessStructures.h"
+#include "aiOptions.h"
 
 /**
  * @brief Represents the user interface (UI) controller for the game's options menu.
@@ -62,15 +64,15 @@ public:
      *
      * @param lastOptionsValue A structure containing previous choices of AI settings.
      */
-   // void setCheckboxLastValue(Options lastOptionsValue);
+    void setCheckboxLastValue(aiOptions lastOptionsValue);
 
-   // Options aiOptionsChoice; ///< Current AI options settings.
+    aiOptions aiOptionsChoice; ///< Current AI options settings.
 
 private:
     /**
      * @brief Processes the current state of checkboxes to determine the AI options.
      */
-  //  void setAiOptionsChoice();
+    void setAiOptionsChoice();
 
     std::function<void()> optionsReturnCallback; ///< Callback function for the return action.
     std::function<void()> aiChangesCallback; ///< Callback function for AI changes.

@@ -8,64 +8,68 @@ Pawn::Pawn(int row, int col, std::string color) : ChessPiece(), hasMoved(false) 
 std::vector<std::pair<int, int>> Pawn::possibleMoves() const {
     std::vector<std::pair<int, int>> moves;
 
-    // Bia³e pionki poruszaj¹ siê "do góry", czarne "na dó³"
-    int direction = (color == "W") ? 1 : -1;
+    int direction = (color == "W") ? -1 : 1;
 
-    // Prosty ruch o jedno pole
-    int newRow = row + direction;
-    if (newRow >= 0 && newRow < 8) {
-        moves.push_back(std::make_pair(newRow, col));
+    int newCol = col + direction;  // Zamienione
+    if (newCol >= 0 && newCol < 8) {
+        moves.push_back(std::make_pair(row, newCol));  // Zamienione
     }
 
-    // Ruch o dwa pola, je¿eli pionek nie rusza³ siê jeszcze
+    int newRow = row + 1;
+    if (newCol >= 0 && newCol < 8 && newRow >= 0 && newRow < 8) {
+        moves.push_back(std::make_pair(newRow, newCol));
+    }
+
+    newRow = row - 1;
+    if (newCol >= 0 && newCol < 8 && newRow >= 0 && newRow < 8) {
+        moves.push_back(std::make_pair(newRow, newCol));
+    }
+
     if (!hasMoved) {
-        newRow = row + 2 * direction;
-        if (newRow >= 0 && newRow < 8) {
-            moves.push_back(std::make_pair(newRow, col));
+        newCol = col + 2 * direction; 
+        if (newCol >= 0 && newCol < 8) {
+            moves.push_back(std::make_pair(row, newCol));
         }
     }
-
-    // TODO: Atak na skos, en passant, i promocja s¹ bardziej z³o¿onymi ruchami i mog¹ byæ dodane póŸniej
-
     return moves;
 }
 
-bool Pawn::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
-    int fromRow = getRow();
-    int fromCol = getCol();
-
-    int rowDiff = toRow - fromRow;
-    int colDiff = abs(toCol - fromCol);
-
-    std::string color = getColor(); // Pobieranie koloru pionka
-
-    // Sprawdzenie, czy ruch jest o jedno pole do przodu (lub dwa pola w pierwszym ruchu) i w tej samej kolumnie
-    if ((color == "W" && rowDiff != -1 && rowDiff != -2) ||
-        (color == "B" && rowDiff != 1 && rowDiff != 2)) {
-        return false;
-    }
-
-    // Sprawdzenie, czy pionek wykonuje atak na ukos
-    if (colDiff == 1 && rowDiff == ((color == "W") ? -1 : 1)) {
-        if (board[toRow, toCol] == nullptr) {
-            return false; // Brak pionka do zaatakowania
-        }
-    }
-    else if (colDiff != 0 || (rowDiff == 2 && hasMoved)) {
-        return false;
-    }
-
-    // Sprawdzenie, czy na docelowym polu nie ma innego pionka tego samego koloru
-    if (board[toRow, toCol] != nullptr) {
-        return false;
-    }
-
-    // Jeœli ¿adne z powy¿szych warunków nie zosta³o spe³nione, ruch jest prawid³owy
-    if (!hasMoved) {
-        setHasMoved(true);
-    }
-    return true;
-}
+//bool Pawn::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
+//    int fromRow = getRow();
+//    int fromCol = getCol();
+//
+//    int rowDiff = toRow - fromRow;
+//    int colDiff = abs(toCol - fromCol);
+//
+//    std::string color = getColor(); // Pobieranie koloru pionka
+//
+//    // Sprawdzenie, czy ruch jest o jedno pole do przodu (lub dwa pola w pierwszym ruchu) i w tej samej kolumnie
+//    if ((color == "W" && rowDiff != -1 && rowDiff != -2) ||
+//        (color == "B" && rowDiff != 1 && rowDiff != 2)) {
+//        return false;
+//    }
+//
+//    // Sprawdzenie, czy pionek wykonuje atak na ukos
+//    if (colDiff == 1 && rowDiff == ((color == "W") ? -1 : 1)) {
+//        if (board[toRow, toCol] == nullptr) {
+//            return false; // Brak pionka do zaatakowania
+//        }
+//    }
+//    else if (colDiff != 0 || (rowDiff == 2 && hasMoved)) {
+//        return false;
+//    }
+//
+//    // Sprawdzenie, czy na docelowym polu nie ma innego pionka tego samego koloru
+//    if (board[toRow, toCol] != nullptr) {
+//        return false;
+//    }
+//
+//    // Jeœli ¿adne z powy¿szych warunków nie zosta³o spe³nione, ruch jest prawid³owy
+//    if (!hasMoved) {
+//        setHasMoved(true);
+//    }
+//    return true;
+//}
 
 
 std::string Pawn::type() const {

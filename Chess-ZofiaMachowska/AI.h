@@ -3,19 +3,20 @@
 #include <functional>
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include <thread>
-#include <cstring>
 #include "ChessPiece.h"
-#include "King.h"
-#include "Queen.h"
-#include "Rook.h"
-#include "Bishop.h"
-#include "Knight.h"
-#include "Pawn.h"
 #include "Board.h"
 #include "Move.h"
+#include "Player.h"
+#include "MoveValidator.h"
+#include <random>
 
 class AI {
+private:
+    std::string color;
+    MoveValidator moveValidator;
+
 public:
-    static Move generateMove(Board& board, char playerColor);
+    AI(const std::string& playerColor);
+
+    Move makeMove(Board& board, Player* currentPlayer);
 };

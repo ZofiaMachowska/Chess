@@ -132,6 +132,9 @@
     <ClCompile Include="SaveLoadManager.cpp">
       <Filter>Source Files\Function</Filter>
     </ClCompile>
+    <ClCompile Include="aiOptions.cpp">
+      <Filter>Source Files\Function</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -229,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="chessStructures.h">
       <Filter>Header Files\Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="aiOptions.h">
+      <Filter>Header Files\Function</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

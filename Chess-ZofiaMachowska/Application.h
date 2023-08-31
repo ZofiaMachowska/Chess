@@ -9,6 +9,7 @@
 #include "LoadingState.h"
 #include "OptionsState.h"
 #include "SaveLoadManager.h"
+#include "aiOptions.h"
 
 /**
  * @brief Main class of the application. Manages the game loop and holds references to main components of the game.
@@ -35,6 +36,8 @@ private:
      */
     sf::RenderWindow window;
 public:
+    static aiOptions savedAiOptions;
+    static SaveLoadManager saveLoadManager;
     /**
      * @brief Construct a new Application object.
      */
@@ -57,19 +60,13 @@ public:
      *
      * @param optionsChoice The desired AI player options.
      */
-   // static void setOptionsChoice(Options optionsChoice);
+    static void setOptionsChoice(aiOptions& optionsChoice);
+
+    static aiOptions getAiPlayerOptionsValue();
 
 
     /**
      * @brief Start the application's main loop.
      */
     void run();
-    static SaveLoadManager saveLoadManager;
-
-    /**
-     * @brief Get the AI player options value.
-     *
-     * @return Options currently set for the AI player.
-     */
-    //static Options getAiPlayerOptionsValue();
 };

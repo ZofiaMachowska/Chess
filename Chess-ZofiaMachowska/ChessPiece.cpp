@@ -1,8 +1,8 @@
 #include "ChessPiece.h"
 
-bool ChessPiece::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
-    return false;
-}
+//bool ChessPiece::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
+//    return false;
+//}
 
 void ChessPiece::setPosition(int row, int col) {
     this->row = row;

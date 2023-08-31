@@ -39,33 +39,33 @@ std::vector<std::pair<int, int>> Queen::possibleMoves() const {
     return moves;
 }
 
-bool Queen::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
-    int fromRow = getRow();
-    int fromCol = getCol();
-
-    // Sprawdzenie, czy ruch jest po przek¹tnej lub w tej samej kolumnie/rzêdzie
-    if (fromRow != toRow && fromCol != toCol && abs(fromRow - toRow) != abs(fromCol - toCol)) {
-        return false;
-    }
-
-    // Sprawdzenie, czy pomiêdzy startowym i koñcowym polem nie ma innych pionków
-    int rowStep = (fromRow < toRow) ? 1 : (fromRow > toRow) ? -1 : 0;
-    int colStep = (fromCol < toCol) ? 1 : (fromCol > toCol) ? -1 : 0;
-
-    int stepRow = fromRow + rowStep;
-    int stepCol = fromCol + colStep;
-
-    while (stepRow != toRow || stepCol != toCol) {
-        if (board[stepRow, stepCol] != nullptr) {
-            return false; // Jest pionek na drodze
-        }
-        stepRow += rowStep;
-        stepCol += colStep;
-    }
-
-    // Jeœli ¿adne z powy¿szych warunków nie zosta³o spe³nione, ruch jest prawid³owy
-    return true;
-}
+//bool Queen::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
+//    int fromRow = getRow();
+//    int fromCol = getCol();
+//
+//    // Sprawdzenie, czy ruch jest po przek¹tnej lub w tej samej kolumnie/rzêdzie
+//    if (fromRow != toRow && fromCol != toCol && abs(fromRow - toRow) != abs(fromCol - toCol)) {
+//        return false;
+//    }
+//
+//    // Sprawdzenie, czy pomiêdzy startowym i koñcowym polem nie ma innych pionków
+//    int rowStep = (fromRow < toRow) ? 1 : (fromRow > toRow) ? -1 : 0;
+//    int colStep = (fromCol < toCol) ? 1 : (fromCol > toCol) ? -1 : 0;
+//
+//    int stepRow = fromRow + rowStep;
+//    int stepCol = fromCol + colStep;
+//
+//    while (stepRow != toRow || stepCol != toCol) {
+//        if (board[stepRow, stepCol] != nullptr) {
+//            return false; // Jest pionek na drodze
+//        }
+//        stepRow += rowStep;
+//        stepCol += colStep;
+//    }
+//
+//    // Jeœli ¿adne z powy¿szych warunków nie zosta³o spe³nione, ruch jest prawid³owy
+//    return true;
+//}
 
 
 std::string Queen::type() const {

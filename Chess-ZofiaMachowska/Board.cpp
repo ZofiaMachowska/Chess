@@ -35,18 +35,18 @@ void Board::initialize() {
     board[0][2] = new Bishop(0, 2, "B");
     board[0][3] = new Queen(0, 3, "B");
     board[0][4] = new King(0, 4, "B");
-    board[0][5] = new Rook(0, 5, "B");
+    board[0][7] = new Rook(0, 7, "B");
     board[0][6] = new Knight(0, 6, "B");
-    board[0][7] = new Bishop(0, 7, "B");
+    board[0][5] = new Bishop(0, 5, "B");
 
     board[7][0] = new Rook(7, 0, "W");
     board[7][1] = new Knight(7, 1, "W");
     board[7][2] = new Bishop(7, 2, "W");
     board[7][3] = new Queen(7, 3, "W");
     board[7][4] = new King(7, 4, "W");
-    board[7][5] = new Rook(7, 5, "W");
+    board[7][7] = new Rook(7, 7, "W");
     board[7][6] = new Knight(7, 6, "W");
-    board[7][7] = new Bishop(7, 7, "W");
+    board[7][5] = new Bishop(7, 5, "W");
 }
 
 ChessPiece* Board::getPiece(int row, int col) const {

@@ -8,7 +8,7 @@
 
 class Board {
 private:
-    ChessPiece* board[8][8]; // 8x8 chess board
+    ChessPiece* board[8][8];
     ChessPiece* temporaryTestingBoard[8][8];
 public:
     Board();

@@ -1,14 +1,27 @@
 #include "Game.h"
 
 Game::Game(bool player1AI, bool player2AI)
-    : player1("W", player1AI), player2("B", player2AI), gameOver(false), board() {
+    : player1("W", player1AI), player2("B", player2AI), gameOver(false), board(),
+    ai(player1.getIsPlayerAI() ? player1.getColor() : player2.getColor()) {
     currentPlayer = &player1;
 }
 
 void Game::start() {
-    player1.startNewTimer();
-    player1.setFirstMove(false);
-    // Move aiMove = AI::generateMove(board, 'B');
+    currentPlayer->startNewTimer();
+    currentPlayer->setFirstMove(false);
+    if (currentPlayer->getIsPlayerAI()) {
+        Move aiMove = ai.makeMove(board, currentPlayer);
+        if (aiMove.fromCol >= 0) {
+            makeAMove(aiMove);
+            std::cout << "UDALO SIE ZROBIC ZALOSNY RUCH " << std::endl;
+            std::cout << "From: (" << aiMove.fromCol << ", " << aiMove.fromRow << ") ";
+            std::cout << "To: (" << aiMove.toRow << ", " << aiMove.toCol << ")" << std::endl;
+
+        }
+        else {
+            std::cout << "NO VALID MOVES " << std::endl;
+        }
+    }
 }
 
 void Game::loadGame(GameSaveLoad gameToLoad) {
@@ -37,16 +50,19 @@ void Game::switchPlayer() {
     else {
         currentPlayer->resumeTimer();
     }
-}
+    if (currentPlayer->getIsPlayerAI()) {
+        Move aiMove = ai.makeMove(board, currentPlayer);
+        if (aiMove.fromCol >= 0) {
+            makeAMove(aiMove);
+            std::cout << "UDALO SIE ZROBIC ZALOSNY RUCH " << std::endl;
+            std::cout << "From: (" << aiMove.fromCol << ", " << aiMove.fromRow << ") ";
+            std::cout << "To: (" << aiMove.toRow << ", " << aiMove.toCol << ")" << std::endl;
 
-bool Game::isCheck() {
-    // TODO: Add check detection logic here
-    return false;
-}
-
-bool Game::isCheckmate() {
-    // TODO: Add checkmate detection logic here
-    return false;
+        }
+        else {
+            std::cout << "NO VALID MOVES " << std::endl;
+        }
+    }
 }
 
 bool Game::isGameOver() {
@@ -92,11 +108,32 @@ void Game::onBoardReleased(int x, int y) {
 
     Move move(pieceOldPosition.x, pieceOldPosition.y, x, y);
     if (board.isMovePossible(move, currentPlayer->getColor())) {
-        board.setPiece(y, x, selectedPiece);
+        board.setPiece(move.toCol, move.toRow, selectedPiece);
+        if (selectedPiece ->type() == "P") {
+            Pawn* pawnPtr = dynamic_cast<Pawn*>(selectedPiece);
+            if (pawnPtr != nullptr) {
+                pawnPtr->setHasMoved(true);
+            }
+        }
         switchPlayer();
     }
     else {
         board.setPiece(pieceOldPosition.y, pieceOldPosition.x, selectedPiece);
     }
     selectedPiece = nullptr; 
+}
+
+void Game::makeAMove(Move newMove) {
+    ChessPiece* piece = board.getPiece(newMove.fromCol, newMove.fromRow);
+    std::cout << "PIECE TO " << piece->type()<< std::endl;
+
+    board.setPiece(newMove.toCol, newMove.toRow, piece);
+    board.setPiece(newMove.fromCol, newMove.fromRow, nullptr);
+    if (piece && piece->type() == "P") {
+        Pawn* pawnPtr = dynamic_cast<Pawn*>(piece);
+        if (pawnPtr != nullptr) {
+            pawnPtr->setHasMoved(true);
+        }
+    }
+    switchPlayer();
 }

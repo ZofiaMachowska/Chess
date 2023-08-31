@@ -15,15 +15,15 @@ void UIOptions::redrawWindow(sf::RenderWindow& window) {
     backButton->draw(window);
 }
 
-//void UIOptionsController::setCheckboxLastValue(Options lastOptionsValue) {
-//    player1CheckBox->setStatus(lastOptionsValue.firstPlayerAi);
-//    player2CheckBox->setStatus(lastOptionsValue.secondPlayerAi);
-//}
-//
-//void UIOptionsController::setAiOptionsChoice() {
-//    aiOptionsChoice.firstPlayerAi = player1CheckBox->isCheckedStatus();
-//    aiOptionsChoice.secondPlayerAi = player2CheckBox->isCheckedStatus();
-//}
+void UIOptions::setCheckboxLastValue(aiOptions lastOptions) {
+    player1CheckBox->setStatus(lastOptions.getFirstPlayerAi());
+    player2CheckBox->setStatus(lastOptions.getSecondPlayerAi());
+}
+
+void UIOptions::setAiOptionsChoice() {
+    aiOptionsChoice.setFirstPlayerAi(player1CheckBox->isCheckedStatus());
+    aiOptionsChoice.setSecondPlayerAi(player2CheckBox->isCheckedStatus());
+}
 
 void  UIOptions::setOptionsAiChangesCallback(std::function<void()> callback) {
     aiChangesCallback = std::move(callback);
@@ -54,7 +54,7 @@ void UIOptions::initializeVisuals() {
 
 void UIOptions::handleButtonPress(const sf::Vector2i& mousePosition) {
     if (player1CheckBox->isMouseOver(mousePosition) || player2CheckBox->isMouseOver(mousePosition)) {
-      //  setAiOptionsChoice();
+        setAiOptionsChoice();
         if (aiChangesCallback) {
             aiChangesCallback();
         }

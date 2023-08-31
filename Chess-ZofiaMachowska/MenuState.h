@@ -10,7 +10,7 @@
  */
 class MenuState : public AppState {
 private:
-    UIMenu uiMenu; /**< Controller for the menu UI. */
+    UIMenu uiMenu; /**< for the menu UI. */
 
 public:
     /**

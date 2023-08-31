@@ -6,6 +6,14 @@
 #include "Game.h"
 #include "ChessPiece.h"
 #include "chessStructures.h"
+#include "Bishop.h"
+#include "King.h"
+#include "Knight.h"
+#include "Pawn.h"
+#include "Queen.h"
+#include "Rook.h"
+#include "Timer.h"
+#include "Move.h"
 
 /**
  * @brief Manages game saving and loading functionalities.

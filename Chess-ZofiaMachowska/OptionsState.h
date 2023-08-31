@@ -10,7 +10,7 @@
  */
 class OptionsState : public AppState {
 private:
-    UIOptions uiOptions; /**< Controller for the options UI. */
+    UIOptions uiOptions; /**< for the options UI. */
 
 public:
     /**

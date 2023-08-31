@@ -40,3 +40,21 @@ void Player::stopTimer() {
 void Player::resumeTimer() {
     playerTimer->resume();
 }
+
+std::vector<Move> Player::generatePossibleMoves(Board& board) {
+    std::vector<Move> possibleMoves;
+    for (int row = 0; row < 8; ++row) {
+        for (int col = 0; col < 8; ++col) {
+            ChessPiece* piece = board.getPiece(row, col);
+            if (piece && piece->getColor() == color) {
+                std::vector<std::pair<int, int>> moveCoordinates = piece->possibleMoves();
+                // Convert coordinates to Move objects
+                for (const auto& coords : moveCoordinates) {
+                    Move move(row, col, coords.first, coords.second);
+                    possibleMoves.push_back(move);
+                }
+            }
+        }
+    }
+    return possibleMoves;
+}

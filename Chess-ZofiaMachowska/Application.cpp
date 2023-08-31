@@ -2,7 +2,7 @@
 
 std::unique_ptr<AppState> Application::currentState = nullptr;
 SaveLoadManager Application::saveLoadManager;
-//Options Application::aiPlayerOptions;
+aiOptions Application::savedAiOptions;
 
 Application::Application() {
     saveLoadManager.loadGamesFromFile();
@@ -11,14 +11,14 @@ Application::Application() {
 Application::~Application() {
 }
 
-//Options Application::getAiPlayerOptionsValue() {
-//    return Application::aiPlayerOptions;
-//}
-//
-//void Application::setOptionsChoice(Options optionsChoice) {
-//    Application::aiPlayerOptions.firstPlayerAi = optionsChoice.firstPlayerAi;
-//    Application::aiPlayerOptions.secondPlayerAi = optionsChoice.secondPlayerAi;
-//}
+aiOptions Application::getAiPlayerOptionsValue() {
+    return savedAiOptions;
+}
+
+void Application::setOptionsChoice(aiOptions& optionsChoice) {
+    savedAiOptions.setFirstPlayerAi(optionsChoice.getFirstPlayerAi());
+    savedAiOptions.setSecondPlayerAi(optionsChoice.getSecondPlayerAi());
+}
 
 void Application::changeAppState(std::unique_ptr<AppState> newState) {
     Application::currentState = std::move(newState);

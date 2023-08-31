@@ -7,16 +7,6 @@
 #include "ChessPiece.h"
 
 /**
- * @brief Represents the AI options for each player.
- *
- * This structure allows the game to know if either of the players is controlled by the AI.
- */
-struct Options {
-    bool firstPlayerAi;   ///< Indicates whether the first player is controlled by the AI.
-    bool secondPlayerAi;  ///< Indicates whether the second player is controlled by the AI.
-};
-
-/**
  * @brief Represents a saved game state, including the board configuration and players' details.
  *
  * This structure captures all the necessary details to save and then reload a game.

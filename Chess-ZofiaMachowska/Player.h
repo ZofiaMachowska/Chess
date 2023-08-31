@@ -1,6 +1,10 @@
 #pragma once
 #include "Timer.h"
 #include <iostream>
+#include <vector>
+#include "Move.h"
+#include "ChessPiece.h"
+#include "Board.h"
 
 class Player {
 private:
@@ -20,5 +24,5 @@ public:
     void resumeTimer();
     Timer* getTimer();
     void setTimer(Timer*);
-
+    std::vector<Move> generatePossibleMoves(Board& board);
 };

@@ -25,12 +25,12 @@ void OptionsState::render(sf::RenderWindow& window) {
 }
 
 void OptionsState::initialize() {
-    //uiOptionsController.setCheckboxLastValue(Application::getAiPlayerOptionsValue());
+    uiOptions.setCheckboxLastValue(Application::getAiPlayerOptionsValue());
     uiOptions.setOptionsReturnCallback([this]() {
         Application::changeAppState(std::make_unique<MenuState>());
         });
-    //uiOptionsController.setOptionsAiChangesCallback([this]() {
-    //    Application::setOptionsChoice(uiOptionsController.aiOptionsChoice);
-    //    });
+    uiOptions.setOptionsAiChangesCallback([this]() {
+        Application::setOptionsChoice(uiOptions.aiOptionsChoice);
+        });
 }
  

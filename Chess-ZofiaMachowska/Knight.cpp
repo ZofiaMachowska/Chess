@@ -23,23 +23,23 @@ std::vector<std::pair<int, int>> Knight::possibleMoves() const {
     return moves;
 }
 
-bool Knight::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
-    int fromRow = getRow();
-    int fromCol = getCol();
-
-    int rowDiff = abs(toRow - fromRow);
-    int colDiff = abs(toCol - fromCol);
-
-    // Sprawdzenie, czy ruch jest zgodny z ruchem skoczka (L-kszta速ny ruch)
-    if ((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2)) {
-        // Sprawdzenie, czy pole docelowe jest puste lub zaj皻e przez przeciwnika
-        if (board[toRow, toCol] == nullptr) {
-            return true; // Ruch jest prawid這wy
-        }
-    }
-
-    return false; // Ruch jest nieprawid這wy
-}
+//bool Knight::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
+//    int fromRow = getRow();
+//    int fromCol = getCol();
+//
+//    int rowDiff = abs(toRow - fromRow);
+//    int colDiff = abs(toCol - fromCol);
+//
+//    // Sprawdzenie, czy ruch jest zgodny z ruchem skoczka (L-kszta速ny ruch)
+//    if ((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2)) {
+//        // Sprawdzenie, czy pole docelowe jest puste lub zaj皻e przez przeciwnika
+//        if (board[toRow, toCol] == nullptr) {
+//            return true; // Ruch jest prawid這wy
+//        }
+//    }
+//
+//    return false; // Ruch jest nieprawid這wy
+//}
 
 
 std::string Knight::type() const {

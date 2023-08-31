@@ -13,7 +13,6 @@
 class GameState : public AppState {
 private:
     UIBoard uiBoard; /**< Controller for the game's user interface. */
-    sf::Event event;             /**< Stores the latest event. */
     Game game;
 
 public:

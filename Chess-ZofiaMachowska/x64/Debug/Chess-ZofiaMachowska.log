@@ -1,7 +1,18 @@
-﻿  Timer.cpp
-C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\Timer.cpp(92,81): warning C4244: 'return': conversion from '_Rep' to 'int', possible loss of data
+﻿  AI.cpp
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\AI.cpp(27,63): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
           with
           [
-              _Rep=__int64
+              _Ty=int
           ]
+  UIBoard.cpp
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIBoard.cpp(57,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIBoard.cpp(57,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIBoard.cpp(120,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIBoard.cpp(120,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Pawn.cpp
+  Player.cpp
+  UIOptions.cpp
+  Generating Code...
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIBoard.cpp(82): warning C4715: 'UIBoard::getWhiteFigure': not all control paths return a value
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\UIBoard.cpp(106): warning C4715: 'UIBoard::getBlackFigure': not all control paths return a value
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy — obiektowe\x64\Debug\Chess-ZofiaMachowska.exe
