@@ -176,6 +176,7 @@
     <ClInclude Include="Checkbox.h" />
     <ClInclude Include="ChessPiece.h" />
     <ClInclude Include="chessStructures.h" />
+    <ClInclude Include="Coordinates.h" />
     <ClInclude Include="dist\json\json-forwards.h" />
     <ClInclude Include="dist\json\json.h" />
     <ClInclude Include="Game.h" />

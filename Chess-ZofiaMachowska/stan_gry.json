@@ -27,6 +27,276 @@
 					"row" : 0,
 					"type" : "Q"
 				},
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 0,
+					"type" : "K"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				},
+				{
+					"col" : 6,
+					"color" : "B",
+					"row" : 0,
+					"type" : "N"
+				},
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				}
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				}
+			],
+			[
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 7,
+					"type" : "P"
+				}
+			],
+			[
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				null
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				},
+				{
+					"col" : 1,
+					"color" : "W",
+					"row" : 7,
+					"type" : "N"
+				},
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 7,
+					"type" : "Q"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 7,
+					"type" : "K"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 7,
+					"type" : "N"
+				},
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				}
+			]
+		],
+		"currentPlayerColor" : "B",
+		"gameOver" : false,
+		"player1" : 
+		{
+			"color" : "W",
+			"isAI" : false,
+			"timer" : 
+			{
+				"initialDuration" : 5,
+				"isRunning" : false,
+				"remainingTime" : 299
+			}
+		},
+		"player2" : 
+		{
+			"color" : "B",
+			"isAI" : false,
+			"timer" : 
+			{
+				"initialDuration" : 5,
+				"isRunning" : true,
+				"remainingTime" : 300
+			}
+		},
+		"timeOfSaving" : "2023-09-11 09:44:21"
+	},
+	{
+		"chessBoard" : 
+		[
+			[
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 0,
+					"type" : "N"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 0,
+					"type" : "Q"
+				},
 				null,
 				{
 					"col" : 5,
@@ -113,16 +383,16 @@
 				null,
 				null,
 				{
-					"col" : 0,
+					"col" : 4,
 					"color" : "B",
-					"row" : 4,
+					"row" : 3,
 					"type" : "K"
 				},
 				null,
 				{
-					"col" : 7,
+					"col" : 6,
 					"color" : "W",
-					"row" : 7,
+					"row" : 3,
 					"type" : "B"
 				},
 				null
@@ -133,9 +403,9 @@
 				null,
 				null,
 				{
-					"col" : 7,
+					"col" : 4,
 					"color" : "W",
-					"row" : 6,
+					"row" : 4,
 					"type" : "N"
 				},
 				null,
@@ -383,9 +653,9 @@
 				null,
 				null,
 				{
-					"col" : 0,
+					"col" : 4,
 					"color" : "B",
-					"row" : 4,
+					"row" : 3,
 					"type" : "K"
 				},
 				null,
@@ -398,9 +668,9 @@
 				null,
 				null,
 				{
-					"col" : 7,
+					"col" : 4,
 					"color" : "W",
-					"row" : 6,
+					"row" : 4,
 					"type" : "N"
 				},
 				null,
@@ -522,8 +792,8 @@
 			"timer" : 
 			{
 				"initialDuration" : 5,
-				"isRunning" : false,
-				"remainingTime" : 285
+				"isRunning" : true,
+				"remainingTime" : 276
 			}
 		},
 		"player2" : 

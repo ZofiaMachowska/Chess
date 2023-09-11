@@ -1,6 +1,6 @@
 #include "Queen.h"
 
-Queen::Queen(int row, int col, std::string color) : ChessPiece() {
+Queen::Queen(int row, int col, std::string color) : ChessPiece(row, col, color) {
     setPosition(row, col);
     this->color = color;
 }
@@ -10,26 +10,26 @@ std::vector<std::pair<int, int>> Queen::possibleMoves() const {
 
     // Ruchy poziome i pionowe (jak dla wie¿y)
     for (int i = 0; i < 8; ++i) {
-        if (i != col) {
-            moves.push_back(std::make_pair(row, i));
+        if (i != getCol()) {
+            moves.push_back(std::make_pair(getRow(), i));
         }
     }
     for (int i = 0; i < 8; ++i) {
-        if (i != row) {
-            moves.push_back(std::make_pair(i, col));
+        if (i != getRow()) {
+            moves.push_back(std::make_pair(i, getCol()));
         }
     }
 
     // Ruchy po przek¹tnych (jak dla goñca)
     for (int i = -7; i <= 7; ++i) {
         if (i != 0) {
-            int newRow = row + i;
-            int newCol = col + i;
+            int newRow = getRow() + i;
+            int newCol = getCol() + i;
             if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
                 moves.push_back(std::make_pair(newRow, newCol));
             }
 
-            newCol = col - i;
+            newCol = getCol() - i;
             if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
                 moves.push_back(std::make_pair(newRow, newCol));
             }

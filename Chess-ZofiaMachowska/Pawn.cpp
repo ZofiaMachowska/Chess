@@ -1,6 +1,6 @@
 #include "Pawn.h"
 
-Pawn::Pawn(int row, int col, std::string color) : ChessPiece(), hasMoved(false) {
+Pawn::Pawn(int row, int col, std::string color) : ChessPiece(row, col, color), hasMoved(false) {
     setPosition(row, col);
     this->color = color;
 }
@@ -10,25 +10,25 @@ std::vector<std::pair<int, int>> Pawn::possibleMoves() const {
 
     int direction = (color == "W") ? -1 : 1;
 
-    int newCol = col + direction;  // Zamienione
+    int newCol = getCol() + direction;  // Zamienione
     if (newCol >= 0 && newCol < 8) {
-        moves.push_back(std::make_pair(row, newCol));  // Zamienione
+        moves.push_back(std::make_pair(getRow(), newCol));  // Zamienione
     }
 
-    int newRow = row + 1;
+    int newRow = getRow() + 1;
     if (newCol >= 0 && newCol < 8 && newRow >= 0 && newRow < 8) {
         moves.push_back(std::make_pair(newRow, newCol));
     }
 
-    newRow = row - 1;
+    newRow = getRow() - 1;
     if (newCol >= 0 && newCol < 8 && newRow >= 0 && newRow < 8) {
         moves.push_back(std::make_pair(newRow, newCol));
     }
 
     if (!hasMoved) {
-        newCol = col + 2 * direction; 
+        newCol = getCol() + 2 * direction;
         if (newCol >= 0 && newCol < 8) {
-            moves.push_back(std::make_pair(row, newCol));
+            moves.push_back(std::make_pair(getRow(), newCol));
         }
     }
     return moves;

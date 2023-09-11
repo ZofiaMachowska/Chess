@@ -236,6 +236,9 @@
     <ClInclude Include="aiOptions.h">
       <Filter>Header Files\Function</Filter>
     </ClInclude>
+    <ClInclude Include="Coordinates.h">
+      <Filter>Header Files\Shared</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Chess-ZofiaMachowska1.rc">
