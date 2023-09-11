@@ -22,25 +22,6 @@ std::vector<std::pair<int, int>> Knight::possibleMoves() const {
     return moves;
 }
 
-//bool Knight::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
-//    int fromRow = getRow();
-//    int fromCol = getCol();
-//
-//    int rowDiff = abs(toRow - fromRow);
-//    int colDiff = abs(toCol - fromCol);
-//
-//    // Sprawdzenie, czy ruch jest zgodny z ruchem skoczka (L-kszta³tny ruch)
-//    if ((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2)) {
-//        // Sprawdzenie, czy pole docelowe jest puste lub zajête przez przeciwnika
-//        if (board[toRow, toCol] == nullptr) {
-//            return true; // Ruch jest prawid³owy
-//        }
-//    }
-//
-//    return false; // Ruch jest nieprawid³owy
-//}
-
-
 std::string Knight::type() const {
-    return "N";  // 'N' jest u¿ywane zamiast 'K' aby unikn¹æ konfliktu z królem (King)
+    return "N"; 
 }

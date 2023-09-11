@@ -1,9 +1,5 @@
 #include "ChessPiece.h"
 
-//bool ChessPiece::isValidMove(int toRow, int toCol, ChessPiece* board[][8]) {
-//    return false;
-//}
-
 ChessPiece::ChessPiece(int row, int col, std::string color) : position(row, col), color(color) {}
 
 void ChessPiece::setPosition(int row, int col) {

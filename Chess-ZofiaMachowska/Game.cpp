@@ -13,10 +13,6 @@ void Game::start() {
         Move aiMove = ai.makeMove(board, currentPlayer);
         if (aiMove.fromCol >= 0) {
             makeAMove(aiMove);
-            std::cout << "UDALO SIE ZROBIC ZALOSNY RUCH " << std::endl;
-            std::cout << "From: (" << aiMove.fromCol << ", " << aiMove.fromRow << ") ";
-            std::cout << "To: (" << aiMove.toRow << ", " << aiMove.toCol << ")" << std::endl;
-
         }
         else {
             std::cout << "NO VALID MOVES " << std::endl;
@@ -54,10 +50,6 @@ void Game::switchPlayer() {
         Move aiMove = ai.makeMove(board, currentPlayer);
         if (aiMove.fromCol >= 0) {
             makeAMove(aiMove);
-            std::cout << "UDALO SIE ZROBIC ZALOSNY RUCH " << std::endl;
-            std::cout << "From: (" << aiMove.fromCol << ", " << aiMove.fromRow << ") ";
-            std::cout << "To: (" << aiMove.toRow << ", " << aiMove.toCol << ")" << std::endl;
-
         }
         else {
             std::cout << "NO VALID MOVES " << std::endl;
@@ -125,7 +117,6 @@ void Game::onBoardReleased(int x, int y) {
 
 void Game::makeAMove(Move newMove) {
     ChessPiece* piece = board.getPiece(newMove.fromCol, newMove.fromRow);
-    std::cout << "PIECE TO " << piece->type()<< std::endl;
 
     board.setPiece(newMove.toCol, newMove.toRow, piece);
     board.setPiece(newMove.fromCol, newMove.fromRow, nullptr);

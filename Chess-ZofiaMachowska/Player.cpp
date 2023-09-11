@@ -48,7 +48,6 @@ std::vector<Move> Player::generatePossibleMoves(Board& board) {
             ChessPiece* piece = board.getPiece(row, col);
             if (piece && piece->getColor() == color) {
                 std::vector<std::pair<int, int>> moveCoordinates = piece->possibleMoves();
-                // Convert coordinates to Move objects
                 for (const auto& coords : moveCoordinates) {
                     Move move(row, col, coords.first, coords.second);
                     possibleMoves.push_back(move);
