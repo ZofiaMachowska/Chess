@@ -18,7 +18,6 @@ std::vector<std::pair<int, int>> Knight::possibleMoves() const {
             moves.push_back(std::make_pair(newRow, newCol));
         }
     }
-
     return moves;
 }
 

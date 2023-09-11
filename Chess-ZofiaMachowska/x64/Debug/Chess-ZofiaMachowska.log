@@ -1,2 +1,7 @@
-﻿  Game.cpp
+﻿  AI.cpp
+C:\Users\Zosia\Desktop\git\szachy — obiektowe\Chess-ZofiaMachowska\AI.cpp(22,63): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
   Chess-ZofiaMachowska.vcxproj -> C:\Users\Zosia\Desktop\git\szachy — obiektowe\x64\Debug\Chess-ZofiaMachowska.exe

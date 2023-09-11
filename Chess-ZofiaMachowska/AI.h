@@ -39,5 +39,5 @@ public:
      * @param currentPlayer Pointer to the current player.
      * @return The generated move.
      */
-    Move makeMove(Board& board, Player* currentPlayer);
+    Move makeMove(ChessPiece* board[][8], Player* currentPlayer);
 };

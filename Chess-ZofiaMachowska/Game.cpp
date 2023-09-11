@@ -10,7 +10,7 @@ void Game::start() {
     currentPlayer->startNewTimer();
     currentPlayer->setFirstMove(false);
     if (currentPlayer->getIsPlayerAI()) {
-        Move aiMove = ai.makeMove(board, currentPlayer);
+        Move aiMove = ai.makeMove(board.getBoard(), currentPlayer);
         if (aiMove.fromCol >= 0) {
             makeAMove(aiMove);
         }
@@ -47,7 +47,7 @@ void Game::switchPlayer() {
         currentPlayer->resumeTimer();
     }
     if (currentPlayer->getIsPlayerAI()) {
-        Move aiMove = ai.makeMove(board, currentPlayer);
+        Move aiMove = ai.makeMove(board.getBoard(), currentPlayer);
         if (aiMove.fromCol >= 0) {
             makeAMove(aiMove);
         }

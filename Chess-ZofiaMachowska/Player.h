@@ -86,5 +86,5 @@ public:
      * @param board Reference to the chessboard.
      * @return Vector of possible moves.
      */
-    std::vector<Move> generatePossibleMoves(Board& board);
+    std::vector<Move> generatePossibleMoves(ChessPiece* board[][8]);
 };

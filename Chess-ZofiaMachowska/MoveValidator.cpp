@@ -12,16 +12,15 @@ bool MoveValidator::isValidMove(ChessPiece* board[][8], Move move, std::string c
     }
 
     ChessPiece* pieceToMove = board[fromCol][fromRow];
-
-    if (pieceToMove == nullptr) {
+   
+    if (!pieceToMove) {
         return false;
     }
+
     if (pieceToMove->getColor() != currentPlayer) {
         return false;
     }
-
     std::vector<std::pair<int, int>> moves = pieceToMove->possibleMoves();
-
     moves.erase(
         std::remove_if(moves.begin(), moves.end(), [board, currentPlayer](std::pair<int, int> to) {
             ChessPiece* targetPiece = board[to.second][to.first];
@@ -29,7 +28,6 @@ bool MoveValidator::isValidMove(ChessPiece* board[][8], Move move, std::string c
             }),
         moves.end()
     );
-
     bool movePossible = std::find(moves.begin(), moves.end(), std::make_pair(move.toRow, move.toCol)) != moves.end();
     if (movePossible) {
         std::string pieceType = pieceToMove->type();

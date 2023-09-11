@@ -9,12 +9,7 @@
 					"row" : 0,
 					"type" : "R"
 				},
-				{
-					"col" : 1,
-					"color" : "B",
-					"row" : 0,
-					"type" : "N"
-				},
+				null,
 				{
 					"col" : 2,
 					"color" : "B",
@@ -39,12 +34,7 @@
 					"row" : 0,
 					"type" : "B"
 				},
-				{
-					"col" : 6,
-					"color" : "B",
-					"row" : 0,
-					"type" : "N"
-				},
+				null,
 				{
 					"col" : 7,
 					"color" : "B",
@@ -105,330 +95,65 @@
 			[
 				null,
 				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				{
-					"col" : 6,
-					"color" : "W",
-					"row" : 7,
-					"type" : "P"
-				}
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			],
-			[
 				{
 					"col" : 0,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
+					"color" : "B",
+					"row" : 1,
+					"type" : "N"
 				},
+				null,
+				null,
 				{
-					"col" : 1,
-					"color" : "W",
+					"col" : 0,
+					"color" : "B",
 					"row" : 6,
-					"type" : "P"
+					"type" : "N"
 				},
-				{
-					"col" : 2,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 3,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 4,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 5,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 6,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
 				null
 			],
 			[
 				{
-					"col" : 0,
-					"color" : "W",
-					"row" : 7,
-					"type" : "R"
-				},
-				{
-					"col" : 1,
-					"color" : "W",
-					"row" : 7,
-					"type" : "N"
-				},
-				{
-					"col" : 2,
-					"color" : "W",
-					"row" : 7,
-					"type" : "B"
-				},
-				{
-					"col" : 3,
-					"color" : "W",
-					"row" : 7,
-					"type" : "Q"
-				},
-				{
-					"col" : 4,
-					"color" : "W",
-					"row" : 7,
-					"type" : "K"
-				},
-				{
-					"col" : 5,
-					"color" : "W",
-					"row" : 7,
-					"type" : "B"
-				},
-				{
 					"col" : 6,
 					"color" : "W",
-					"row" : 7,
-					"type" : "N"
+					"row" : 0,
+					"type" : "P"
 				},
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				null,
+				null,
+				null,
 				{
 					"col" : 7,
 					"color" : "W",
-					"row" : 7,
-					"type" : "R"
-				}
-			]
-		],
-		"currentPlayerColor" : "B",
-		"gameOver" : false,
-		"player1" : 
-		{
-			"color" : "W",
-			"isAI" : false,
-			"timer" : 
-			{
-				"initialDuration" : 5,
-				"isRunning" : false,
-				"remainingTime" : 299
-			}
-		},
-		"player2" : 
-		{
-			"color" : "B",
-			"isAI" : false,
-			"timer" : 
-			{
-				"initialDuration" : 5,
-				"isRunning" : true,
-				"remainingTime" : 300
-			}
-		},
-		"timeOfSaving" : "2023-09-11 09:44:21"
-	},
-	{
-		"chessBoard" : 
-		[
-			[
-				{
-					"col" : 0,
-					"color" : "B",
-					"row" : 0,
-					"type" : "R"
-				},
-				{
-					"col" : 1,
-					"color" : "B",
-					"row" : 0,
-					"type" : "N"
-				},
-				{
-					"col" : 2,
-					"color" : "B",
-					"row" : 0,
-					"type" : "B"
-				},
-				{
-					"col" : 3,
-					"color" : "B",
-					"row" : 0,
-					"type" : "Q"
-				},
-				null,
-				{
-					"col" : 5,
-					"color" : "B",
-					"row" : 0,
-					"type" : "R"
-				},
-				{
-					"col" : 6,
-					"color" : "B",
-					"row" : 0,
-					"type" : "N"
-				},
-				{
-					"col" : 7,
-					"color" : "B",
-					"row" : 0,
-					"type" : "B"
-				}
-			],
-			[
-				{
-					"col" : 0,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 1,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 2,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 3,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 4,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 5,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 6,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 7,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				}
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				{
-					"col" : 4,
-					"color" : "B",
-					"row" : 3,
-					"type" : "K"
-				},
-				null,
-				{
-					"col" : 6,
-					"color" : "W",
-					"row" : 3,
-					"type" : "B"
-				},
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				{
-					"col" : 4,
-					"color" : "W",
-					"row" : 4,
-					"type" : "N"
-				},
-				null,
-				null,
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			],
-			[
-				{
-					"col" : 0,
-					"color" : "W",
 					"row" : 6,
-					"type" : "P"
+					"type" : "N"
 				},
+				null,
+				null
+			],
+			[
+				null,
 				{
 					"col" : 1,
 					"color" : "W",
@@ -507,279 +232,14 @@
 					"col" : 5,
 					"color" : "W",
 					"row" : 7,
-					"type" : "R"
-				},
-				null,
-				null
-			]
-		],
-		"currentPlayerColor" : "B",
-		"gameOver" : false,
-		"player1" : 
-		{
-			"color" : "W",
-			"isAI" : false,
-			"timer" : 
-			{
-				"initialDuration" : 5,
-				"isRunning" : false,
-				"remainingTime" : 285
-			}
-		},
-		"player2" : 
-		{
-			"color" : "B",
-			"isAI" : false,
-			"timer" : 
-			{
-				"initialDuration" : 5,
-				"isRunning" : true,
-				"remainingTime" : 292
-			}
-		},
-		"timeOfSaving" : "2023-08-30 21:59:33"
-	},
-	{
-		"chessBoard" : 
-		[
-			[
-				{
-					"col" : 0,
-					"color" : "B",
-					"row" : 0,
-					"type" : "R"
-				},
-				{
-					"col" : 1,
-					"color" : "B",
-					"row" : 0,
-					"type" : "N"
-				},
-				{
-					"col" : 2,
-					"color" : "B",
-					"row" : 0,
 					"type" : "B"
-				},
-				{
-					"col" : 3,
-					"color" : "B",
-					"row" : 0,
-					"type" : "Q"
-				},
-				null,
-				{
-					"col" : 5,
-					"color" : "B",
-					"row" : 0,
-					"type" : "R"
-				},
-				{
-					"col" : 6,
-					"color" : "B",
-					"row" : 0,
-					"type" : "N"
-				},
-				{
-					"col" : 7,
-					"color" : "B",
-					"row" : 0,
-					"type" : "B"
-				}
-			],
-			[
-				{
-					"col" : 0,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 1,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 2,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 3,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 4,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 5,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 6,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				},
-				{
-					"col" : 7,
-					"color" : "B",
-					"row" : 1,
-					"type" : "P"
-				}
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				{
-					"col" : 4,
-					"color" : "B",
-					"row" : 3,
-					"type" : "K"
-				},
-				null,
-				null,
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				{
-					"col" : 4,
-					"color" : "W",
-					"row" : 4,
-					"type" : "N"
-				},
-				null,
-				null,
-				null
-			],
-			[
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null,
-				null
-			],
-			[
-				{
-					"col" : 0,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 1,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 2,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 3,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 4,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 5,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 6,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				},
-				{
-					"col" : 7,
-					"color" : "W",
-					"row" : 6,
-					"type" : "P"
-				}
-			],
-			[
-				{
-					"col" : 0,
-					"color" : "W",
-					"row" : 7,
-					"type" : "R"
-				},
-				{
-					"col" : 1,
-					"color" : "W",
-					"row" : 7,
-					"type" : "N"
-				},
-				{
-					"col" : 2,
-					"color" : "W",
-					"row" : 7,
-					"type" : "B"
-				},
-				{
-					"col" : 3,
-					"color" : "W",
-					"row" : 7,
-					"type" : "Q"
-				},
-				{
-					"col" : 4,
-					"color" : "W",
-					"row" : 7,
-					"type" : "K"
-				},
-				{
-					"col" : 5,
-					"color" : "W",
-					"row" : 7,
-					"type" : "R"
 				},
 				null,
 				{
 					"col" : 7,
 					"color" : "W",
 					"row" : 7,
-					"type" : "B"
+					"type" : "R"
 				}
 			]
 		],
@@ -793,7 +253,547 @@
 			{
 				"initialDuration" : 5,
 				"isRunning" : true,
-				"remainingTime" : 276
+				"remainingTime" : 294
+			}
+		},
+		"player2" : 
+		{
+			"color" : "B",
+			"isAI" : false,
+			"timer" : 
+			{
+				"initialDuration" : 5,
+				"isRunning" : false,
+				"remainingTime" : 296
+			}
+		},
+		"timeOfSaving" : "2023-09-11 14:18:33"
+	},
+	{
+		"chessBoard" : 
+		[
+			[
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				},
+				null,
+				null,
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 0,
+					"type" : "Q"
+				},
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 0,
+					"type" : "K"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				},
+				null,
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				}
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				null,
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				}
+			],
+			[
+				null,
+				null,
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 1,
+					"type" : "N"
+				},
+				null,
+				null,
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 6,
+					"type" : "N"
+				},
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				null,
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 3,
+					"type" : "P"
+				},
+				null,
+				null,
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 5,
+					"type" : "B"
+				},
+				null,
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 4,
+					"type" : "P"
+				},
+				null,
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 1,
+					"type" : "N"
+				},
+				null,
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 6,
+					"type" : "N"
+				},
+				null,
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 2,
+					"type" : "B"
+				}
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				null,
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				}
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				},
+				null,
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 7,
+					"type" : "Q"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 7,
+					"type" : "K"
+				},
+				null,
+				null,
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				}
+			]
+		],
+		"currentPlayerColor" : "W",
+		"gameOver" : false,
+		"player1" : 
+		{
+			"color" : "W",
+			"isAI" : false,
+			"timer" : 
+			{
+				"initialDuration" : 5,
+				"isRunning" : true,
+				"remainingTime" : 268
+			}
+		},
+		"player2" : 
+		{
+			"color" : "B",
+			"isAI" : false,
+			"timer" : 
+			{
+				"initialDuration" : 5,
+				"isRunning" : false,
+				"remainingTime" : 294
+			}
+		},
+		"timeOfSaving" : "2023-09-11 14:18:12"
+	},
+	{
+		"chessBoard" : 
+		[
+			[
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				},
+				null,
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 0,
+					"type" : "Q"
+				},
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 0,
+					"type" : "K"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 0,
+					"type" : "B"
+				},
+				null,
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 0,
+					"type" : "R"
+				}
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 2,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				},
+				null,
+				{
+					"col" : 7,
+					"color" : "B",
+					"row" : 1,
+					"type" : "P"
+				}
+			],
+			[
+				null,
+				null,
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 1,
+					"type" : "N"
+				},
+				null,
+				null,
+				{
+					"col" : 0,
+					"color" : "B",
+					"row" : 6,
+					"type" : "N"
+				},
+				null,
+				null
+			],
+			[
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				{
+					"col" : 1,
+					"color" : "B",
+					"row" : 6,
+					"type" : "P"
+				},
+				null
+			],
+			[
+				null,
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 1,
+					"type" : "P"
+				},
+				null,
+				null,
+				null,
+				null,
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 7,
+					"type" : "P"
+				}
+			],
+			[
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 1,
+					"type" : "N"
+				},
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				null
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				null,
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 6,
+					"type" : "P"
+				},
+				null,
+				null
+			],
+			[
+				{
+					"col" : 0,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				},
+				null,
+				{
+					"col" : 2,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				{
+					"col" : 3,
+					"color" : "W",
+					"row" : 7,
+					"type" : "Q"
+				},
+				{
+					"col" : 4,
+					"color" : "W",
+					"row" : 7,
+					"type" : "K"
+				},
+				{
+					"col" : 5,
+					"color" : "W",
+					"row" : 7,
+					"type" : "B"
+				},
+				{
+					"col" : 6,
+					"color" : "W",
+					"row" : 7,
+					"type" : "N"
+				},
+				{
+					"col" : 7,
+					"color" : "W",
+					"row" : 7,
+					"type" : "R"
+				}
+			]
+		],
+		"currentPlayerColor" : "B",
+		"gameOver" : false,
+		"player1" : 
+		{
+			"color" : "W",
+			"isAI" : false,
+			"timer" : 
+			{
+				"initialDuration" : 5,
+				"isRunning" : false,
+				"remainingTime" : 294
 			}
 		},
 		"player2" : 
@@ -804,9 +804,9 @@
 			{
 				"initialDuration" : 5,
 				"isRunning" : true,
-				"remainingTime" : 292
+				"remainingTime" : 242
 			}
 		},
-		"timeOfSaving" : "2023-08-30 21:59:18"
+		"timeOfSaving" : "2023-09-11 14:17:41"
 	}
 ]
