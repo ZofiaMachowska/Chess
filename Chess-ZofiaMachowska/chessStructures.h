@@ -15,7 +15,7 @@ struct GameSaveLoad {
     ChessPiece* board[8][8];               ///< The configuration of the board.
     Player player1;               ///< Pointer to the first player's details.
     Player player2;             ///< Pointer to the second player's details.
-    std::string currentPlayerColor;
+    std::string currentPlayerColor; ///< The current Player color
     bool gameOver;                ///< Indicates whether the game has ended.
     std::string timeOfSaving;     ///< The timestamp indicating when the game was saved.
 };

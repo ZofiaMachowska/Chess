@@ -140,7 +140,23 @@ private:
      */
     sf::Sprite getFigureSprite(ChessPiece* selectedPiece);
 
+    /**
+    * @brief Fetches the sprite for a black chess piece.
+    *
+    * This function returns a sprite representing a black chess piece.
+    *
+    * @param selectedPiece Pointer to the chess piece being moved.
+    * @return Returns a sprite representing a black chess piece.
+    */
     sf::Sprite getBlackFigure(ChessPiece* selectedPiece);
 
+    /**
+     * @brief Fetches the sprite for a white chess piece.
+     *
+     * This function returns a sprite representing a white chess piece.
+     *
+     * @param selectedPiece Pointer to the chess piece being moved.
+     * @return Returns a sprite representing a white chess piece.
+     */
     sf::Sprite getWhiteFigure(ChessPiece* selectedPiece);
 };

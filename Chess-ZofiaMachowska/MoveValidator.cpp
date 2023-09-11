@@ -97,7 +97,7 @@ bool MoveValidator::isPathClearDiagonal(ChessPiece* board[][8], Move move) {
 }
 
 
-bool MoveValidator::isPathClearFront(ChessPiece* board[][8], Move move) {
+bool MoveValidator::isPathClearPawn(ChessPiece* board[][8], Move move) {
     if (move.fromRow == move.toRow) {
         if (board[move.toCol][move.toRow] != nullptr) {
             return false;
@@ -123,7 +123,7 @@ bool MoveValidator::checkPathClear(ChessPiece* board[][8], Move move, std::strin
         pathClear = isPathClearLinear(board, move) && isPathClearDiagonal(board, move);
     }
     else if (pieceType == "P") {
-        pathClear = isPathClearFront(board, move);
+        pathClear = isPathClearPawn(board, move);
     }
     return pathClear;
 }
